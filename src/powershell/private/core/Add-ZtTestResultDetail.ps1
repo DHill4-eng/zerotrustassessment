@@ -184,6 +184,7 @@ function Add-ZtTestResultDetail {
 		TestSfiPillar          = $testMeta.SfiPillar
 		TestPillar             = $testMeta.Pillar
 		TestMinimumLicense     = $testMeta.MinimumLicense
+		TestFramework          = @($testMeta.Framework)
 		TestDescription        = $Description
 		TestResult             = $Result
 		TestSkipped            = $SkippedBecause

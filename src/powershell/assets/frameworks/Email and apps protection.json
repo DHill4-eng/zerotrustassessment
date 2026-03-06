@@ -1,0 +1,406 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 12,
+  "category": 7,
+  "provider": 0,
+  "version": 0,
+  "displayName": "Email and apps protection",
+  "description": "Tasks within this category standardize the configuration of Email standards and productivity applications to assist in not only security of the applications themselves, but also best practice recommendations to ensure customers are protected from malicious content within these apps",
+  "informationLinks": [],
+  "id": "52ab8084-37db-4a6c-a5af-13aca1d63ec2",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Disable anonymous access for Teams meetings",
+      "description": "Disabling anonymous access for Teams meetings reduces the potential attack surface and blocks unauthorized users from gaining access to Teams meetings.",
+      "portalLink": {
+        "url": "https://admin.teams.microsoft.com/?delegatedOrg={tenantName}",
+        "displayName": "Teams Admin Center"
+      },
+      "userImpact": "Users who have not authenticated through a Teams work or school account will be unable to join Teams meetings.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2261968",
+          "displayName": "External participants (users) are blocked from joining a Teams meeting - Microsoft Teams | Microsoft Learn"
+        }
+      ],
+      "id": "1e442392-bf5d-484b-a51b-e6598d1b3e23",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "EmailAndAppsProtection_DisableAnonymousAccessForTeams",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "321f9e5f-1b4c-4eeb-bdfd-3aee76353ce6",
+          "settings": [],
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 1024
+            }
+          ],
+          "dependentVersions": [],
+          "contentMarkdown": "Implementation\r\n---\r\n1. Sign in to the [Teams admin center](https://admin.teams.microsoft.com/?delegatedOrg={tenantName}).\r\n2. From the left navigation menu select **Meetings** and\r\n3. then select **Meeting Settings**.\r\n4. Under **Participants**, toggle **Anonymous users can join a meeting** to **Off**.\r\n5. Click **Save**.",
+          "id": "91be4cd5-566f-4419-b891-6efb803ece63"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Disable third-party storage for Microsoft Teams",
+      "description": "Disabling third-party storage for Microsoft Teams helps prevent data leakage by keeping all file storage and sharing in the Microsoft 365 infrastructure.",
+      "portalLink": {
+        "url": "https://admin.teams.microsoft.com/dashboard",
+        "displayName": "Teams Admin Center"
+      },
+      "userImpact": "Users will be unable to add third-party storage, like Dropbox, Google Drive, Box, and others as a storage location within the Teams application.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262304",
+          "displayName": "Overview of security and compliance"
+        }
+      ],
+      "id": "f5992a0e-61bc-46a0-9a75-e7076c811d62",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "EmailAndAppsProtection_DisableThirdPartyStorageForTeams",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "a110efcb-8e86-4dba-b6d4-ee244464acdb",
+          "settings": [],
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 1024
+            }
+          ],
+          "dependentVersions": [],
+          "contentMarkdown": "Implementation\r\n---\r\n\r\n1.  Sign in to the [**Teams Admin Center**](https://admin.teams.microsoft.com/).\r\n2.  From the left navigation menu select **Teams** and then select **Teams settings**.\r\n3.  Under **Files**, toggle off the selections for  **Citrix files, Dropbox, Box, Google Drive, and Egnyte**.\r\n4.  Select **Save**.",
+          "id": "196add64-1382-426f-92ad-f4be24b33f60"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Enable external chat and guest access for Microsoft Teams",
+      "description": "Configuring proper settings for external chat and Guest access for Teams helps ensure your customers? users have the necessary settings to collaborate across external domains, but also ensures this access is secure.",
+      "portalLink": {
+        "url": "https://admin.teams.microsoft.com/?delegatedOrg={tenantName}",
+        "displayName": "Teams Admin Center"
+      },
+      "userImpact": "No user impact",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262305",
+          "displayName": "Turn guest access in Microsoft Teams on or off"
+        }
+      ],
+      "id": "2b4a9c76-6865-4bc1-a883-064d15bb9d09",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "EmailAndAppsProtection_EnableExternalChatAndGuestAccessForTeams",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "321f9e5f-1b4c-4eeb-bdfd-3aee76353ce7",
+          "settings": [],
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 1024
+            }
+          ],
+          "dependentVersions": [],
+          "contentMarkdown": "Implementation\r\n---\r\n1. Sign in to the [Microsoft Teams admin center](https://admin.teams.microsoft.com/?delegatedOrg={tenantName}).\r\n2. Select **Users** and then select **Guest access**.\r\n3. Set Guest access to **On**.\r\n4. Under Calling, Meeting, and Messaging, select **On** or **Off** for each capability, as detailed in the below list:\r\n- Make private calls ? On\r\n- Video conferencing - On\r\n- Screen Sharing- Entire Screen\r\n- Meet now in channels ? On\r\n- Edit sent messages -On\r\n- Delete sent messages ? On\r\n- Delete chat - On\r\n- Chat ? On\r\n- Giphy in conversations ? On\r\n- Giphy content rating ? Moderate\r\n- Memes in conversations - On\r\n- Stickers in conversations ? On\r\n- Immersive reader for messages - On",
+          "id": "8c2474ea-1be8-4888-ac1a-d3b327c869e3"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Turn on safe attachments for SharePoint, OneDrive, and Microsoft Teams",
+      "description": "Configure Microsoft Defender for Office (MDO) to enable scanning of files and attachments for SharePoint, OneDrive and Teams to prevent malicious content from being accessed from your productivity suite.",
+      "portalLink": {
+        "url": "https://security.microsoft.com/?tid={tenantName}",
+        "displayName": "Microsoft Defender Portal"
+      },
+      "userImpact": "Malicious files that are quarantined will be visible, but blocked from download in SharePoint, OneDrive, and Teams. This provides an extra layer of security and prevents accidental opening of potentially unsafe content.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262303",
+          "displayName": "Turn on safe attachments for SharePoint, OneDrive, and Microsoft Teams"
+        }
+      ],
+      "id": "9fbc0522-c574-4c12-a084-287be77554e9",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "EmailAndAppsProtection_TurnOnSafeAttachmentsForTeamsSharepointOneDrive",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "a95983c5-5791-471c-a6f1-df8942f35a8e",
+          "settings": [
+            {
+              "name": "ATPForSPOTeamsODBEnabled",
+              "value": "[\"true\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "State_Enabled",
+                  "displayName": "Enable policy"
+                },
+                {
+                  "name": "State_Disabled",
+                  "displayName": "Disable policy"
+                }
+              ],
+              "displayName": "Turn on safe attachments for SharePoint, OneDrive, and Microsoft Teams Enabled"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([{ExoAdminEndpoint:true,SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true,SuccessOnErrorMessage:\"ManagementObjectNotFoundException\"} POST /InvokeCommand?$select=EnableATPForSPOTeamsODB \\ {\"CmdletInput\":{\"CmdletName\":\"Set-AtpPolicyForO365\",\"Parameters\":{\"EnableATPForSPOTeamsODB\":\"[@sys.first([@ATPForSPOTeamsODBEnabled()])]\"}}}],\"Response\")"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "ATPForSPOTeamsODBEnabled",
+                  "value": "select '[\"true\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "tenantIds",
+                  "value": "select '[\"a380a655-8cdd-4484-9eaf-7c9f320a122a\"]'"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@isPolicyEnabled([{ExoAdminEndpoint:true,SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true,SuccessOnErrorMessage:\"ManagementObjectNotFoundException\"} POST /InvokeCommand?$select=EnableATPForSPOTeamsODB \\ {\"CmdletInput\":{\"CmdletName\":\"Get-AtpPolicyForO365\",\"Parameters\":{}}}])],\"isATPForSPOTeamsODBEnabled\")",
+                "@sys.VALIDATESIMPLEVALUES(ATPForSPOTeamsODBEnabled,[@sys.TOLIST([@getSettingValue([@ATPForSPOTeamsODBEnabled()])])],[@sys.TOLIST([@sys.read(\"isATPForSPOTeamsODBEnabled\")])])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "isPolicyEnabled",
+                  "value": "select case when\r\n                    status IS NULL\r\n                    then 'Disabled'\r\n                    else status\r\n                    end\r\n                    from (select json_extract(data,'$.value[0].EnableATPForSPOTeamsODB') as status from arg0)"
+                },
+                {
+                  "type": 0,
+                  "id": "getSettingValue",
+                  "value": "select case when data == 'true' then 1 else 0 end from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": false
+          },
+          "processedDeploymentAction": "@sys.write([{ExoAdminEndpoint:true,SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true,SuccessOnErrorMessage:\"ManagementObjectNotFoundException\"} POST /InvokeCommand?$select=EnableATPForSPOTeamsODB \\ {\"CmdletInput\":{\"CmdletName\":\"Set-AtpPolicyForO365\",\"Parameters\":{\"EnableATPForSPOTeamsODB\":\"[@sys.first([\"true\"])]\"}}}],\"Response\") EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 16
+            }
+          ],
+          "dependentVersions": [],
+          "id": "7b781f32-6543-4623-9e30-8ecf0bd7248a"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Configure SPF Records, DMARC and DKIM",
+      "description": "Email authentication, also known as email validation, is a group of standards that tries to stop email messages from forged senders (also known as spoofing). SPF, DMAC and DomainKeys Identified Mail (DKIM) provide strong authentication policies which help protect your customers? domains from spoofing.",
+      "portalLink": {
+        "url": "https://admin.microsoft.com/AdminPortal#/Domains/?tid={tenantName}",
+        "displayName": "Microsoft Admin Center (for DNS managed by M365)"
+      },
+      "userImpact": "No user impact",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262048",
+          "displayName": "Set up SPF to help prevent spoofing"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262306",
+          "displayName": "Use DKIM to validate outbound email sent from your custom domain"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262047",
+          "displayName": "Use DMARC to validate email"
+        }
+      ],
+      "id": "cae7ddea-242d-4f92-8366-bcba2746bda8",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "EmailAndAppsProtection_ConfigureSPF",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "f8782140-193e-4b1c-a08f-c89fd63bc534",
+          "settings": [],
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 0
+            }
+          ],
+          "dependentVersions": [],
+          "contentMarkdown": "Implementation\r\n---\r\n 1. **Form your SPF record using data from the below table:**\r\n\r\n    | Element | If you're using... |Common for customers? | Add this... |\r\n    |---------|--------------------| ----------------------------- |------------|\r\n    |1| Any email system (required) | Common. All SPF TXT records start with this value |v=spf1 |\r\n    |2| Exchange Online |Common | include:spf.protection.outlook.com|\r\n    |3| On-premises email system. For example, Exchange Online Protection plus another email system  | Not common|Use one of these for each additional mail system: ip4:\\<IP_address> <br> ip6:\\<IP_address> <br> include:\\<domain_name><br> where \\<IP_address> and \\<domain_name> are the IP address and domain of the other email system that sends mail on behalf of your domain.  |\r\n    |4| Any email system (required)  | Common. All SPF TXT records end with this value  | \\<enforcement rule> <br> This can be one of several values. We recommend the value -all.  |\r\n\r\n\t-   If you are hosted entirely in Microsoft 365, that is, you have no on-premises mail servers, your SPF TXT \r\n            record would include rows 1, 2, and 4 and would look like this: \r\n            v=spf1include:spf.protection.outlook.com -all \r\n\t-   Once you have formed your SPF TXT record, you need to update the record in DNS. You can only have one SPF \r\n            TXT record for a domain. If an SPF TXT record exists, instead of adding a new record, you need to update \r\n            the existing record \r\n2.  **Configure your DKIM and DMARC Records- this should be done immediately after SPF record creation**\r\n\t-   Login to Microsoft Defender and navigate to [Policies & rules](https://security.microsoft.com/securitypoliciesandrules?tid={tenantName})>[Threat  policies](https://security.microsoft.com/threatpolicy?tid={tenantName}) > [Email authentication settings](https://security.microsoft.com/authentication?viewid=DKIM?tid={tenantName}) and select the DKIM tab\r\n    \r\n\t-   Select the domain you wish to configure.\r\n    \r\n\t-   Slide the toggle to **Enable**. You will see a pop-up window stating that you need to add CNAME records.\r\n    \r\n\t-   Copy the CNAMES shown in the pop up window\r\n    \r\n\t-   Publish the copied CNAME records to your DNS service provider.\r\n    \r\n\t-   On your DNS provider's website, add CNAME records for DKIM that you want to enable. Make sure that the fields are set to the following values for each:\r\n    \r\n\t-   Record Type: CNAME (Alias)  \r\n\t    > Host: Paste the values you copy from DKIM page.  \r\n\t\t    Points to address: Copy the value from DKIM page.  \r\n\t\t    TTL: 3600 (or your provider default)\r\n    \r\n\t-   Return to DKIM page and enable DKIM by toggling the status from disabled to enabled\r\n    \r\n\r\n3.  **Configure DMARC record for outbound mail**\r\n\t-   Create a text record following the below format and create it in your domain registrar: _dmarc.domain  TTL IN  TXT \"v=DMARC1; p=policy; pct=100\" \r\n\t- Where:\r\n\r\n\t\t-   domain is the domain you want to protect. By default, the record protects mail from the domain and all subdomains. For example, if you specify _dmarc.contoso.com, then DMARC protects mail from the domain and all subdomains, such as housewares.contoso.com or plumbing.contoso.com.\r\n    \r\n\t\t-   TTL should always be the equivalent of one hour. The unit used for TTL, either hours (1 hour), minutes (60 minutes), or seconds (3600 seconds), will vary depending on the registrar for your domain.\r\n    \r\n\t\t-   pct=100 indicates that this rule should be used for 100% of email.\r\n    \r\n\t\t-   policy specifies what policy you want the receiving server to follow if DMARC fails. You can set the policy to none, quarantine, or reject.",
+          "id": "55e27890-47b7-40c6-9934-018526d25a67"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Enable Unified Audit Logs",
+      "description": "Unified Audit logs allow you to effectively respond to security events, forensic investigations, internal investigations and compliance obligations.",
+      "portalLink": {
+        "url": "https://compliance.microsoft.com/auditlogsearch/?tid={tenantName}",
+        "displayName": "Purview"
+      },
+      "userImpact": "No user impact",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262065",
+          "displayName": "Turn auditing on or off | Microsoft Learn"
+        }
+      ],
+      "id": "60a52c0c-4575-4cbd-8652-aecad592af45",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "EmailAndAppsProtection_EnableUnifiedAuditLogs",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "unifiedAuditLogsEnabled",
+              "value": "[\"true\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "State_Enabled",
+                  "displayName": "Enable policy"
+                },
+                {
+                  "name": "State_Disabled",
+                  "displayName": "Disable policy"
+                }
+              ],
+              "displayName": "Unified Audit Logs Enabled"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.DEPLOYEXCHANGECOMMAND([POST /echo \\ {\"CmdletInput\":{\"CmdletName\":\"Set-AdminAuditLogConfig\",\"Parameters\":{\"UnifiedAuditLogIngestionEnabled\":\"[@sys.first([@unifiedAuditLogsEnabled()])]\"}}}])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@isPolicyEnabled([{ExoAdminEndpoint:true,SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true,SuccessOnErrorMessage:\"ManagementObjectNotFoundException\"} POST /InvokeCommand?$select=UnifiedAuditLogIngestionEnabled \\ {\"CmdletInput\":{\"CmdletName\":\"Get-AdminAuditLogConfig\",\"Parameters\":{}}}])],\"isUnifiedAuditLogsEnabled\")",
+                "@sys.VALIDATESIMPLEVALUES(UnifiedAuditLogs,[@sys.TOLIST([@getSettingValue([@unifiedAuditLogsEnabled()])])],[@sys.TOLIST([@sys.read(\"isUnifiedAuditLogsEnabled\")])])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "isPolicyEnabled",
+                  "value": "select case when\r\n                    status IS NULL\r\n                    then 'Disabled'\r\n                    else status\r\n                    end\r\n                    from (select json_extract(data,'$.value[0].UnifiedAuditLogIngestionEnabled') as status from arg0)"
+                },
+                {
+                  "type": 0,
+                  "id": "getSettingValue",
+                  "value": "select case when data == 'true' then 1 else 0 end from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": false
+          },
+          "processedDeploymentAction": "@sys.DEPLOYEXCHANGECOMMAND([POST /echo \\ {\"CmdletInput\":{\"CmdletName\":\"Set-AdminAuditLogConfig\",\"Parameters\":{\"UnifiedAuditLogIngestionEnabled\":\"[@sys.first([\"true\"])]\"}}}]) EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 512
+            }
+          ],
+          "dependentVersions": [],
+          "id": "3bace96a-b31b-435e-8452-4bdce1994873"
+        }
+      ]
+    }
+  ]
+}

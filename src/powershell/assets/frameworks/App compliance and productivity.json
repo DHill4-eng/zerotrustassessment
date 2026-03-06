@@ -1,0 +1,209 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 36,
+  "category": 13,
+  "provider": 0,
+  "parameters": [],
+  "workloadActions": [],
+  "version": 0,
+  "displayName": "App compliance and productivity",
+  "description": "These tasks are designed to help your organization?s compliance and productivity by improving data security, streamlining communication,  making sure there is proper data management, and safeguarding sensitive information.",
+  "informationLinks": [],
+  "id": "1e5f4262-53d5-40a4-9da2-a44f4825446c",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 1,
+      "category": 13,
+      "isCloned": true,
+      "displayName": "Configure transcription, captions, and recordings for Teams meetings",
+      "description": "By enabling transcriptions, captions and recordings, users can play back meeting recordings with closed captions and review important discussion items within the transcript.",
+      "portalLink": {
+        "url": "https://admin.teams.microsoft.com/dashboard/?delegatedOrg={tenantName}",
+        "displayName": "Teams admin center"
+      },
+      "userImpact": "Transcription and captions in Teams meetings make it easy to review and search meeting content. It allows everyone, regardless of ability, to access and participate in meetings, webinars, and town halls inclusively. ",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265812",
+          "displayName": "Enable Transcription in Teams meetings"
+        }
+      ],
+      "id": "21bff1f8-94c5-4e31-bf56-06d8c391ab1d",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "EmailAndAppsProtection_ConfigureTeamsMeeting",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "34940032-a50d-4d61-a30f-0b86a4dca900",
+          "settings": [
+            {
+              "name": "MeetingRecording",
+              "value": "[\"True\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "On",
+                  "displayName": "On"
+                },
+                {
+                  "name": "Off",
+                  "displayName": "Off"
+                }
+              ],
+              "displayName": "Meeting recording"
+            },
+            {
+              "name": "RequireParticipantAgreement",
+              "value": "[\"Disabled\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "On",
+                  "displayName": "On"
+                },
+                {
+                  "name": "Off",
+                  "displayName": "Off"
+                }
+              ],
+              "displayName": "Require participant agreement for recording and transcription"
+            },
+            {
+              "name": "DefaultExpireTime",
+              "value": "120",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "displayName": "Recordings default expiration time "
+            },
+            {
+              "name": "StoreRecordingsOutside",
+              "value": "[\"False\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "On",
+                  "displayName": "On"
+                },
+                {
+                  "name": "Off",
+                  "displayName": "Off"
+                }
+              ],
+              "displayName": "Store recordings outside of your country or region"
+            },
+            {
+              "name": "Transcriptions",
+              "value": "[\"True\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "On",
+                  "displayName": "On"
+                },
+                {
+                  "name": "Off",
+                  "displayName": "Off"
+                }
+              ],
+              "displayName": "Transcription"
+            },
+            {
+              "name": "LiveCaptions",
+              "value": "[\"DisabledUserOverride\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "Off",
+                  "displayName": "Off"
+                },
+                {
+                  "name": "OffButCanTurnOn",
+                  "displayName": "Off, but organizers or co-organizers can turn them on"
+                }
+              ],
+              "displayName": "Live Captions"
+            },
+            {
+              "name": "Copilot",
+              "value": "[\"EnabledWithTranscript\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "On",
+                  "displayName": "On"
+                },
+                {
+                  "name": "EnabledWithTranscript",
+                  "displayName": "On only with retained transcript"
+                }
+              ],
+              "displayName": "Copilot"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@SYS.DEPLOYTEAMSCOPILOTTASK([POST /echo \\ {\r\n                \"AllowCloudRecording\": \"[@SYS.FIRST([@MeetingRecording()])]\",\r\n                \"ExplicitRecordingConsent\": \"[@SYS.FIRST([@RequireParticipantAgreement()])]\",  \r\n                \"NewMeetingRecordingExpirationDays\": \"[@DefaultExpireTime()]\",\r\n                \"AllowRecordingStorageOutsideRegion\": \"[@SYS.FIRST([@StoreRecordingsOutside()])]\",\r\n                \"AllowTranscription\": \"[@SYS.FIRST([@Transcriptions()])]\",\r\n                \"LiveCaptionsEnabledType\": \"[@SYS.FIRST([@LiveCaptions()])]\",\r\n                \"Copilot\": \"[@SYS.FIRST([@Copilot()])]\"\r\n               }])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "{IncludeResponseBodyInException:true,SuccessOnErrorMessage:\"Request_MultipleObjectsWithSameKeyValue\"} POST /v1.0/servicePrincipals \\ {\"appId\":\"48ac35b8-9aa8-4d74-927d-1f4a14a0b239\"}",
+                "@sys.VALIDATETEAMSCOPILOTTASK([@SYS.TOLIST([@SYS.FIRST([@MeetingRecording()])],[@DefaultExpireTime()],[@SYS.FIRST([@RequireParticipantAgreement()])],[@SYS.FIRST([@StoreRecordingsOutside()])],[@SYS.FIRST([@Transcriptions()])],[@SYS.FIRST([@LiveCaptions()])],[@SYS.FIRST([@Copilot()])])])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": false
+          },
+          "processedDeploymentAction": "@SYS.DEPLOYTEAMSCOPILOTTASK([POST /echo \\ {\r\n                \"AllowCloudRecording\": \"[@SYS.FIRST([\"True\"])]\",\r\n                \"ExplicitRecordingConsent\": \"[@SYS.FIRST([\"Disabled\"])]\",  \r\n                \"NewMeetingRecordingExpirationDays\": \"120\",\r\n                \"AllowRecordingStorageOutsideRegion\": \"[@SYS.FIRST([\"False\"])]\",\r\n                \"AllowTranscription\": \"[@SYS.FIRST([\"True\"])]\",\r\n                \"LiveCaptionsEnabledType\": \"[@SYS.FIRST([\"DisabledUserOverride\"])]\",\r\n                \"Copilot\": \"[@SYS.FIRST([\"EnabledWithTranscript\"])]\"\r\n               }]) EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 1,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 1024
+            }
+          ],
+          "dependentVersions": [],
+          "id": "eba76a82-4a48-48c1-920b-ba2402320017"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1271 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 6,
+  "category": 5,
+  "provider": 0,
+  "version": 0,
+  "displayName": "Configure app protection policies",
+  "description": "Mobile Application Management (MAM) app protection policies help prevent both intentional and unintentional data leaks while making sure users stay productive. App protection policies are enforced in each managed application and apply even when an application is accessed on a device not managed by Microsoft Intune.",
+  "userImpact": "Company data will be protected across selected applications. Policies do not apply when a user is using an application in a personal context.",
+  "informationLinks": [
+    {
+      "url": "https://go.microsoft.com/fwlink/?linkid=2211630",
+      "displayName": "App protection policies overview"
+    }
+  ],
+  "id": "797a35ed-90ec-427b-bdc8-af0f4eecfd20",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Configure application management for iOS",
+      "description": "Enable app protection policy for iOS devices to protect tenant data within core applications. Mobile Application Management (MAM) app protection policies help prevent both intentional and unintentional data leaks while making sure users stay productive. App protection policies are enforced in each managed application and apply even when an application is accessed on a device not managed by Microsoft Intune.",
+      "portalLink": {
+        "url": "https://endpoint.microsoft.com/{tenantName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/~/appProtection",
+        "displayName": "Microsoft Intune"
+      },
+      "informationLinks": [],
+      "id": "d5d50d63-95d2-42b4-b935-e5974e25d3ab",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "Application management for iOS",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "displayName",
+              "value": "Application management for iOS",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isIdentifier": true,
+              "settingType": "String",
+              "displayName": "Display name"
+            },
+            {
+              "name": "description",
+              "value": "Enable app protection policy for iOS devices to protect your tenants' data within core applications. Mobile Application Management (MAM) app protection policies help prevent both intentional and unintentional data loss while making sure your tenants' users stay productive. App protection policies also protect your tenants' company data accessed by devices that aren't managed directly by your organization. ",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "Description"
+            },
+            {
+              "name": "periodOnlineBeforeAccessCheck",
+              "value": "PT30M",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "PT30M",
+                  "displayName": "30 minutes"
+                }
+              ],
+              "displayName": "Recheck the access requirements after (minutes of inactivity)"
+            },
+            {
+              "name": "allowedInboundDataTransferSources",
+              "value": "allApps",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "allApps",
+                  "displayName": "All apps"
+                }
+              ],
+              "displayName": "Receive data from other apps"
+            },
+            {
+              "name": "allowedOutboundDataTransferDestinations",
+              "value": "allApps",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "allApps",
+                  "displayName": "All apps"
+                }
+              ],
+              "displayName": "Send org data to other apps"
+            },
+            {
+              "name": "organizationalCredentialsRequired",
+              "value": "False",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "Work or school account credentials for access"
+            },
+            {
+              "name": "allowedOutboundClipboardSharingLevel",
+              "value": "allApps",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "allApps",
+                  "displayName": "All apps"
+                }
+              ],
+              "displayName": "Restrict cut, copy, and paste between apps"
+            },
+            {
+              "name": "dataBackupBlocked",
+              "value": "False",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "False",
+                  "displayName": "Allow"
+                }
+              ],
+              "displayName": "Back up org data"
+            },
+            {
+              "name": "periodOfflineBeforeWipeIsEnforced",
+              "value": "P90D",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "P90D",
+                  "displayName": "90 days"
+                }
+              ],
+              "displayName": "Offline grace period"
+            },
+            {
+              "name": "pinRequired",
+              "value": "True",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "PIN for access"
+            },
+            {
+              "name": "maximumPinRetries",
+              "value": "5",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Integer",
+              "displayName": "Max PIN attempts"
+            },
+            {
+              "name": "simplePinBlocked",
+              "value": "False",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "Simple PIN"
+            },
+            {
+              "name": "minimumPinLength",
+              "value": "4",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Integer",
+              "displayName": "Select Minimum PIN length"
+            },
+            {
+              "name": "pinCharacterSet",
+              "value": "numeric",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "numeric",
+                  "displayName": "Numeric"
+                }
+              ],
+              "displayName": "PIN type"
+            },
+            {
+              "name": "periodBeforePinReset",
+              "value": "PT0S",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "PT0S",
+                  "displayName": "0 days"
+                }
+              ],
+              "displayName": "PIN reset after number of days"
+            },
+            {
+              "name": "printBlocked",
+              "value": "False",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "False",
+                  "displayName": "Allow"
+                }
+              ],
+              "displayName": "Printing org data"
+            },
+            {
+              "name": "disableAppPinIfDevicePinIsSet",
+              "value": "False",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "False",
+                  "displayName": "Require"
+                }
+              ],
+              "displayName": "App PIN when device PIN is set"
+            },
+            {
+              "name": "appActionIfDeviceComplianceRequired",
+              "value": "block",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "block",
+                  "displayName": "Block access"
+                }
+              ],
+              "displayName": "Jailbroken/rooted devices"
+            },
+            {
+              "name": "pinRequiredInsteadOfBiometricTimeout",
+              "value": "PT12H",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "PT12H",
+                  "displayName": "Require"
+                }
+              ],
+              "displayName": "Override biometrics with PIN after timeout"
+            },
+            {
+              "name": "previousPinBlockCount",
+              "value": "0",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Integer",
+              "displayName": "Select number of previous PIN values to maintain"
+            },
+            {
+              "name": "mobileThreatDefenseRemediationAction",
+              "value": "block",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "block",
+                  "displayName": "Block access"
+                }
+              ],
+              "displayName": "Require threat scan on apps"
+            },
+            {
+              "name": "thirdPartyKeyboardsBlocked",
+              "value": "False",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "False",
+                  "displayName": "Allow"
+                }
+              ],
+              "displayName": "Third party keyboards"
+            },
+            {
+              "name": "includeGroups",
+              "isRequired": true,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "Groups_AllGroups",
+                  "displayName": "All groups"
+                }
+              ],
+              "displayName": "Include groups"
+            },
+            {
+              "name": "excludeGroups",
+              "isRequired": true,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Exclude groups"
+            },
+            {
+              "name": "targetAppsiOS",
+              "value": "[\"CoreMicrosoftApps\"]",
+              "isRequired": true,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "AppProtection_CoreMicrosoftApps",
+                  "displayName": "Core Microsoft Apps"
+                },
+                {
+                  "name": "AppProtection_AllMicrosoftApps",
+                  "displayName": "All Microsoft Apps"
+                },
+                {
+                  "name": "AppProtection_AllApps",
+                  "displayName": "All Apps"
+                }
+              ],
+              "displayName": "Target Apps"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceAppManagement/iosManagedAppProtections?$filter=displayName eq '[@displayName()]'],\"id\")],\"deviceAppManagementId\")",
+                "{IncludeResponseBodyInException:true} PATCH /beta/deviceAppManagement/iosManagedAppProtections/[@sys.read(\"deviceAppManagementId\")] \\ {\"displayName\":\"[@displayName()]\",\"description\":\"[@description()]\",\"roleScopeTagIds\":[[\"0\"]],\"periodOfflineBeforeAccessCheck\":\"PT12H\",\"periodOnlineBeforeAccessCheck\":\"[@periodOnlineBeforeAccessCheck()]\",\"allowedInboundDataTransferSources\":\"[@allowedInboundDataTransferSources()]\",\"allowedOutboundDataTransferDestinations\":\"[@allowedOutboundDataTransferDestinations()]\",\"organizationalCredentialsRequired\":\"[@organizationalCredentialsRequired()]\",\"allowedOutboundClipboardSharingLevel\":\"[@allowedOutboundClipboardSharingLevel()]\",\"dataBackupBlocked\":\"[@dataBackupBlocked()]\",\"deviceComplianceRequired\":\"True\",\"managedBrowserToOpenLinksRequired\":\"False\",\"saveAsBlocked\":\"False\",\"periodOfflineBeforeWipeIsEnforced\":\"[@periodOfflineBeforeWipeIsEnforced()]\",\"pinRequired\":\"[@pinRequired()]\",\"maximumPinRetries\":\"[@maximumPinRetries()]\",\"simplePinBlocked\":\"[@simplePinBlocked()]\",\"minimumPinLength\":\"[@minimumPinLength()]\",\"pinCharacterSet\":\"[@pinCharacterSet()]\",\"periodBeforePinReset\":\"[@periodBeforePinReset()]\",\"allowedDataStorageLocations\":[[]],\"contactSyncBlocked\":\"False\",\"printBlocked\":\"[@printBlocked()]\",\"fingerprintBlocked\":\"False\",\"disableAppPinIfDevicePinIsSet\":\"[@disableAppPinIfDevicePinIsSet()]\",\"appActionIfDeviceComplianceRequired\":\"[@appActionIfDeviceComplianceRequired()]\",\"appActionIfMaximumPinRetriesExceeded\":\"block\",\"pinRequiredInsteadOfBiometricTimeout\":\"[@pinRequiredInsteadOfBiometricTimeout()]\",\"allowedOutboundClipboardSharingExceptionLength\":\"0\",\"notificationRestriction\":\"allow\",\"previousPinBlockCount\":\"[@previousPinBlockCount()]\",\"managedBrowser\":\"notConfigured\",\"maximumAllowedDeviceThreatLevel\":\"notConfigured\",\"mobileThreatDefenseRemediationAction\":\"[@mobileThreatDefenseRemediationAction()]\",\"blockDataIngestionIntoOrganizationDocuments\":\"False\",\"allowedDataIngestionLocations\":[[\"oneDriveForBusiness\",\"sharePoint\",\"camera\",\"photoLibrary\"]],\"dialerRestrictionLevel\":\"allApps\",\"targetedAppManagementLevels\":\"unspecified\",\"appDataEncryptionType\":\"whenDeviceLocked\",\"faceIdBlocked\":\"False\",\"appActionIfIosDeviceModelNotAllowed\":\"block\",\"thirdPartyKeyboardsBlocked\":\"[@thirdPartyKeyboardsBlocked()]\",\"filterOpenInToOnlyManagedApps\":\"False\",\"disableProtectionOfManagedOutboundOpenInData\":\"False\",\"protectInboundDataFromUnknownSources\":\"False\",\"managedUniversalLinks\":[[\"http://*.appsplatform.us/*\",\"http://*.onedrive.com/*\",\"http://*.powerapps.cn/*\",\"http://*.powerapps.com/*\",\"http://*.powerapps.us/*\",\"http://*.powerbi.com/*\",\"http://*.service-now.com/*\",\"http://*.sharepoint-df.com/*\",\"http://*.sharepoint.com/*\",\"http://*.yammer.com/*\",\"http://*.zoom.us/*\",\"http://*collab.apps.mil/l/*\",\"http://*devspaces.skype.com/l/*\",\"http://*teams-fl.microsoft.com/l/*\",\"http://*teams.live.com/l/*\",\"http://*teams.microsoft.com/l/*\",\"http://*teams.microsoft.us/l/*\",\"http://app.powerbi.cn/*\",\"http://app.powerbi.de/*\",\"http://app.powerbigov.us/*\",\"http://msit.microsoftstream.com/video/*\",\"http://tasks.office.com/*\",\"http://to-do.microsoft.com/sharing*\",\"http://web.microsoftstream.com/video/*\",\"http://zoom.us/*\",\"https://*.appsplatform.us/*\",\"https://*.onedrive.com/*\",\"https://*.powerapps.cn/*\",\"https://*.powerapps.com/*\",\"https://*.powerapps.us/*\",\"https://*.powerbi.com/*\",\"https://*.service-now.com/*\",\"https://*.sharepoint-df.com/*\",\"https://*.sharepoint.com/*\",\"https://*.yammer.com/*\",\"https://*.zoom.us/*\",\"https://*collab.apps.mil/l/*\",\"https://*devspaces.skype.com/l/*\",\"https://*teams-fl.microsoft.com/l/*\",\"https://*teams.live.com/l/*\",\"https://*teams.microsoft.com/l/*\",\"https://*teams.microsoft.us/l/*\",\"https://app.powerbi.cn/*\",\"https://app.powerbi.de/*\",\"https://app.powerbigov.us/*\",\"https://msit.microsoftstream.com/video/*\",\"https://tasks.office.com/*\",\"https://to-do.microsoft.com/sharing*\",\"https://web.microsoftstream.com/video/*\",\"https://zoom.us/*\"]],\"exemptedUniversalLinks\":[[\"http://facetime.apple.com\",\"http://maps.apple.com\",\"https://facetime.apple.com\",\"https://maps.apple.com\"]],\"exemptedAppProtocols\":[[{\"name\":\"Default\",\"value\":\"skype;app-settings;calshow;itms;itmss;itms-apps;itms-appss;itms-services;\"}]]}",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceAppManagement/iosManagedAppProtections[@sys.notexists(\"deviceAppManagementId\")] \\ {\"displayName\":\"[@displayName()]\",\"description\":\"[@description()]\",\"roleScopeTagIds\":[[\"0\"]],\"periodOfflineBeforeAccessCheck\":\"PT12H\",\"periodOnlineBeforeAccessCheck\":\"[@periodOnlineBeforeAccessCheck()]\",\"allowedInboundDataTransferSources\":\"[@allowedInboundDataTransferSources()]\",\"allowedOutboundDataTransferDestinations\":\"[@allowedOutboundDataTransferDestinations()]\",\"organizationalCredentialsRequired\":\"[@organizationalCredentialsRequired()]\",\"allowedOutboundClipboardSharingLevel\":\"[@allowedOutboundClipboardSharingLevel()]\",\"dataBackupBlocked\":\"[@dataBackupBlocked()]\",\"deviceComplianceRequired\":\"True\",\"managedBrowserToOpenLinksRequired\":\"False\",\"saveAsBlocked\":\"False\",\"periodOfflineBeforeWipeIsEnforced\":\"[@periodOfflineBeforeWipeIsEnforced()]\",\"pinRequired\":\"[@pinRequired()]\",\"maximumPinRetries\":\"[@maximumPinRetries()]\",\"simplePinBlocked\":\"[@simplePinBlocked()]\",\"minimumPinLength\":\"[@minimumPinLength()]\",\"pinCharacterSet\":\"[@pinCharacterSet()]\",\"periodBeforePinReset\":\"[@periodBeforePinReset()]\",\"allowedDataStorageLocations\":[[]],\"contactSyncBlocked\":\"False\",\"printBlocked\":\"[@printBlocked()]\",\"fingerprintBlocked\":\"False\",\"disableAppPinIfDevicePinIsSet\":\"[@disableAppPinIfDevicePinIsSet()]\",\"appActionIfDeviceComplianceRequired\":\"[@appActionIfDeviceComplianceRequired()]\",\"appActionIfMaximumPinRetriesExceeded\":\"block\",\"pinRequiredInsteadOfBiometricTimeout\":\"[@pinRequiredInsteadOfBiometricTimeout()]\",\"allowedOutboundClipboardSharingExceptionLength\":\"0\",\"notificationRestriction\":\"allow\",\"previousPinBlockCount\":\"[@previousPinBlockCount()]\",\"managedBrowser\":\"notConfigured\",\"maximumAllowedDeviceThreatLevel\":\"notConfigured\",\"mobileThreatDefenseRemediationAction\":\"[@mobileThreatDefenseRemediationAction()]\",\"blockDataIngestionIntoOrganizationDocuments\":\"False\",\"allowedDataIngestionLocations\":[[\"oneDriveForBusiness\",\"sharePoint\",\"camera\",\"photoLibrary\"]],\"dialerRestrictionLevel\":\"allApps\",\"targetedAppManagementLevels\":\"unspecified\",\"appDataEncryptionType\":\"whenDeviceLocked\",\"faceIdBlocked\":\"False\",\"appActionIfIosDeviceModelNotAllowed\":\"block\",\"thirdPartyKeyboardsBlocked\":\"[@thirdPartyKeyboardsBlocked()]\",\"filterOpenInToOnlyManagedApps\":\"False\",\"disableProtectionOfManagedOutboundOpenInData\":\"False\",\"protectInboundDataFromUnknownSources\":\"False\",\"managedUniversalLinks\":[[\"http://*.appsplatform.us/*\",\"http://*.onedrive.com/*\",\"http://*.powerapps.cn/*\",\"http://*.powerapps.com/*\",\"http://*.powerapps.us/*\",\"http://*.powerbi.com/*\",\"http://*.service-now.com/*\",\"http://*.sharepoint-df.com/*\",\"http://*.sharepoint.com/*\",\"http://*.yammer.com/*\",\"http://*.zoom.us/*\",\"http://*collab.apps.mil/l/*\",\"http://*devspaces.skype.com/l/*\",\"http://*teams-fl.microsoft.com/l/*\",\"http://*teams.live.com/l/*\",\"http://*teams.microsoft.com/l/*\",\"http://*teams.microsoft.us/l/*\",\"http://app.powerbi.cn/*\",\"http://app.powerbi.de/*\",\"http://app.powerbigov.us/*\",\"http://msit.microsoftstream.com/video/*\",\"http://tasks.office.com/*\",\"http://to-do.microsoft.com/sharing*\",\"http://web.microsoftstream.com/video/*\",\"http://zoom.us/*\",\"https://*.appsplatform.us/*\",\"https://*.onedrive.com/*\",\"https://*.powerapps.cn/*\",\"https://*.powerapps.com/*\",\"https://*.powerapps.us/*\",\"https://*.powerbi.com/*\",\"https://*.service-now.com/*\",\"https://*.sharepoint-df.com/*\",\"https://*.sharepoint.com/*\",\"https://*.yammer.com/*\",\"https://*.zoom.us/*\",\"https://*collab.apps.mil/l/*\",\"https://*devspaces.skype.com/l/*\",\"https://*teams-fl.microsoft.com/l/*\",\"https://*teams.live.com/l/*\",\"https://*teams.microsoft.com/l/*\",\"https://*teams.microsoft.us/l/*\",\"https://app.powerbi.cn/*\",\"https://app.powerbi.de/*\",\"https://app.powerbigov.us/*\",\"https://msit.microsoftstream.com/video/*\",\"https://tasks.office.com/*\",\"https://to-do.microsoft.com/sharing*\",\"https://web.microsoftstream.com/video/*\",\"https://zoom.us/*\"]],\"exemptedUniversalLinks\":[[\"http://facetime.apple.com\",\"http://maps.apple.com\",\"https://facetime.apple.com\",\"https://maps.apple.com\"]],\"exemptedAppProtocols\":[[{\"name\":\"Default\",\"value\":\"skype;app-settings;calshow;itms;itmss;itms-apps;itms-appss;itms-services;\"}]]}],\"id\")],\"deviceAppManagementId\")",
+                "@sys.read(\"deviceAppManagementId\")",
+                "{IncludeResponseBodyInException:true} POST /beta/deviceAppManagement/iosManagedAppProtections/[@sys.read(\"deviceAppManagementId\")]/targetApps \\ {\r\n                 \"apps\":\r\n                [[\r\n                    [@sys.join([@getTargetApps([@sys.jsonArrayParse([@targetAppsiOS()])])])]\r\n                ]]\r\n            }",
+                "{IncludeResponseBodyInException:true} POST /beta/deviceAppManagement/iosManagedAppProtections/[@sys.read(\"deviceAppManagementId\")]/assign \\ {\"assignments\":[[ [@sys.join([@sys.concat([@getincludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])] ]]}"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getTargetApps",
+                  "value": "select case\r\n                    when data = '' then ''\r\n                    else '{ \r\n\t\t                    \"mobileAppIdentifier\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.iosMobileAppIdentifier\",\r\n                                \"bundleId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getincludeGroups",
+                  "value": "select case when data = '' then '' else '{\"target\": {\"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\"groupId\": \"' || data || '\"}}' end from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case when data = '' then '' else '{\"target\": {\"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\"groupId\": \"' || data || '\"}}' end from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "displayName",
+                  "value": "select 'Application management for iOS'"
+                },
+                {
+                  "type": 0,
+                  "id": "description",
+                  "value": "select 'Enable app protection policy for iOS devices to protect your tenants'' data within core applications. Mobile Application Management (MAM) app protection policies help prevent both intentional and unintentional data loss while making sure your tenants'' users stay productive. App protection policies also protect your tenants'' company data accessed by devices that aren''t managed directly by your organization. '"
+                },
+                {
+                  "type": 0,
+                  "id": "periodOnlineBeforeAccessCheck",
+                  "value": "select 'PT30M'"
+                },
+                {
+                  "type": 0,
+                  "id": "allowedInboundDataTransferSources",
+                  "value": "select 'allApps'"
+                },
+                {
+                  "type": 0,
+                  "id": "allowedOutboundDataTransferDestinations",
+                  "value": "select 'allApps'"
+                },
+                {
+                  "type": 0,
+                  "id": "organizationalCredentialsRequired",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "allowedOutboundClipboardSharingLevel",
+                  "value": "select 'allApps'"
+                },
+                {
+                  "type": 0,
+                  "id": "dataBackupBlocked",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "periodOfflineBeforeWipeIsEnforced",
+                  "value": "select 'P90D'"
+                },
+                {
+                  "type": 0,
+                  "id": "pinRequired",
+                  "value": "select 'True'"
+                },
+                {
+                  "type": 0,
+                  "id": "maximumPinRetries",
+                  "value": "select '5'"
+                },
+                {
+                  "type": 0,
+                  "id": "simplePinBlocked",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "minimumPinLength",
+                  "value": "select '4'"
+                },
+                {
+                  "type": 0,
+                  "id": "pinCharacterSet",
+                  "value": "select 'numeric'"
+                },
+                {
+                  "type": 0,
+                  "id": "periodBeforePinReset",
+                  "value": "select 'PT0S'"
+                },
+                {
+                  "type": 0,
+                  "id": "printBlocked",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "disableAppPinIfDevicePinIsSet",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "appActionIfDeviceComplianceRequired",
+                  "value": "select 'block'"
+                },
+                {
+                  "type": 0,
+                  "id": "pinRequiredInsteadOfBiometricTimeout",
+                  "value": "select 'PT12H'"
+                },
+                {
+                  "type": 0,
+                  "id": "previousPinBlockCount",
+                  "value": "select '0'"
+                },
+                {
+                  "type": 0,
+                  "id": "mobileThreatDefenseRemediationAction",
+                  "value": "select 'block'"
+                },
+                {
+                  "type": 0,
+                  "id": "thirdPartyKeyboardsBlocked",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "includeGroups",
+                  "value": "select ''"
+                },
+                {
+                  "type": 0,
+                  "id": "excludeGroups",
+                  "value": "select ''"
+                },
+                {
+                  "type": 0,
+                  "id": "targetAppsiOS",
+                  "value": "select '[\"com.microsoft.msedge\",\"com.microsoft.office.excel\",\"com.microsoft.officemobile\",\"com.microsoft.skydrive\",\"com.microsoft.onenote\",\"com.microsoft.office.outlook\",\"com.microsoft.office.powerpoint\",\"com.microsoft.sharepoint\",\"com.microsoft.skype.teams\",\"com.microsoft.to-do\",\"com.microsoft.office.word\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "tenantIds",
+                  "value": "select '[\"a380a655-8cdd-4484-9eaf-7c9f320a122a\"]'"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.normalize([/beta/deviceAppManagement/iosManagedAppProtections?$expand=assignments])],\"policies\")",
+                "@sys.write([@sys.normalize([/v1.0/users?$select=id,displayName,userPrincipalName,assignedPlans,assignedLicenses,userType&$expand=memberOf($select=roleTemplateId)])],\"allUsers\")",
+                "@sys.validateGraphEntity([POST /echo \\ {\"displayName\":\"[@displayName()]\",\"description\":\"[@description()]\",\"roleScopeTagIds\":[[\"0\"]],\"periodOfflineBeforeAccessCheck\":\"PT12H\",\"periodOnlineBeforeAccessCheck\":\"[@periodOnlineBeforeAccessCheck()]\",\"allowedInboundDataTransferSources\":\"[@allowedInboundDataTransferSources()]\",\"allowedOutboundDataTransferDestinations\":\"[@allowedOutboundDataTransferDestinations()]\",\"organizationalCredentialsRequired\":\"[@organizationalCredentialsRequired()]\",\"allowedOutboundClipboardSharingLevel\":\"[@allowedOutboundClipboardSharingLevel()]\",\"dataBackupBlocked\":\"[@dataBackupBlocked()]\",\"deviceComplianceRequired\":\"True\",\"managedBrowserToOpenLinksRequired\":\"False\",\"saveAsBlocked\":\"False\",\"periodOfflineBeforeWipeIsEnforced\":\"[@periodOfflineBeforeWipeIsEnforced()]\",\"pinRequired\":\"[@pinRequired()]\",\"maximumPinRetries\":\"[@maximumPinRetries()]\",\"simplePinBlocked\":\"[@simplePinBlocked()]\",\"minimumPinLength\":\"[@minimumPinLength()]\",\"pinCharacterSet\":\"[@pinCharacterSet()]\",\"periodBeforePinReset\":\"[@periodBeforePinReset()]\",\"allowedDataStorageLocations\":[[]],\"contactSyncBlocked\":\"False\",\"printBlocked\":\"[@printBlocked()]\",\"fingerprintBlocked\":\"False\",\"disableAppPinIfDevicePinIsSet\":\"[@disableAppPinIfDevicePinIsSet()]\",\"appActionIfDeviceComplianceRequired\":\"[@appActionIfDeviceComplianceRequired()]\",\"appActionIfMaximumPinRetriesExceeded\":\"block\",\"pinRequiredInsteadOfBiometricTimeout\":\"[@pinRequiredInsteadOfBiometricTimeout()]\",\"allowedOutboundClipboardSharingExceptionLength\":\"0\",\"notificationRestriction\":\"allow\",\"previousPinBlockCount\":\"[@previousPinBlockCount()]\",\"managedBrowser\":\"notConfigured\",\"maximumAllowedDeviceThreatLevel\":\"notConfigured\",\"mobileThreatDefenseRemediationAction\":\"[@mobileThreatDefenseRemediationAction()]\",\"blockDataIngestionIntoOrganizationDocuments\":\"False\",\"allowedDataIngestionLocations\":[[\"oneDriveForBusiness\",\"sharePoint\",\"camera\",\"photoLibrary\"]],\"dialerRestrictionLevel\":\"allApps\",\"targetedAppManagementLevels\":\"unspecified\",\"appDataEncryptionType\":\"whenDeviceLocked\",\"faceIdBlocked\":\"False\",\"appActionIfIosDeviceModelNotAllowed\":\"block\",\"thirdPartyKeyboardsBlocked\":\"[@thirdPartyKeyboardsBlocked()]\",\"filterOpenInToOnlyManagedApps\":\"False\",\"disableProtectionOfManagedOutboundOpenInData\":\"False\",\"protectInboundDataFromUnknownSources\":\"False\",\"managedUniversalLinks\":[[\"http://*.appsplatform.us/*\",\"http://*.onedrive.com/*\",\"http://*.powerapps.cn/*\",\"http://*.powerapps.com/*\",\"http://*.powerapps.us/*\",\"http://*.powerbi.com/*\",\"http://*.service-now.com/*\",\"http://*.sharepoint-df.com/*\",\"http://*.sharepoint.com/*\",\"http://*.yammer.com/*\",\"http://*.zoom.us/*\",\"http://*collab.apps.mil/l/*\",\"http://*devspaces.skype.com/l/*\",\"http://*teams-fl.microsoft.com/l/*\",\"http://*teams.live.com/l/*\",\"http://*teams.microsoft.com/l/*\",\"http://*teams.microsoft.us/l/*\",\"http://app.powerbi.cn/*\",\"http://app.powerbi.de/*\",\"http://app.powerbigov.us/*\",\"http://msit.microsoftstream.com/video/*\",\"http://tasks.office.com/*\",\"http://to-do.microsoft.com/sharing*\",\"http://web.microsoftstream.com/video/*\",\"http://zoom.us/*\",\"https://*.appsplatform.us/*\",\"https://*.onedrive.com/*\",\"https://*.powerapps.cn/*\",\"https://*.powerapps.com/*\",\"https://*.powerapps.us/*\",\"https://*.powerbi.com/*\",\"https://*.service-now.com/*\",\"https://*.sharepoint-df.com/*\",\"https://*.sharepoint.com/*\",\"https://*.yammer.com/*\",\"https://*.zoom.us/*\",\"https://*collab.apps.mil/l/*\",\"https://*devspaces.skype.com/l/*\",\"https://*teams-fl.microsoft.com/l/*\",\"https://*teams.live.com/l/*\",\"https://*teams.microsoft.com/l/*\",\"https://*teams.microsoft.us/l/*\",\"https://app.powerbi.cn/*\",\"https://app.powerbi.de/*\",\"https://app.powerbigov.us/*\",\"https://msit.microsoftstream.com/video/*\",\"https://tasks.office.com/*\",\"https://to-do.microsoft.com/sharing*\",\"https://web.microsoftstream.com/video/*\",\"https://zoom.us/*\"]],\"exemptedUniversalLinks\":[[\"http://facetime.apple.com\",\"http://maps.apple.com\",\"https://facetime.apple.com\",\"https://maps.apple.com\"]],\"exemptedAppProtocols\":[[{\"name\":\"Default\",\"value\":\"skype;app-settings;calshow;itms;itmss;itms-apps;itms-appss;itms-services;\"}]],\"assignments\":[[ [@sys.join([@sys.concat([@getincludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])] ]]}],[@sys.read(\"policies\")],[@sys.read(\"allUsers\")])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getincludeGroups",
+                  "value": "select case\r\n\t                    when data like 'All' then '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                    }\r\n\t                    }'\r\n\t                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                    when data = '' then ''\r\n                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": false
+          },
+          "extractionAction": {
+            "operationDefinition": {
+              "values": [
+                "/beta/deviceAppManagement/iosManagedAppProtections/T_5224cbe5-4743-4ab7-9395-e9a8268b7085?$expand=apps,assignments"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "deletionAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceAppManagement/iosManagedAppProtections?$filter=displayName eq '[@displayName()]'],\"id\")],\"deviceAppManagementId\")",
+                "{IncludeResponseBodyInException:true} DELETE /beta/deviceAppManagement/iosManagedAppProtections/[@sys.read(\"deviceAppManagementId\")]"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "id": "9c6577e3-e2a0-4a66-acf8-91c3fae52d37"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Configure application management for Android",
+      "description": "Enable app protection policy for Android devices to protect tenant data within core applications. Mobile Application Management (MAM) app protection policies help prevent both intentional and unintentional data leaks while making sure users stay productive. App protection policies are enforced in each managed application and apply even when an application is accessed on a device not managed by Microsoft Intune.",
+      "portalLink": {
+        "url": "https://endpoint.microsoft.com/{tenantName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/~/appProtection",
+        "displayName": "Microsoft Intune"
+      },
+      "informationLinks": [],
+      "id": "b8991b71-a769-4a5b-b490-cf23c4af552c",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "Application management for Android",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "displayName",
+              "value": "Application management for Android",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isIdentifier": true,
+              "settingType": "String",
+              "displayName": "Display name"
+            },
+            {
+              "name": "periodOnlineBeforeAccessCheck",
+              "value": "PT30M",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "PT30M",
+                  "displayName": "30 minutes"
+                }
+              ],
+              "displayName": "Recheck the access requirements after (minutes of inactivity)"
+            },
+            {
+              "name": "allowedInboundDataTransferSources",
+              "value": "allApps",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "allApps",
+                  "displayName": "All apps"
+                }
+              ],
+              "displayName": "Receive data from other apps"
+            },
+            {
+              "name": "allowedOutboundDataTransferDestinations",
+              "value": "allApps",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "allApps",
+                  "displayName": "All apps"
+                }
+              ],
+              "displayName": "Send org data to other apps"
+            },
+            {
+              "name": "organizationalCredentialsRequired",
+              "value": "False",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "Work or school account credentials for access"
+            },
+            {
+              "name": "allowedOutboundClipboardSharingLevel",
+              "value": "allApps",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "allApps",
+                  "displayName": "All apps"
+                }
+              ],
+              "displayName": "Restrict cut, copy, and paste between apps"
+            },
+            {
+              "name": "dataBackupBlocked",
+              "value": "False",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "False",
+                  "displayName": "Allow"
+                }
+              ],
+              "displayName": "Back up org data"
+            },
+            {
+              "name": "periodOfflineBeforeWipeIsEnforced",
+              "value": "P90D",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "P90D",
+                  "displayName": "90 days"
+                }
+              ],
+              "displayName": "Offline grace period before data wipe is enforced"
+            },
+            {
+              "name": "pinRequired",
+              "value": "True",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "PIN for access"
+            },
+            {
+              "name": "maximumPinRetries",
+              "value": "5",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Integer",
+              "displayName": "Max PIN attempts"
+            },
+            {
+              "name": "simplePinBlocked",
+              "value": "False",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [
+                {
+                  "name": "False",
+                  "displayName": "Allow"
+                }
+              ],
+              "displayName": "Simple PIN"
+            },
+            {
+              "name": "minimumPinLength",
+              "value": "4",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Integer",
+              "displayName": "Select Minimum PIN length"
+            },
+            {
+              "name": "pinCharacterSet",
+              "value": "numeric",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "numeric",
+                  "displayName": "Numeric"
+                }
+              ],
+              "displayName": "PIN type"
+            },
+            {
+              "name": "periodBeforePinReset",
+              "value": "PT0S",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "PT0S",
+                  "displayName": "0 days"
+                }
+              ],
+              "displayName": "PIN reset after number of days"
+            },
+            {
+              "name": "contactSyncBlocked",
+              "value": "False",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "Block sync app with native contacts app"
+            },
+            {
+              "name": "printBlocked",
+              "value": "False",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "False",
+                  "displayName": "Allow"
+                }
+              ],
+              "displayName": "Printing org data"
+            },
+            {
+              "name": "disableAppPinIfDevicePinIsSet",
+              "value": "False",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "False",
+                  "displayName": "Require"
+                }
+              ],
+              "displayName": "App PIN when device PIN is set"
+            },
+            {
+              "name": "appActionIfDeviceComplianceRequired",
+              "value": "block",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "block",
+                  "displayName": "Block access"
+                }
+              ],
+              "displayName": "Jailbroken/rooted devices"
+            },
+            {
+              "name": "pinRequiredInsteadOfBiometricTimeout",
+              "value": "PT12H",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "PT12H",
+                  "displayName": "Require"
+                }
+              ],
+              "displayName": "Override biometrics with PIN after timeout"
+            },
+            {
+              "name": "previousPinBlockCount",
+              "value": "0",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Integer",
+              "displayName": "Select number of previous PIN values to maintain"
+            },
+            {
+              "name": "mobileThreatDefenseRemediationAction",
+              "value": "block",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "block",
+                  "displayName": "Block access"
+                }
+              ],
+              "displayName": "Require threat scan on apps"
+            },
+            {
+              "name": "requiredAndroidSafetyNetDeviceAttestationType",
+              "value": "basicIntegrityAndDeviceCertification",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "basicIntegrityAndDeviceCertification",
+                  "displayName": "Basic integrity and certified devices "
+                }
+              ],
+              "displayName": "SafetyNet device attestation"
+            },
+            {
+              "name": "keyboardsRestricted",
+              "value": "False",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "False",
+                  "displayName": "Not required"
+                }
+              ],
+              "displayName": "Keyboards restricted"
+            },
+            {
+              "name": "includeGroups",
+              "isRequired": true,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "Groups_AllGroups",
+                  "displayName": "All groups"
+                }
+              ],
+              "displayName": "Include groups"
+            },
+            {
+              "name": "excludeGroups",
+              "isRequired": true,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Exclude groups"
+            },
+            {
+              "name": "targetAppsAndroid",
+              "value": "[\"CoreMicrosoftApps\"]",
+              "isRequired": true,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "AppProtection_CoreMicrosoftApps",
+                  "displayName": "Core Microsoft Apps"
+                },
+                {
+                  "name": "AppProtection_AllMicrosoftApps",
+                  "displayName": "All Microsoft Apps"
+                },
+                {
+                  "name": "AppProtection_AllApps",
+                  "displayName": "All Apps"
+                }
+              ],
+              "displayName": "Target Apps"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceAppManagement/androidManagedAppProtections?$filter=displayName eq '[@displayName()]'],\"id\")],\"deviceAppManagementId\")",
+                "{IncludeResponseBodyInException:true} PATCH /beta/deviceAppManagement/androidManagedAppProtections/[@sys.read(\"deviceAppManagementId\")] \\ {\"displayName\":\"[@displayName()]\",\"roleScopeTagIds\":[[\"0\"]],\"periodOfflineBeforeAccessCheck\":\"PT12H\",\"periodOnlineBeforeAccessCheck\":\"[@periodOnlineBeforeAccessCheck()]\",\"allowedInboundDataTransferSources\":\"[@allowedInboundDataTransferSources()]\",\"allowedOutboundDataTransferDestinations\":\"[@allowedOutboundDataTransferDestinations()]\",\"organizationalCredentialsRequired\":\"[@organizationalCredentialsRequired()]\",\"allowedOutboundClipboardSharingLevel\":\"[@allowedOutboundClipboardSharingLevel()]\",\"dataBackupBlocked\":\"[@dataBackupBlocked()]\",\"deviceComplianceRequired\":\"True\",\"managedBrowserToOpenLinksRequired\":\"False\",\"saveAsBlocked\":\"False\",\"periodOfflineBeforeWipeIsEnforced\":\"[@periodOfflineBeforeWipeIsEnforced()]\",\"pinRequired\":\"[@pinRequired()]\",\"maximumPinRetries\":\"[@maximumPinRetries()]\",\"simplePinBlocked\":\"[@simplePinBlocked()]\",\"minimumPinLength\":\"[@minimumPinLength()]\",\"pinCharacterSet\":\"[@pinCharacterSet()]\",\"periodBeforePinReset\":\"[@periodBeforePinReset()]\",\"allowedDataStorageLocations\":[[]],\"contactSyncBlocked\":\"[@contactSyncBlocked()]\",\"printBlocked\":\"[@printBlocked()]\",\"fingerprintBlocked\":\"False\",\"disableAppPinIfDevicePinIsSet\":\"[@disableAppPinIfDevicePinIsSet()]\",\"appActionIfDeviceComplianceRequired\":\"[@appActionIfDeviceComplianceRequired()]\",\"appActionIfMaximumPinRetriesExceeded\":\"block\",\"pinRequiredInsteadOfBiometricTimeout\":\"[@pinRequiredInsteadOfBiometricTimeout()]\",\"allowedOutboundClipboardSharingExceptionLength\":\"0\",\"notificationRestriction\":\"allow\",\"previousPinBlockCount\":\"[@previousPinBlockCount()]\",\"managedBrowser\":\"notConfigured\",\"maximumAllowedDeviceThreatLevel\":\"notConfigured\",\"mobileThreatDefenseRemediationAction\":\"[@mobileThreatDefenseRemediationAction()]\",\"blockDataIngestionIntoOrganizationDocuments\":\"False\",\"allowedDataIngestionLocations\":[[\"oneDriveForBusiness\",\"sharePoint\",\"camera\",\"photoLibrary\"]],\"dialerRestrictionLevel\":\"allApps\",\"targetedAppManagementLevels\":\"unspecified\",\"screenCaptureBlocked\":\"False\",\"disableAppEncryptionIfDeviceEncryptionIsEnabled\":\"False\",\"encryptAppData\":\"True\",\"minimumRequiredPatchVersion\":\"0000-00-00\",\"minimumWarningPatchVersion\":\"0000-00-00\",\"minimumWipePatchVersion\":\"0000-00-00\",\"appActionIfAndroidDeviceManufacturerNotAllowed\":\"block\",\"requiredAndroidSafetyNetDeviceAttestationType\":\"[@requiredAndroidSafetyNetDeviceAttestationType()]\",\"appActionIfAndroidSafetyNetDeviceAttestationFailed\":\"block\",\"requiredAndroidSafetyNetAppsVerificationType\":\"enabled\",\"appActionIfAndroidSafetyNetAppsVerificationFailed\":\"block\",\"keyboardsRestricted\":\"[@keyboardsRestricted()]\",\"allowedAndroidDeviceModels\":[[]],\"appActionIfAndroidDeviceModelNotAllowed\":\"block\",\"biometricAuthenticationBlocked\":\"False\",\"requiredAndroidSafetyNetEvaluationType\":\"basic\",\"blockAfterCompanyPortalUpdateDeferralInDays\":\"0\",\"warnAfterCompanyPortalUpdateDeferralInDays\":\"0\",\"wipeAfterCompanyPortalUpdateDeferralInDays\":\"0\",\"deviceLockRequired\":\"False\",\"appActionIfDeviceLockNotSet\":\"block\",\"connectToVpnOnLaunch\":\"False\",\"appActionIfDevicePasscodeComplexityLessThanLow\":\"warn\",\"requireClass3Biometrics\":\"False\",\"requirePinAfterBiometricChange\":\"False\",\"fingerprintAndBiometricEnabled\":\"True\",\"exemptedAppPackages\":[[]],\"approvedKeyboards\":[[]]}",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceAppManagement/androidManagedAppProtections[@sys.notexists(\"deviceAppManagementId\")] \\ {\"displayName\":\"[@displayName()]\",\"roleScopeTagIds\":[[\"0\"]],\"periodOfflineBeforeAccessCheck\":\"PT12H\",\"periodOnlineBeforeAccessCheck\":\"[@periodOnlineBeforeAccessCheck()]\",\"allowedInboundDataTransferSources\":\"[@allowedInboundDataTransferSources()]\",\"allowedOutboundDataTransferDestinations\":\"[@allowedOutboundDataTransferDestinations()]\",\"organizationalCredentialsRequired\":\"[@organizationalCredentialsRequired()]\",\"allowedOutboundClipboardSharingLevel\":\"[@allowedOutboundClipboardSharingLevel()]\",\"dataBackupBlocked\":\"[@dataBackupBlocked()]\",\"deviceComplianceRequired\":\"True\",\"managedBrowserToOpenLinksRequired\":\"False\",\"saveAsBlocked\":\"False\",\"periodOfflineBeforeWipeIsEnforced\":\"[@periodOfflineBeforeWipeIsEnforced()]\",\"pinRequired\":\"[@pinRequired()]\",\"maximumPinRetries\":\"[@maximumPinRetries()]\",\"simplePinBlocked\":\"[@simplePinBlocked()]\",\"minimumPinLength\":\"[@minimumPinLength()]\",\"pinCharacterSet\":\"[@pinCharacterSet()]\",\"periodBeforePinReset\":\"[@periodBeforePinReset()]\",\"allowedDataStorageLocations\":[[]],\"contactSyncBlocked\":\"[@contactSyncBlocked()]\",\"printBlocked\":\"[@printBlocked()]\",\"fingerprintBlocked\":\"False\",\"disableAppPinIfDevicePinIsSet\":\"[@disableAppPinIfDevicePinIsSet()]\",\"appActionIfDeviceComplianceRequired\":\"[@appActionIfDeviceComplianceRequired()]\",\"appActionIfMaximumPinRetriesExceeded\":\"block\",\"pinRequiredInsteadOfBiometricTimeout\":\"[@pinRequiredInsteadOfBiometricTimeout()]\",\"allowedOutboundClipboardSharingExceptionLength\":\"0\",\"notificationRestriction\":\"allow\",\"previousPinBlockCount\":\"[@previousPinBlockCount()]\",\"managedBrowser\":\"notConfigured\",\"maximumAllowedDeviceThreatLevel\":\"notConfigured\",\"mobileThreatDefenseRemediationAction\":\"[@mobileThreatDefenseRemediationAction()]\",\"blockDataIngestionIntoOrganizationDocuments\":\"False\",\"allowedDataIngestionLocations\":[[\"oneDriveForBusiness\",\"sharePoint\",\"camera\",\"photoLibrary\"]],\"dialerRestrictionLevel\":\"allApps\",\"targetedAppManagementLevels\":\"unspecified\",\"screenCaptureBlocked\":\"False\",\"disableAppEncryptionIfDeviceEncryptionIsEnabled\":\"False\",\"encryptAppData\":\"True\",\"minimumRequiredPatchVersion\":\"0000-00-00\",\"minimumWarningPatchVersion\":\"0000-00-00\",\"minimumWipePatchVersion\":\"0000-00-00\",\"appActionIfAndroidDeviceManufacturerNotAllowed\":\"block\",\"requiredAndroidSafetyNetDeviceAttestationType\":\"[@requiredAndroidSafetyNetDeviceAttestationType()]\",\"appActionIfAndroidSafetyNetDeviceAttestationFailed\":\"block\",\"requiredAndroidSafetyNetAppsVerificationType\":\"enabled\",\"appActionIfAndroidSafetyNetAppsVerificationFailed\":\"block\",\"keyboardsRestricted\":\"[@keyboardsRestricted()]\",\"allowedAndroidDeviceModels\":[[]],\"appActionIfAndroidDeviceModelNotAllowed\":\"block\",\"biometricAuthenticationBlocked\":\"False\",\"requiredAndroidSafetyNetEvaluationType\":\"basic\",\"blockAfterCompanyPortalUpdateDeferralInDays\":\"0\",\"warnAfterCompanyPortalUpdateDeferralInDays\":\"0\",\"wipeAfterCompanyPortalUpdateDeferralInDays\":\"0\",\"deviceLockRequired\":\"False\",\"appActionIfDeviceLockNotSet\":\"block\",\"connectToVpnOnLaunch\":\"False\",\"appActionIfDevicePasscodeComplexityLessThanLow\":\"warn\",\"requireClass3Biometrics\":\"False\",\"requirePinAfterBiometricChange\":\"False\",\"fingerprintAndBiometricEnabled\":\"True\",\"exemptedAppPackages\":[[]],\"approvedKeyboards\":[[]]}],\"id\")],\"deviceAppManagementId\")",
+                "@sys.read(\"deviceAppManagementId\")",
+                "{IncludeResponseBodyInException:true} POST /beta/deviceAppManagement/androidManagedAppProtections/[@sys.read(\"deviceAppManagementId\")]/targetApps \\ {\r\n                 \"apps\":\r\n                [[\r\n                    [@sys.join([@getTargetApps([@sys.jsonArrayParse([@targetAppsAndroid()])])])]\r\n                ]]\r\n            }",
+                "{IncludeResponseBodyInException:true} POST /beta/deviceAppManagement/androidManagedAppProtections/[@sys.read(\"deviceAppManagementId\")]/assign \\ {\"assignments\":[[ [@sys.join([@sys.concat([@getincludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])] ]]}"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getTargetApps",
+                  "value": "select case\r\n                    when data = '' then ''\r\n                    else '{ \r\n\t\t                    \"mobileAppIdentifier\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.androidMobileAppIdentifier\",\r\n                                \"packageId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getincludeGroups",
+                  "value": "select case when data = '' then '' else '{\"target\": {\"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\"groupId\": \"' || data || '\"}}' end from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case when data = '' then '' else '{\"target\": {\"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\"groupId\": \"' || data || '\"}}' end from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "displayName",
+                  "value": "select 'Application management for Android'"
+                },
+                {
+                  "type": 0,
+                  "id": "periodOnlineBeforeAccessCheck",
+                  "value": "select 'PT30M'"
+                },
+                {
+                  "type": 0,
+                  "id": "allowedInboundDataTransferSources",
+                  "value": "select 'allApps'"
+                },
+                {
+                  "type": 0,
+                  "id": "allowedOutboundDataTransferDestinations",
+                  "value": "select 'allApps'"
+                },
+                {
+                  "type": 0,
+                  "id": "organizationalCredentialsRequired",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "allowedOutboundClipboardSharingLevel",
+                  "value": "select 'allApps'"
+                },
+                {
+                  "type": 0,
+                  "id": "dataBackupBlocked",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "periodOfflineBeforeWipeIsEnforced",
+                  "value": "select 'P90D'"
+                },
+                {
+                  "type": 0,
+                  "id": "pinRequired",
+                  "value": "select 'True'"
+                },
+                {
+                  "type": 0,
+                  "id": "maximumPinRetries",
+                  "value": "select '5'"
+                },
+                {
+                  "type": 0,
+                  "id": "simplePinBlocked",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "minimumPinLength",
+                  "value": "select '4'"
+                },
+                {
+                  "type": 0,
+                  "id": "pinCharacterSet",
+                  "value": "select 'numeric'"
+                },
+                {
+                  "type": 0,
+                  "id": "periodBeforePinReset",
+                  "value": "select 'PT0S'"
+                },
+                {
+                  "type": 0,
+                  "id": "contactSyncBlocked",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "printBlocked",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "disableAppPinIfDevicePinIsSet",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "appActionIfDeviceComplianceRequired",
+                  "value": "select 'block'"
+                },
+                {
+                  "type": 0,
+                  "id": "pinRequiredInsteadOfBiometricTimeout",
+                  "value": "select 'PT12H'"
+                },
+                {
+                  "type": 0,
+                  "id": "previousPinBlockCount",
+                  "value": "select '0'"
+                },
+                {
+                  "type": 0,
+                  "id": "mobileThreatDefenseRemediationAction",
+                  "value": "select 'block'"
+                },
+                {
+                  "type": 0,
+                  "id": "requiredAndroidSafetyNetDeviceAttestationType",
+                  "value": "select 'basicIntegrityAndDeviceCertification'"
+                },
+                {
+                  "type": 0,
+                  "id": "keyboardsRestricted",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "includeGroups",
+                  "value": "select ''"
+                },
+                {
+                  "type": 0,
+                  "id": "excludeGroups",
+                  "value": "select ''"
+                },
+                {
+                  "type": 0,
+                  "id": "targetAppsAndroid",
+                  "value": "select '[\"com.microsoft.emmx\",\"com.microsoft.office.excel\",\"com.microsoft.office.officehub\",\"com.microsoft.skydrive\",\"com.microsoft.office.onenote\",\"com.microsoft.office.outlook\",\"com.microsoft.office.powerpoint\",\"com.microsoft.sharepoint\",\"com.microsoft.teams\",\"com.microsoft.todos\",\"com.microsoft.office.word\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "tenantIds",
+                  "value": "select '[\"a380a655-8cdd-4484-9eaf-7c9f320a122a\"]'"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.normalize([/beta/deviceAppManagement/androidManagedAppProtections?$expand=assignments])],\"policies\")",
+                "@sys.write([@sys.normalize([/v1.0/users?$select=id,displayName,userPrincipalName,assignedPlans,assignedLicenses,userType&$expand=memberOf($select=roleTemplateId)])],\"allUsers\")",
+                "@sys.validateGraphEntity([POST /echo \\ {\"displayName\":\"[@displayName()]\",\"roleScopeTagIds\":[[\"0\"]],\"periodOfflineBeforeAccessCheck\":\"PT12H\",\"periodOnlineBeforeAccessCheck\":\"[@periodOnlineBeforeAccessCheck()]\",\"allowedInboundDataTransferSources\":\"[@allowedInboundDataTransferSources()]\",\"allowedOutboundDataTransferDestinations\":\"[@allowedOutboundDataTransferDestinations()]\",\"organizationalCredentialsRequired\":\"[@organizationalCredentialsRequired()]\",\"allowedOutboundClipboardSharingLevel\":\"[@allowedOutboundClipboardSharingLevel()]\",\"dataBackupBlocked\":\"[@dataBackupBlocked()]\",\"deviceComplianceRequired\":\"True\",\"managedBrowserToOpenLinksRequired\":\"False\",\"saveAsBlocked\":\"False\",\"periodOfflineBeforeWipeIsEnforced\":\"[@periodOfflineBeforeWipeIsEnforced()]\",\"pinRequired\":\"[@pinRequired()]\",\"maximumPinRetries\":\"[@maximumPinRetries()]\",\"simplePinBlocked\":\"[@simplePinBlocked()]\",\"minimumPinLength\":\"[@minimumPinLength()]\",\"pinCharacterSet\":\"[@pinCharacterSet()]\",\"periodBeforePinReset\":\"[@periodBeforePinReset()]\",\"allowedDataStorageLocations\":[[]],\"contactSyncBlocked\":\"[@contactSyncBlocked()]\",\"printBlocked\":\"[@printBlocked()]\",\"fingerprintBlocked\":\"False\",\"disableAppPinIfDevicePinIsSet\":\"[@disableAppPinIfDevicePinIsSet()]\",\"appActionIfDeviceComplianceRequired\":\"[@appActionIfDeviceComplianceRequired()]\",\"appActionIfMaximumPinRetriesExceeded\":\"block\",\"pinRequiredInsteadOfBiometricTimeout\":\"[@pinRequiredInsteadOfBiometricTimeout()]\",\"allowedOutboundClipboardSharingExceptionLength\":\"0\",\"notificationRestriction\":\"allow\",\"previousPinBlockCount\":\"[@previousPinBlockCount()]\",\"managedBrowser\":\"notConfigured\",\"maximumAllowedDeviceThreatLevel\":\"notConfigured\",\"mobileThreatDefenseRemediationAction\":\"[@mobileThreatDefenseRemediationAction()]\",\"blockDataIngestionIntoOrganizationDocuments\":\"False\",\"allowedDataIngestionLocations\":[[\"oneDriveForBusiness\",\"sharePoint\",\"camera\",\"photoLibrary\"]],\"dialerRestrictionLevel\":\"allApps\",\"targetedAppManagementLevels\":\"unspecified\",\"screenCaptureBlocked\":\"False\",\"disableAppEncryptionIfDeviceEncryptionIsEnabled\":\"False\",\"encryptAppData\":\"True\",\"minimumRequiredPatchVersion\":\"0000-00-00\",\"minimumWarningPatchVersion\":\"0000-00-00\",\"minimumWipePatchVersion\":\"0000-00-00\",\"appActionIfAndroidDeviceManufacturerNotAllowed\":\"block\",\"requiredAndroidSafetyNetDeviceAttestationType\":\"[@requiredAndroidSafetyNetDeviceAttestationType()]\",\"appActionIfAndroidSafetyNetDeviceAttestationFailed\":\"block\",\"requiredAndroidSafetyNetAppsVerificationType\":\"enabled\",\"appActionIfAndroidSafetyNetAppsVerificationFailed\":\"block\",\"keyboardsRestricted\":\"[@keyboardsRestricted()]\",\"allowedAndroidDeviceModels\":[[]],\"appActionIfAndroidDeviceModelNotAllowed\":\"block\",\"biometricAuthenticationBlocked\":\"False\",\"requiredAndroidSafetyNetEvaluationType\":\"basic\",\"blockAfterCompanyPortalUpdateDeferralInDays\":\"0\",\"warnAfterCompanyPortalUpdateDeferralInDays\":\"0\",\"wipeAfterCompanyPortalUpdateDeferralInDays\":\"0\",\"deviceLockRequired\":\"False\",\"appActionIfDeviceLockNotSet\":\"block\",\"connectToVpnOnLaunch\":\"False\",\"appActionIfDevicePasscodeComplexityLessThanLow\":\"warn\",\"requireClass3Biometrics\":\"False\",\"requirePinAfterBiometricChange\":\"False\",\"fingerprintAndBiometricEnabled\":\"True\",\"exemptedAppPackages\":[[]],\"approvedKeyboards\":[[]],\"assignments\":[[ [@sys.join([@sys.concat([@getincludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])] ]]}],[@sys.read(\"policies\")],[@sys.read(\"allUsers\")])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getincludeGroups",
+                  "value": "select case\r\n\t                    when data like 'All' then '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                    }\r\n\t                    }'\r\n\t                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                    when data = '' then ''\r\n                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": false
+          },
+          "extractionAction": {
+            "operationDefinition": {
+              "values": [
+                "/beta/deviceAppManagement/androidManagedAppProtections/T_189aca64-5482-4fa6-b852-d248a077e072?$expand=apps,assignments"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "deletionAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceAppManagement/androidManagedAppProtections?$filter=displayName eq '[@displayName()]'],\"id\")],\"deviceAppManagementId\")",
+                "{IncludeResponseBodyInException:true} DELETE /beta/deviceAppManagement/androidManagedAppProtections/[@sys.read(\"deviceAppManagementId\")]"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "id": "1ad8d0f4-7cec-4342-9290-7b0dcee8b7e4"
+        }
+      ]
+    }
+  ]
+}

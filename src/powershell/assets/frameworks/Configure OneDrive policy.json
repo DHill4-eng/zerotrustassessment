@@ -1,0 +1,1076 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 7,
+  "category": 1,
+  "provider": 0,
+  "parameters": [],
+  "workloadActions": [],
+  "version": 0,
+  "displayName": "Configure OneDrive policy",
+  "description": "This task sets sharing limitations in OneDrive to help protect tenant data. It also enables smart sign-in and disk space optimization.",
+  "userImpact": "OneDrive will be set up on Windows devices in accordance with the configured policy.",
+  "informationLinks": [
+    {
+      "url": "https://learn.microsoft.com/en-us/sharepoint/use-group-policy",
+      "displayName": "Configure OneDrive policy"
+    }
+  ],
+  "id": "7dbb7b7f-b12d-4f32-b386-263072b70732",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Configure OneDrive policy for Windows 10 and later",
+      "description": "This task sets sharing limitations in OneDrive to help protect tenant data. It also enables smart sign-in and disk space optimization.",
+      "portalLink": {
+        "url": "https://endpoint.microsoft.com/{tenantName}/#view/Microsoft_Intune_DeviceSettings/DevicesMenu/~/configurationProfiles",
+        "displayName": "Intune"
+      },
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262325",
+          "displayName": "Use OneDrive policies to control sync settings"
+        }
+      ],
+      "id": "3c0cad0a-675e-4b36-9356-e5313048c62c",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "Configure OneDrive policy for Windows 10 and later",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "name",
+              "value": "Configure OneDrive policy for Windows 10 and later",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": true,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Name"
+            },
+            {
+              "name": "settings.1.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_permitdisablepermissioninheritance_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_permitdisablepermissioninheritance_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Allow OneDrive to disable Windows permission inheritance in folders synced read-only"
+            },
+            {
+              "name": "settings.2.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_allowtenantlist_1",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_allowtenantlist_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Allow syncing OneDrive accounts for only specific organizations"
+            },
+            {
+              "name": "settings.3.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_enableholdthefile_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_enableholdthefile_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Allow users to choose how to handle Office file sync conflicts (User)"
+            },
+            {
+              "name": "settings.4.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_kfmforcewindowsdisplaylanguage_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_kfmforcewindowsdisplaylanguage_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Always use the user's Windows display language when provisioning known folders in OneDrive"
+            },
+            {
+              "name": "settings.5.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_kfmforcewindowsdisplaylanguage_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_kfmforcewindowsdisplaylanguage_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Always use the user's Windows display language when provisioning known folders in OneDrive (User)"
+            },
+            {
+              "name": "settings.6.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_mindiskspacelimitinmb_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_mindiskspacelimitinmb_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Block file downloads when users are low on disk space"
+            },
+            {
+              "name": "settings.7.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blocktenantlist_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blocktenantlist_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Block syncing OneDrive accounts for specific organizations"
+            },
+            {
+              "name": "settings.8.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_ignorewebproxy_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_ignorewebproxy_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Cause sync client to ignore normal web proxy detection logic"
+            },
+            {
+              "name": "settings.9.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_enableallocsiclients_1",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_enableallocsiclients_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Coauthor and share in Office desktop apps (User)"
+            },
+            {
+              "name": "settings.10.settingInstance.choiceSettingValue.value",
+              "value": "[\"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites_0\"]",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites_0",
+                  "displayName": "Disabled"
+                },
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Configure team site libraries to sync automatically"
+            },
+            {
+              "name": "settings.10.settingInstance.choiceSettingValue.children.1.groupSettingCollectionValue.1.children",
+              "value": "[]",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Configure team site libraries to sync automatically (items)"
+            },
+            {
+              "name": "settings.11.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Configure team site libraries to sync automatically (User)"
+            },
+            {
+              "name": "settings.12.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepauseonmeterednetwork_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepauseonmeterednetwork_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Continue syncing on metered networks (User)"
+            },
+            {
+              "name": "settings.13.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepauseonbatterysaver_1",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepauseonbatterysaver_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Continue syncing when devices have battery saver mode turned on (User)"
+            },
+            {
+              "name": "settings.14.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_dehydratesyncedteamsites_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_dehydratesyncedteamsites_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Convert synced team site files to online-only files"
+            },
+            {
+              "name": "settings.15.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablefretutorial_1",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablefretutorial_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Disable the tutorial that appears at the end of OneDrive Setup (User)"
+            },
+            {
+              "name": "settings.16.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_enableautomaticuploadbandwidthmanagement_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_enableautomaticuploadbandwidthmanagement_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Enable automatic upload bandwidth management for OneDrive"
+            },
+            {
+              "name": "settings.17.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_enableodignorelistfromgpo_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_enableodignorelistfromgpo_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Exclude specific kinds of files from being uploaded"
+            },
+            {
+              "name": "settings.18.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_disablefirstdeletedialog_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_disablefirstdeletedialog_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Hide the \"Deleted files are removed everywhere\" reminder"
+            },
+            {
+              "name": "settings.19.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_downloadbandwidthlimit_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_downloadbandwidthlimit_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Limit the sync app download speed to a fixed rate (User)"
+            },
+            {
+              "name": "settings.20.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automaticuploadbandwidthpercentage_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automaticuploadbandwidthpercentage_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Limit the sync app upload rate to a percentage of throughput"
+            },
+            {
+              "name": "settings.21.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_uploadbandwidthlimit_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_uploadbandwidthlimit_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Limit the sync app upload speed to a fixed rate (User)"
+            },
+            {
+              "name": "settings.22.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_preventnetworktrafficpreusersignin_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_preventnetworktrafficpreusersignin_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Prevent the sync app from generating network traffic until users sign in"
+            },
+            {
+              "name": "settings.23.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablecustomroot_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablecustomroot_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Prevent users from changing the location of their OneDrive folder (User)"
+            },
+            {
+              "name": "settings.24.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blockknownfoldermove_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blockknownfoldermove_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Prevent users from moving their Windows known folders to OneDrive"
+            },
+            {
+              "name": "settings.25.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmblockoptout_1",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmblockoptout_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Prevent users from redirecting their Windows known folders to their PC"
+            },
+            {
+              "name": "settings.26.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blockexternalsync_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blockexternalsync_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Prevent users from syncing libraries and folders shared from other organizations"
+            },
+            {
+              "name": "settings.27.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepersonalsync_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepersonalsync_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Prevent users from syncing personal OneDrive accounts (User)"
+            },
+            {
+              "name": "settings.28.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinwithwizard_1",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinwithwizard_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Prompt users to move Windows known folders to OneDrive"
+            },
+            {
+              "name": "settings.29.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_localmassdeletefiledeletethreshold_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_localmassdeletefiledeletethreshold_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Prompt users when they delete multiple OneDrive files on their local computer"
+            },
+            {
+              "name": "settings.30.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_forcedlocalmassdeletedetection_1",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_forcedlocalmassdeletedetection_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Require users to confirm large delete operations"
+            },
+            {
+              "name": "settings.31.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_defaultrootdir_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_defaultrootdir_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Set the default location for the OneDrive folder (User)"
+            },
+            {
+              "name": "settings.32.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_diskspacecheckthresholdmb_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_diskspacecheckthresholdmb_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Set the maximum size of a user's OneDrive that can download automatically"
+            },
+            {
+              "name": "settings.33.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_gposetupdatering_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_gposetupdatering_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Set the sync app update ring"
+            },
+            {
+              "name": "settings.34.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard_1",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Silently move Windows known folders to OneDrive"
+            },
+            {
+              "name": "settings.35.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_silentaccountconfig_1",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_silentaccountconfig_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Silently sign in users to the OneDrive sync app with their Windows credentials"
+            },
+            {
+              "name": "settings.36.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_sharepointonpremfrontdoorurl_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_sharepointonpremfrontdoorurl_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Specify SharePoint Server URL and organization name"
+            },
+            {
+              "name": "settings.37.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_sharepointonpremprioritization_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_sharepointonpremprioritization_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Specify the OneDrive location in a hybrid environment"
+            },
+            {
+              "name": "settings.38.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv5~policy~onedrivengsc_syncadminreports_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv5~policy~onedrivengsc_syncadminreports_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Sync Admin Reports"
+            },
+            {
+              "name": "settings.39.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_filesondemandenabled_1",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_filesondemandenabled_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Use OneDrive Files On-Demand"
+            },
+            {
+              "name": "settings.40.settingInstance.choiceSettingValue.value",
+              "value": "device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_warningmindiskspacelimitinmb_0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_warningmindiskspacelimitinmb_0",
+                  "displayName": "Disabled"
+                }
+              ],
+              "displayName": "Warn users who are low on disk space"
+            },
+            {
+              "name": "includeGroups",
+              "value": "[\"All\"]",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "Groups_AllGroups",
+                  "displayName": "All groups"
+                }
+              ],
+              "displayName": "Include groups"
+            },
+            {
+              "name": "excludeGroups",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Exclude groups"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/configurationPolicies?$filter=name eq '[@name()]'],\"id\")],\"deviceManagementId\")",
+                "{IncludeResponseBodyInException:true} PUT /beta/deviceManagement/configurationPolicies/[@sys.read(\"deviceManagementId\")] \\ {\r\n  \"name\": \"[@name()]\",\r\n  \"platforms\": \"windows10\",\r\n  \"technologies\": \"mdm\",\r\n  \"templateReference\": {\r\n    \"templateFamily\": \"none\"\r\n  },\r\n  \"settings\": [[\r\n    {\r\n      \"id\": \"0\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_permitdisablepermissioninheritance\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.1.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"1\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_allowtenantlist\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.2.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_allowtenantlist_allowtenantlistbox\",\r\n              \"simpleSettingCollectionValue\": [[\r\n                {\r\n                  \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationStringSettingValue\",\r\n                  \"value\": \"[@sys.first([@tenantIds()])]\"\r\n                }\r\n              ]]\r\n            }\r\n          ]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"2\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_enableholdthefile\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.3.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"3\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_kfmforcewindowsdisplaylanguage\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.4.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"4\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_kfmforcewindowsdisplaylanguage\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.5.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"5\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_mindiskspacelimitinmb\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.6.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"6\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blocktenantlist\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.7.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"7\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_ignorewebproxy\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.8.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"8\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_enableallocsiclients\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.9.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"9\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@sys.first([@settings.10.settingInstance.choiceSettingValue.value()])]\",\r\n [@getSyncLibraries([@sys.first([@settings.10.settingInstance.choiceSettingValue.value()])],[@settings.10.settingInstance.choiceSettingValue.children.1.groupSettingCollectionValue.1.children()])] \r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"10\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.11.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"11\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepauseonmeterednetwork\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.12.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"12\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepauseonbatterysaver\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.13.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"13\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_dehydratesyncedteamsites\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.14.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"14\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablefretutorial\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.15.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"15\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_enableautomaticuploadbandwidthmanagement\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.16.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"16\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_enableodignorelistfromgpo\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.17.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"17\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_disablefirstdeletedialog\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.18.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"18\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_downloadbandwidthlimit\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.19.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"19\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automaticuploadbandwidthpercentage\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.20.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"20\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_uploadbandwidthlimit\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.21.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"21\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_preventnetworktrafficpreusersignin\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.22.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"22\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablecustomroot\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.23.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"23\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blockknownfoldermove\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.24.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"24\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmblockoptout\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.25.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"25\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blockexternalsync\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.26.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"26\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepersonalsync\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.27.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"27\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinwithwizard\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.28.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinwithwizard_kfmoptinwithwizard_textbox\",\r\n              \"simpleSettingValue\": {\r\n                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationStringSettingValue\",\r\n                \"value\": \"[@sys.first([@tenantIds()])]\"\r\n              }\r\n            }\r\n          ]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"28\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_localmassdeletefiledeletethreshold\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.29.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"29\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_forcedlocalmassdeletedetection\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.30.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"30\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_defaultrootdir\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.31.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"31\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_diskspacecheckthresholdmb\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.32.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"32\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_gposetupdatering\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.33.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"33\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.34.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard_kfmoptinnowizard_dropdown\",\r\n              \"choiceSettingValue\": {\r\n                \"value\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard_kfmoptinnowizard_dropdown_0\",\r\n                \"children\": [[]]\r\n              }\r\n            },\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard_kfmoptinnowizard_textbox\",\r\n              \"simpleSettingValue\": {\r\n                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationStringSettingValue\",\r\n                \"value\": \"[@sys.first([@tenantIds()])]\"\r\n              }\r\n            }\r\n          ]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"34\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_silentaccountconfig\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.35.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"35\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_sharepointonpremfrontdoorurl\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.36.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"36\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_sharepointonpremprioritization\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.37.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"37\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv5~policy~onedrivengsc_syncadminreports\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.38.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"38\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_filesondemandenabled\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.39.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"39\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_warningmindiskspacelimitinmb\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.40.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    }\r\n  ]]\r\n}",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/configurationPolicies[@sys.notexists(\"deviceManagementId\")] \\ {\r\n  \"name\": \"[@name()]\",\r\n  \"platforms\": \"windows10\",\r\n  \"technologies\": \"mdm\",\r\n  \"templateReference\": {\r\n    \"templateFamily\": \"none\"\r\n  },\r\n  \"settings\": [[\r\n    {\r\n      \"id\": \"0\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_permitdisablepermissioninheritance\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.1.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"1\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_allowtenantlist\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.2.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_allowtenantlist_allowtenantlistbox\",\r\n              \"simpleSettingCollectionValue\": [[\r\n                {\r\n                  \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationStringSettingValue\",\r\n                  \"value\": \"[@sys.first([@tenantIds()])]\"\r\n                }\r\n              ]]\r\n            }\r\n          ]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"2\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_enableholdthefile\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.3.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"3\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_kfmforcewindowsdisplaylanguage\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.4.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"4\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_kfmforcewindowsdisplaylanguage\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.5.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"5\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_mindiskspacelimitinmb\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.6.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"6\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blocktenantlist\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.7.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"7\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_ignorewebproxy\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.8.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"8\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_enableallocsiclients\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.9.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"9\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@sys.first([@settings.10.settingInstance.choiceSettingValue.value()])]\",\r\n [@getSyncLibraries([@sys.first([@settings.10.settingInstance.choiceSettingValue.value()])],[@settings.10.settingInstance.choiceSettingValue.children.1.groupSettingCollectionValue.1.children()])] \r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"10\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.11.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"11\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepauseonmeterednetwork\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.12.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"12\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepauseonbatterysaver\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.13.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"13\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_dehydratesyncedteamsites\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.14.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"14\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablefretutorial\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.15.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"15\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_enableautomaticuploadbandwidthmanagement\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.16.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"16\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_enableodignorelistfromgpo\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.17.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"17\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_disablefirstdeletedialog\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.18.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"18\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_downloadbandwidthlimit\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.19.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"19\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automaticuploadbandwidthpercentage\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.20.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"20\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_uploadbandwidthlimit\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.21.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"21\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_preventnetworktrafficpreusersignin\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.22.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"22\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablecustomroot\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.23.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"23\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blockknownfoldermove\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.24.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"24\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmblockoptout\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.25.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"25\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blockexternalsync\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.26.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"26\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepersonalsync\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.27.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"27\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinwithwizard\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.28.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinwithwizard_kfmoptinwithwizard_textbox\",\r\n              \"simpleSettingValue\": {\r\n                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationStringSettingValue\",\r\n                \"value\": \"[@sys.first([@tenantIds()])]\"\r\n              }\r\n            }\r\n          ]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"28\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_localmassdeletefiledeletethreshold\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.29.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"29\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_forcedlocalmassdeletedetection\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.30.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"30\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_defaultrootdir\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.31.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"31\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_diskspacecheckthresholdmb\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.32.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"32\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_gposetupdatering\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.33.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"33\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.34.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard_kfmoptinnowizard_dropdown\",\r\n              \"choiceSettingValue\": {\r\n                \"value\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard_kfmoptinnowizard_dropdown_0\",\r\n                \"children\": [[]]\r\n              }\r\n            },\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard_kfmoptinnowizard_textbox\",\r\n              \"simpleSettingValue\": {\r\n                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationStringSettingValue\",\r\n                \"value\": \"[@sys.first([@tenantIds()])]\"\r\n              }\r\n            }\r\n          ]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"34\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_silentaccountconfig\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.35.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"35\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_sharepointonpremfrontdoorurl\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.36.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"36\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_sharepointonpremprioritization\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.37.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"37\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv5~policy~onedrivengsc_syncadminreports\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.38.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"38\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_filesondemandenabled\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.39.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"39\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_warningmindiskspacelimitinmb\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.40.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    }\r\n  ]]\r\n}],\"id\")],\"deviceManagementId\")",
+                "POST /beta/deviceManagement/configurationPolicies/[@sys.read(\"deviceManagementId\")]/assign  \\ \r\n            { \r\n                \"assignments\":\r\n                [[\r\n                    [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])]\r\n                ]]\r\n              }"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                            when data like 'All' then '{ \r\n\t\t                            \"target\":\r\n                                    {\r\n\t\t\t                            \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                            }\r\n\t                            }'\r\n\t                            else '{ \r\n\t\t                            \"target\":\r\n                                    {\r\n\t\t\t                            \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                        \"groupId\": \"' || data || '\"\r\n\t\t                            }\r\n\t                            }'\r\n                            end\r\n                            from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                            when data = '' then ''\r\n                            else '{ \r\n\t\t                            \"target\":\r\n                                    {\r\n\t\t\t                            \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                        \"groupId\": \"' || data || '\"\r\n\t\t                            }\r\n\t                            }'\r\n                            end\r\n                            from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getSyncLibraries",
+                  "value": "select case\r\n\t                            when data like 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites_1' then '\"children\": [\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites_automountteamsiteslistbox\",\r\n              \"groupSettingCollectionValue\": [\r\n                {\r\n                  \"children\": '|| (select data from arg1) || '                }\r\n              ]\r\n            }\r\n          ]'\r\n\t                            else '\"children\": []'\r\n                            end\r\n                            from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "name",
+                  "value": "select 'Configure OneDrive policy for Windows 10 and later'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.1.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_permitdisablepermissioninheritance_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.2.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_allowtenantlist_1'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.3.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_enableholdthefile_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.4.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_kfmforcewindowsdisplaylanguage_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.5.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_kfmforcewindowsdisplaylanguage_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.6.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_mindiskspacelimitinmb_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.7.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blocktenantlist_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.8.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_ignorewebproxy_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.9.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_enableallocsiclients_1'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.10.settingInstance.choiceSettingValue.value",
+                  "value": "select '[\"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites_0\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.10.settingInstance.choiceSettingValue.children.1.groupSettingCollectionValue.1.children",
+                  "value": "select '[]'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.11.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.12.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepauseonmeterednetwork_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.13.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepauseonbatterysaver_1'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.14.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_dehydratesyncedteamsites_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.15.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablefretutorial_1'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.16.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_enableautomaticuploadbandwidthmanagement_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.17.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_enableodignorelistfromgpo_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.18.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_disablefirstdeletedialog_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.19.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_downloadbandwidthlimit_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.20.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automaticuploadbandwidthpercentage_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.21.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_uploadbandwidthlimit_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.22.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_preventnetworktrafficpreusersignin_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.23.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablecustomroot_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.24.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blockknownfoldermove_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.25.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmblockoptout_1'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.26.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blockexternalsync_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.27.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepersonalsync_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.28.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinwithwizard_1'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.29.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_localmassdeletefiledeletethreshold_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.30.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_forcedlocalmassdeletedetection_1'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.31.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_defaultrootdir_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.32.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_diskspacecheckthresholdmb_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.33.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_gposetupdatering_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.34.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard_1'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.35.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_silentaccountconfig_1'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.36.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_sharepointonpremfrontdoorurl_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.37.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_sharepointonpremprioritization_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.38.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv5~policy~onedrivengsc_syncadminreports_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.39.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_filesondemandenabled_1'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.40.settingInstance.choiceSettingValue.value",
+                  "value": "select 'device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_warningmindiskspacelimitinmb_0'"
+                },
+                {
+                  "type": 0,
+                  "id": "includeGroups",
+                  "value": "select '[\"All\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "excludeGroups",
+                  "value": "select ''"
+                },
+                {
+                  "type": 0,
+                  "id": "tenantIds",
+                  "value": "select '[\"a380a655-8cdd-4484-9eaf-7c9f320a122a\"]'"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.normalize([/beta/deviceManagement/configurationPolicies?$expand=assignments])],\"policies\")",
+                "@sys.write([@sys.normalize([/v1.0/users?$select=id,displayName,userPrincipalName,assignedPlans,assignedLicenses,userType&$expand=memberOf($select=roleTemplateId)])],\"allUsers\")",
+                "@sys.validateDeviceConfigurationPolicy([POST /echo \\ {\r\n  \"name\": \"[@name()]\",\r\n  \"platforms\": \"windows10\",\r\n  \"technologies\": \"mdm\",\r\n  \"templateReference\": {\r\n    \"templateFamily\": \"none\"\r\n  },\r\n  \"settings\": [[\r\n    {\r\n      \"id\": \"0\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_permitdisablepermissioninheritance\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.1.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"1\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_allowtenantlist\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.2.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_allowtenantlist_allowtenantlistbox\",\r\n              \"simpleSettingCollectionValue\": [[\r\n                {\r\n                  \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationStringSettingValue\",\r\n                  \"value\": \"[@sys.first([@tenantIds()])]\"\r\n                }\r\n              ]]\r\n            }\r\n          ]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"2\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_enableholdthefile\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.3.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"3\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_kfmforcewindowsdisplaylanguage\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.4.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"4\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_kfmforcewindowsdisplaylanguage\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.5.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"5\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_mindiskspacelimitinmb\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.6.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"6\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blocktenantlist\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.7.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"7\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_ignorewebproxy\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.8.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"8\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_enableallocsiclients\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.9.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"9\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@sys.first([@settings.10.settingInstance.choiceSettingValue.value()])]\",\r\n [@getSyncLibraries([@sys.first([@settings.10.settingInstance.choiceSettingValue.value()])],[@settings.10.settingInstance.choiceSettingValue.children.1.groupSettingCollectionValue.1.children()])] \r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"10\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.11.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"11\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepauseonmeterednetwork\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.12.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"12\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepauseonbatterysaver\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.13.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"13\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_dehydratesyncedteamsites\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.14.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"14\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablefretutorial\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.15.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"15\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_enableautomaticuploadbandwidthmanagement\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.16.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"16\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_enableodignorelistfromgpo\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.17.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"17\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv4~policy~onedrivengsc_disablefirstdeletedialog\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.18.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"18\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_downloadbandwidthlimit\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.19.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"19\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automaticuploadbandwidthpercentage\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.20.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"20\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_uploadbandwidthlimit\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.21.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"21\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_preventnetworktrafficpreusersignin\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.22.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"22\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablecustomroot\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.23.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"23\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blockknownfoldermove\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.24.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"24\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmblockoptout\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.25.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"25\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_blockexternalsync\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.26.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"26\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_disablepersonalsync\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.27.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"27\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinwithwizard\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.28.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinwithwizard_kfmoptinwithwizard_textbox\",\r\n              \"simpleSettingValue\": {\r\n                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationStringSettingValue\",\r\n                \"value\": \"[@sys.first([@tenantIds()])]\"\r\n              }\r\n            }\r\n          ]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"28\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_localmassdeletefiledeletethreshold\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.29.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"29\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_forcedlocalmassdeletedetection\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.30.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"30\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"user_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_defaultrootdir\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.31.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"31\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_diskspacecheckthresholdmb\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.32.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"32\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_gposetupdatering\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.33.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"33\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.34.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard_kfmoptinnowizard_dropdown\",\r\n              \"choiceSettingValue\": {\r\n                \"value\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard_kfmoptinnowizard_dropdown_0\",\r\n                \"children\": [[]]\r\n              }\r\n            },\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_kfmoptinnowizard_kfmoptinnowizard_textbox\",\r\n              \"simpleSettingValue\": {\r\n                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationStringSettingValue\",\r\n                \"value\": \"[@sys.first([@tenantIds()])]\"\r\n              }\r\n            }\r\n          ]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"34\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_silentaccountconfig\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.35.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"35\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_sharepointonpremfrontdoorurl\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.36.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"36\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_sharepointonpremprioritization\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.37.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"37\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv5~policy~onedrivengsc_syncadminreports\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.38.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"38\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_filesondemandenabled\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.39.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"39\",\r\n      \"settingInstance\": {\r\n        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n        \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv3~policy~onedrivengsc_warningmindiskspacelimitinmb\",\r\n        \"choiceSettingValue\": {\r\n          \"value\": \"[@settings.40.settingInstance.choiceSettingValue.value()]\",\r\n          \"children\": [[]]\r\n        }\r\n      }\r\n    }\r\n  ]],\"assignments\":[[ [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])] ]]}],[@sys.read(\"policies\")],[@sys.read(\"allUsers\")])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                    when data like 'All' then '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                    }\r\n\t                    }'\r\n\t                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                    when data = '' then ''\r\n                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getSyncLibraries",
+                  "value": "select case\r\n\t                            when data like 'device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites_1' then '\"children\": [\r\n            {\r\n              \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstance\",\r\n              \"settingDefinitionId\": \"device_vendor_msft_policy_config_onedrivengscv2~policy~onedrivengsc_automountteamsites_automountteamsiteslistbox\",\r\n              \"groupSettingCollectionValue\": [\r\n                {\r\n                  \"children\": '|| (select data from arg1) || '                }\r\n              ]\r\n            }\r\n          ]'\r\n\t                            else '\"children\": []'\r\n                            end\r\n                            from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": true
+          },
+          "extractionAction": {
+            "operationDefinition": {
+              "values": [
+                "/beta/deviceManagement/configurationPolicies/362e6dde-713e-4208-a342-534190c43c0b?$expand=settings, assignments"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "deletionAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/configurationPolicies?$filter=name eq '[@name()]'],\"id\")],\"deviceManagementId\")",
+                "{IncludeResponseBodyInException:true} DELETE /beta/deviceManagement/configurationPolicies/[@sys.read(\"deviceManagementId\")]"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "id": "ab5efdee-041b-43b8-9cb6-7fbaf40a6e4e"
+        }
+      ]
+    }
+  ]
+}

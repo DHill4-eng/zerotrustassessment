@@ -1,0 +1,549 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 3,
+  "category": 2,
+  "provider": 0,
+  "parameters": [],
+  "workloadActions": [],
+  "version": 0,
+  "displayName": "Require MFA for admins",
+  "description": "Requiring multi-factor authentication (MFA) for all administrative roles makes it harder for attackers to access accounts. Administrative roles have higher permissions than typical users. If any of those accounts are compromise, critical devices and data is open to attack.",
+  "userImpact": "First, users with administrative roles need to register for MFA. After each admin is registered, your policies then determine when they're prompted for the additional authentication factors. To view more information on your users MFA registration status please view the MFA Operational Report [Users - Microsoft 365 Lighthouse](https://lighthouse.microsoft.com/#view/Microsoft_Intune_MTM/MultiFactorAuthentication.ReactView)",
+  "informationLinks": [],
+  "id": "08e242f6-25c9-4ad7-90ca-3415cb7f392d",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 1,
+      "category": 2,
+      "isCloned": true,
+      "displayName": "Create Conditional Access policy to require MFA for admins",
+      "description": "A Conditional Access policy is a rule evaluated at user login that grants or denies access to organizational resources. Conditional Access policies use signals present during login to restrict access when an expected criteria is not met. Examples of signals used to define Conditional Access policies include the user's inferred geographic location, the application being accessed by the user, and the presence or absence of a Multi-Factor Authentication response.",
+      "portalLink": {
+        "url": "https://entra.microsoft.com/{tenantName}/#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies/fromNav/",
+        "displayName": "Microsoft Entra"
+      },
+      "userImpact": "First, users with administrative roles need to register for MFA. After each admin is registered, your policies then determine when they're prompted for the additional authentication factors. To view more information on your users MFA registration status please view the MFA Operational Report [Users - Microsoft 365 Lighthouse](https://lighthouse.microsoft.com/#view/Microsoft_Intune_MTM/MultiFactorAuthentication.ReactView)",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2185946",
+          "displayName": "Why do I need MFA?"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2185840",
+          "displayName": "Your Password doesn't matter"
+        }
+      ],
+      "id": "0dcc61db-4ccd-428b-82b8-6bdbb8451ec7",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "RequireMFAForAdmins-2",
+          "version": 2,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "displayName",
+              "value": "M365 Lighthouse - Require MFA for Admins",
+              "isRequired": true,
+              "isReadOnly": true,
+              "referenceStrings": [],
+              "displayName": "Display name"
+            },
+            {
+              "name": "state",
+              "value": "[\"enabled\"]",
+              "isRequired": true,
+              "isReadOnly": false,
+              "referenceStrings": [
+                {
+                  "name": "State_Enabled",
+                  "displayName": "Enable policy"
+                },
+                {
+                  "name": "State_Enabled_Description",
+                  "displayName": "Microsoft Entra will enforce the conditions and controls configured in this policy."
+                },
+                {
+                  "name": "State_EnabledForReporting",
+                  "displayName": "Enable for reporting only"
+                },
+                {
+                  "name": "State_EnabledForReporting_Description",
+                  "displayName": "Microsoft Entra will evaluate the conditions and controls configured in this policy and log the user impact that would have resulted if the policy were enforced. Policies set to report-only are evaluated as \"Not compliant\" in Baselines reporting."
+                }
+              ],
+              "displayName": "State"
+            },
+            {
+              "name": "builtInControls",
+              "value": "[\"mfa\"]",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "GrantControl_Block",
+                  "displayName": "Block access"
+                },
+                {
+                  "name": "GrantControl_MFA",
+                  "displayName": "Require multi-factor authentication"
+                },
+                {
+                  "name": "GrantControl_CompliantDevice",
+                  "displayName": "Require device to be marked compliant"
+                },
+                {
+                  "name": "GrantControl_DomainJoinedDevice",
+                  "displayName": "Require Hybrid Microsoft Entra joined device"
+                },
+                {
+                  "name": "GrantControl_ApprovedApplication",
+                  "displayName": "Require approved client app"
+                },
+                {
+                  "name": "GrantControl_CompliantApplication",
+                  "displayName": "Require app protection policy"
+                },
+                {
+                  "name": "GrantControl_PasswordChange",
+                  "displayName": "Require password change"
+                }
+              ],
+              "displayName": "Grant controls"
+            },
+            {
+              "name": "operator",
+              "value": "[\"OR\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "Condition_Or",
+                  "displayName": "Require one of the selected controls"
+                },
+                {
+                  "name": "Condition_And",
+                  "displayName": "Require all selected controls"
+                }
+              ],
+              "displayName": "Require any grant control or all grant controls"
+            },
+            {
+              "name": "clientAppTypes",
+              "value": "[\"All\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "ClientAppType_All",
+                  "displayName": "All "
+                },
+                {
+                  "name": "ClientAppType_Browser",
+                  "displayName": "Browser"
+                },
+                {
+                  "name": "ClientAppType_MobileAppsAndDesktopClients",
+                  "displayName": "Mobile apps and desktop clients"
+                },
+                {
+                  "name": "ClientAppType_ExchangeActiveSync",
+                  "displayName": "Exchange ActiveSync clients"
+                },
+                {
+                  "name": "ClientAppType_EASSupported",
+                  "displayName": "Exchange-ActiveSync-Supported clients"
+                },
+                {
+                  "name": "ClientAppType_Other",
+                  "displayName": "Other clients"
+                }
+              ],
+              "displayName": "Client application types"
+            },
+            {
+              "name": "includeApplications",
+              "value": "[\"All\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "Applications_AllApplications",
+                  "displayName": "All applications"
+                }
+              ],
+              "displayName": "Include applications"
+            },
+            {
+              "name": "excludeApplications",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [],
+              "displayName": "Exclude applications"
+            },
+            {
+              "name": "includeUsers",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "Users_None",
+                  "displayName": "No users"
+                },
+                {
+                  "name": "Users_AllUsers",
+                  "displayName": "All users"
+                },
+                {
+                  "name": "Users_GuestsOrExternalUsers",
+                  "displayName": "Guests or external users"
+                }
+              ],
+              "displayName": "Include users"
+            },
+            {
+              "name": "excludeUsers",
+              "isRequired": false,
+              "isReadOnly": false,
+              "referenceStrings": [
+                {
+                  "name": "Users_GuestsOrExternalUsers",
+                  "displayName": "Guests or external users"
+                }
+              ],
+              "displayName": "Exclude users"
+            },
+            {
+              "name": "includeGroups",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "Groups_AllGroups",
+                  "displayName": "All groups"
+                }
+              ],
+              "displayName": "Include groups"
+            },
+            {
+              "name": "excludeGroups",
+              "isRequired": false,
+              "isReadOnly": false,
+              "referenceStrings": [],
+              "displayName": "Exclude groups"
+            },
+            {
+              "name": "includeRoles",
+              "value": "[\"62e90394-69f5-4237-9190-012177145e10\",\"f28a1f50-f6e7-4571-818b-6a12f2af6b6c\",\"29232cdf-9323-42fd-ade2-1d097af3e4de\",\"b1be1c3e-b65d-4f19-8427-f6fa0d97feb9\",\"194ae4cb-b126-40b2-bd5b-6091b380977d\",\"729827e3-9c14-49f7-bb1b-9608f156bbb8\",\"b0f54661-2d74-4c50-afa3-1ec803f12efe\",\"fe930be7-5e62-47db-91af-98c3a49a38b1\",\"c4e39bd9-1100-46d3-8c65-fb160da0071f\",\"9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3\",\"158c047a-c907-4556-b7ef-446551a6b5f7\",\"966707d0-3269-4727-9be2-8c3a10f19b9d\",\"7be44c8a-adaf-4e2a-84d6-ab2649e08a13\",\"e8611ab8-c189-46e8-94e1-60213ab1f814\"]",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "Roles_All",
+                  "displayName": "All roles"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group3",
+                  "displayName": "Global administrator"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group5",
+                  "displayName": "SharePoint administrator"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group10",
+                  "displayName": "Exchange Administrator"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group4",
+                  "displayName": "Conditional Access administrator"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group1",
+                  "displayName": "Security administrator"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group6",
+                  "displayName": "Helpdesk administrator"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group7",
+                  "displayName": "Billing administrator"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group8",
+                  "displayName": "User administrator"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group9",
+                  "displayName": "Authentication administrator"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group11",
+                  "displayName": "Application Administrator"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group12",
+                  "displayName": "Cloud Application Administrator"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group13",
+                  "displayName": "Privileged Authentication Administrator"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group14",
+                  "displayName": "Privileged Role Administrator"
+                },
+                {
+                  "name": "BlueprintDetail_RequireMfaAdmins_IncludedGroups_Group15",
+                  "displayName": "Password Administrator"
+                }
+              ],
+              "displayName": "Include roles"
+            },
+            {
+              "name": "excludeRoles",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [],
+              "displayName": "Exclude roles"
+            },
+            {
+              "name": "includeLocations",
+              "value": "[\"All\"]",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "Locations_All",
+                  "displayName": "All locations"
+                },
+                {
+                  "name": "Locations_AllTrusted",
+                  "displayName": "All trusted locations"
+                }
+              ],
+              "displayName": "Include locations"
+            },
+            {
+              "name": "excludeLocations",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [],
+              "displayName": "Exclude locations"
+            },
+            {
+              "name": "includePlatforms",
+              "value": "[\"All\"]",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "Platform_All",
+                  "displayName": "All platforms"
+                },
+                {
+                  "name": "Platform_Android",
+                  "displayName": "Android"
+                },
+                {
+                  "name": "Platform_iOS",
+                  "displayName": "iOS"
+                },
+                {
+                  "name": "Platform_Windows",
+                  "displayName": "Windows"
+                },
+                {
+                  "name": "Platform_WindowsPhone",
+                  "displayName": "Windows Phone"
+                },
+                {
+                  "name": "Platform_macOS",
+                  "displayName": "Mac"
+                }
+              ],
+              "displayName": "Include platforms"
+            },
+            {
+              "name": "excludePlatforms",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "Platform_All",
+                  "displayName": "All platforms"
+                },
+                {
+                  "name": "Platform_Android",
+                  "displayName": "Android"
+                },
+                {
+                  "name": "Platform_iOS",
+                  "displayName": "iOS"
+                },
+                {
+                  "name": "Platform_Windows",
+                  "displayName": "Windows"
+                },
+                {
+                  "name": "Platform_WindowsPhone",
+                  "displayName": "Windows Phone"
+                },
+                {
+                  "name": "Platform_macOS",
+                  "displayName": "Mac"
+                }
+              ],
+              "displayName": "Exclude platforms"
+            },
+            {
+              "name": "signInRiskLevels",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "RiskLevel_Low",
+                  "displayName": "Low"
+                },
+                {
+                  "name": "RiskLevel_Medium",
+                  "displayName": "Medium"
+                },
+                {
+                  "name": "RiskLevel_High",
+                  "displayName": "High"
+                },
+                {
+                  "name": "RiskLevel_Hidden",
+                  "displayName": "Hidden"
+                },
+                {
+                  "name": "RiskLevel_None",
+                  "displayName": "None"
+                }
+              ],
+              "displayName": "Sign-in risk levels"
+            },
+            {
+              "name": "userRiskLevels",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "RiskLevel_Low",
+                  "displayName": "Low"
+                },
+                {
+                  "name": "RiskLevel_Medium",
+                  "displayName": "Medium"
+                },
+                {
+                  "name": "RiskLevel_High",
+                  "displayName": "High"
+                },
+                {
+                  "name": "RiskLevel_Hidden",
+                  "displayName": "Hidden"
+                },
+                {
+                  "name": "RiskLevel_None",
+                  "displayName": "None"
+                }
+              ],
+              "displayName": "User risk levels"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/identity/conditionalAccess/policies?$filter=displayName eq '[@displayName()]'],\"id\")],\"policyId\")",
+                "{IncludeResponseBodyInException:true} PATCH /beta/identity/conditionalAccess/policies/[@sys.read(\"policyId\")] \\ {\r\n            \"conditions\": \r\n            {\r\n                \"applications\": \r\n                {\r\n                    \"includeApplications\": [[ [@sys.trimArray([@includeApplications()])] ]],\r\n                    \"excludeApplications\": [[ [@sys.trimArray([@excludeApplications()])] ]]\r\n                },\r\n                \"users\": \r\n                {\r\n                    \"excludeGroups\": [[ [@sys.trimArray([@excludeGroups()])] ]],\r\n                    \"excludeRoles\": [[ [@sys.trimArray([@excludeRoles()])] ]],\r\n                    \"excludeUsers\": [[ [@sys.trimArray([@excludeUsers()])] ]],\r\n                    \"includeGroups\": [[ [@sys.trimArray([@includeGroups()])] ]],\r\n                    \"includeRoles\": [[ [@sys.trimArray([@includeRoles()])] ]],\r\n                    \"includeUsers\": [[ [@sys.trimArray([@includeUsers()])] ]]\r\n                },\r\n                \"clientAppTypes\": [[ [@sys.trimArray([@clientAppTypes()])] ]],\r\n                \"locations\": \r\n                {\r\n                    \"excludeLocations\": [[ [@sys.trimArray([@excludeLocations()])] ]],\r\n                    \"includeLocations\": [[ [@sys.trimArray([@includeLocations()])] ]]\r\n                },\r\n                \"platforms\": \r\n                {\r\n                    \"includePlatforms\": [[ [@sys.trimArray([@includePlatforms()])] ]],\r\n                    \"excludePlatforms\": [[ [@sys.trimArray([@excludePlatforms()])] ]]\r\n                },\r\n                \"signInRiskLevels\": [[ [@sys.trimArray([@signInRiskLevels()])] ]],\r\n                \"userRiskLevels\": [[ [@sys.trimArray([@userRiskLevels()])] ]]\r\n            },\r\n            \"displayName\": \"[@displayName()]\",\r\n            \"state\": \"[@sys.first([@state()])]\",\r\n            \"grantControls\": \r\n            {\r\n                \"operator\": \"[@sys.first([@operator()])]\",\r\n                \"builtInControls\": [[ [@sys.trimArray([@builtInControls()])] ]],\r\n                \"customAuthenticationFactors\": [[]],\r\n                \"termsOfUse\": [[]]\r\n            }\r\n        }",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/identity/conditionalAccess/policies[@sys.notexists(\"policyId\")] \\ {\r\n            \"conditions\": \r\n            {\r\n                \"applications\": \r\n                {\r\n                    \"includeApplications\": [[ [@sys.trimArray([@includeApplications()])] ]],\r\n                    \"excludeApplications\": [[ [@sys.trimArray([@excludeApplications()])] ]]\r\n                },\r\n                \"users\": \r\n                {\r\n                    \"excludeGroups\": [[ [@sys.trimArray([@excludeGroups()])] ]],\r\n                    \"excludeRoles\": [[ [@sys.trimArray([@excludeRoles()])] ]],\r\n                    \"excludeUsers\": [[ [@sys.trimArray([@excludeUsers()])] ]],\r\n                    \"includeGroups\": [[ [@sys.trimArray([@includeGroups()])] ]],\r\n                    \"includeRoles\": [[ [@sys.trimArray([@includeRoles()])] ]],\r\n                    \"includeUsers\": [[ [@sys.trimArray([@includeUsers()])] ]]\r\n                },\r\n                \"clientAppTypes\": [[ [@sys.trimArray([@clientAppTypes()])] ]],\r\n                \"locations\": \r\n                {\r\n                    \"excludeLocations\": [[ [@sys.trimArray([@excludeLocations()])] ]],\r\n                    \"includeLocations\": [[ [@sys.trimArray([@includeLocations()])] ]]\r\n                },\r\n                \"platforms\": \r\n                {\r\n                    \"includePlatforms\": [[ [@sys.trimArray([@includePlatforms()])] ]],\r\n                    \"excludePlatforms\": [[ [@sys.trimArray([@excludePlatforms()])] ]]\r\n                },\r\n                \"signInRiskLevels\": [[ [@sys.trimArray([@signInRiskLevels()])] ]],\r\n                \"userRiskLevels\": [[ [@sys.trimArray([@userRiskLevels()])] ]]\r\n            },\r\n            \"displayName\": \"[@displayName()]\",\r\n            \"state\": \"[@sys.first([@state()])]\",\r\n            \"grantControls\": \r\n            {\r\n                \"operator\": \"[@sys.first([@operator()])]\",\r\n                \"builtInControls\": [[ [@sys.trimArray([@builtInControls()])] ]],\r\n                \"customAuthenticationFactors\": [[]],\r\n                \"termsOfUse\": [[]]\r\n            }\r\n        }],\"id\")],\"policyId\")",
+                "@sys.read(\"policyId\")"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.validateUserCount([{IncludeResponseBodyInException:true,ConsistencyLevelHeader:\"eventual\"} /v1.0/users/$count])],\"userCount\")",
+                "@sys.write([@sys.normalize([{IncludeResponseBodyInException:true} /beta/identity/conditionalAccess/policies])],\"policies\")",
+                "@sys.write([@sys.normalize([{IncludeResponseBodyInException:true} /v1.0/users?$select=id,displayName,userPrincipalName,assignedPlans,assignedLicenses,userType&$expand=memberOf($select=roleTemplateId)[@sys.exists(\"userCount\")] ])],\"allUsers\")",
+                "@sys.validateConditionalAccessPolicy([POST /echo \\ {\r\n            \"conditions\": \r\n            {\r\n                \"applications\": \r\n                {\r\n                    \"includeApplications\": [[ [@sys.trimArray([@includeApplications()])] ]],\r\n                    \"excludeApplications\": [[ [@sys.trimArray([@excludeApplications()])] ]]\r\n                },\r\n                \"users\": \r\n                {\r\n                    \"excludeGroups\": [[ [@sys.trimArray([@excludeGroups()])] ]],\r\n                    \"excludeRoles\": [[ [@sys.trimArray([@excludeRoles()])] ]],\r\n                    \"excludeUsers\": [[ [@sys.trimArray([@excludeUsers()])] ]],\r\n                    \"includeGroups\": [[ [@sys.trimArray([@includeGroups()])] ]],\r\n                    \"includeRoles\": [[ [@sys.trimArray([@includeRoles()])] ]],\r\n                    \"includeUsers\": [[ [@sys.trimArray([@includeUsers()])] ]]\r\n                },\r\n                \"clientAppTypes\": [[ [@sys.trimArray([@clientAppTypes()])] ]],\r\n                \"locations\": \r\n                {\r\n                    \"excludeLocations\": [[ [@sys.trimArray([@excludeLocations()])] ]],\r\n                    \"includeLocations\": [[ [@sys.trimArray([@includeLocations()])] ]]\r\n                },\r\n                \"platforms\": \r\n                {\r\n                    \"includePlatforms\": [[ [@sys.trimArray([@includePlatforms()])] ]],\r\n                    \"excludePlatforms\": [[ [@sys.trimArray([@excludePlatforms()])] ]]\r\n                },\r\n                \"signInRiskLevels\": [[ [@sys.trimArray([@signInRiskLevels()])] ]],\r\n                \"userRiskLevels\": [[ [@sys.trimArray([@userRiskLevels()])] ]]\r\n            },\r\n            \"displayName\": \"[@displayName()]\",\r\n            \"state\": \"[@sys.first([@state()])]\",\r\n            \"grantControls\": \r\n            {\r\n                \"operator\": \"[@sys.first([@operator()])]\",\r\n                \"builtInControls\": [[ [@sys.trimArray([@builtInControls()])] ]],\r\n                \"customAuthenticationFactors\": [[]],\r\n                \"termsOfUse\": [[]]\r\n            }\r\n        }],[@sys.read(\"policies\")],[@sys.read(\"allUsers\")])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": true
+          },
+          "deletionAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/identity/conditionalAccess/policies?$filter=displayName eq '[@displayName()]'],\"id\")],\"policyId\")",
+                "{IncludeResponseBodyInException:true} DELETE /beta/identity/conditionalAccess/policies/[@sys.read(\"policyId\")]"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "processedDeploymentAction": "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/identity/conditionalAccess/policies?$filter=displayName eq ''],\"id\")],\"policyId\") EOC {IncludeResponseBodyInException:true} PATCH /beta/identity/conditionalAccess/policies/[@sys.read(\"policyId\")] \\ {\r\n            \"conditions\": \r\n            {\r\n                \"applications\": \r\n                {\r\n                    \"includeApplications\": [[ [@sys.trimArray([\"All\"])] ]],\r\n                    \"excludeApplications\": [[ [@sys.trimArray()] ]]\r\n                },\r\n                \"users\": \r\n                {\r\n                    \"excludeGroups\": [[ [@sys.trimArray()] ]],\r\n                    \"excludeRoles\": [[ [@sys.trimArray()] ]],\r\n                    \"excludeUsers\": [[ [@sys.trimArray()] ]],\r\n                    \"includeGroups\": [[ [@sys.trimArray()] ]],\r\n                    \"includeRoles\": [[ [@sys.trimArray([\"62e90394-69f5-4237-9190-012177145e10\",\"f28a1f50-f6e7-4571-818b-6a12f2af6b6c\",\"29232cdf-9323-42fd-ade2-1d097af3e4de\",\"b1be1c3e-b65d-4f19-8427-f6fa0d97feb9\",\"194ae4cb-b126-40b2-bd5b-6091b380977d\",\"729827e3-9c14-49f7-bb1b-9608f156bbb8\",\"b0f54661-2d74-4c50-afa3-1ec803f12efe\",\"fe930be7-5e62-47db-91af-98c3a49a38b1\",\"c4e39bd9-1100-46d3-8c65-fb160da0071f\",\"9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3\",\"158c047a-c907-4556-b7ef-446551a6b5f7\",\"966707d0-3269-4727-9be2-8c3a10f19b9d\",\"7be44c8a-adaf-4e2a-84d6-ab2649e08a13\",\"e8611ab8-c189-46e8-94e1-60213ab1f814\"])] ]],\r\n                    \"includeUsers\": [[ [@sys.trimArray()] ]]\r\n                },\r\n                \"clientAppTypes\": [[ [@sys.trimArray([\"All\"])] ]],\r\n                \"locations\": \r\n                {\r\n                    \"excludeLocations\": [[ [@sys.trimArray()] ]],\r\n                    \"includeLocations\": [[ [@sys.trimArray([\"All\"])] ]]\r\n                },\r\n                \"platforms\": \r\n                {\r\n                    \"includePlatforms\": [[ [@sys.trimArray([\"All\"])] ]],\r\n                    \"excludePlatforms\": [[ [@sys.trimArray()] ]]\r\n                },\r\n                \"signInRiskLevels\": [[ [@sys.trimArray()] ]],\r\n                \"userRiskLevels\": [[ [@sys.trimArray()] ]]\r\n            },\r\n            \"displayName\": \"\",\r\n            \"state\": \"[@sys.first()]\",\r\n            \"grantControls\": \r\n            {\r\n                \"operator\": \"[@sys.first([\"OR\"])]\",\r\n                \"builtInControls\": [[ [@sys.trimArray([\"mfa\"])] ]],\r\n                \"customAuthenticationFactors\": [[]],\r\n                \"termsOfUse\": [[]]\r\n            }\r\n        } EOC @sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/identity/conditionalAccess/policies[@sys.notexists(\"policyId\")] \\ {\r\n            \"conditions\": \r\n            {\r\n                \"applications\": \r\n                {\r\n                    \"includeApplications\": [[ [@sys.trimArray([\"All\"])] ]],\r\n                    \"excludeApplications\": [[ [@sys.trimArray()] ]]\r\n                },\r\n                \"users\": \r\n                {\r\n                    \"excludeGroups\": [[ [@sys.trimArray()] ]],\r\n                    \"excludeRoles\": [[ [@sys.trimArray()] ]],\r\n                    \"excludeUsers\": [[ [@sys.trimArray()] ]],\r\n                    \"includeGroups\": [[ [@sys.trimArray()] ]],\r\n                    \"includeRoles\": [[ [@sys.trimArray([\"62e90394-69f5-4237-9190-012177145e10\",\"f28a1f50-f6e7-4571-818b-6a12f2af6b6c\",\"29232cdf-9323-42fd-ade2-1d097af3e4de\",\"b1be1c3e-b65d-4f19-8427-f6fa0d97feb9\",\"194ae4cb-b126-40b2-bd5b-6091b380977d\",\"729827e3-9c14-49f7-bb1b-9608f156bbb8\",\"b0f54661-2d74-4c50-afa3-1ec803f12efe\",\"fe930be7-5e62-47db-91af-98c3a49a38b1\",\"c4e39bd9-1100-46d3-8c65-fb160da0071f\",\"9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3\",\"158c047a-c907-4556-b7ef-446551a6b5f7\",\"966707d0-3269-4727-9be2-8c3a10f19b9d\",\"7be44c8a-adaf-4e2a-84d6-ab2649e08a13\",\"e8611ab8-c189-46e8-94e1-60213ab1f814\"])] ]],\r\n                    \"includeUsers\": [[ [@sys.trimArray()] ]]\r\n                },\r\n                \"clientAppTypes\": [[ [@sys.trimArray([\"All\"])] ]],\r\n                \"locations\": \r\n                {\r\n                    \"excludeLocations\": [[ [@sys.trimArray()] ]],\r\n                    \"includeLocations\": [[ [@sys.trimArray([\"All\"])] ]]\r\n                },\r\n                \"platforms\": \r\n                {\r\n                    \"includePlatforms\": [[ [@sys.trimArray([\"All\"])] ]],\r\n                    \"excludePlatforms\": [[ [@sys.trimArray()] ]]\r\n                },\r\n                \"signInRiskLevels\": [[ [@sys.trimArray()] ]],\r\n                \"userRiskLevels\": [[ [@sys.trimArray()] ]]\r\n            },\r\n            \"displayName\": \"\",\r\n            \"state\": \"[@sys.first()]\",\r\n            \"grantControls\": \r\n            {\r\n                \"operator\": \"[@sys.first([\"OR\"])]\",\r\n                \"builtInControls\": [[ [@sys.trimArray([\"mfa\"])] ]],\r\n                \"customAuthenticationFactors\": [[]],\r\n                \"termsOfUse\": [[]]\r\n            }\r\n        }],\"id\")],\"policyId\") EOC @sys.read(\"policyId\") EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 1
+            }
+          ],
+          "dependentVersions": [],
+          "id": "4f655e6a-2a82-4618-84c5-5f1248d47072"
+        }
+      ]
+    }
+  ]
+}

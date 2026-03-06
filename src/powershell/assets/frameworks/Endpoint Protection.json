@@ -1,0 +1,359 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 13,
+  "category": 10,
+  "provider": 0,
+  "version": 0,
+  "displayName": "Endpoint Protection",
+  "description": "Tasks within this category build upon tasks in the Endpoint Enrollment category, and configure the appropriate security standards, and best practices for day to day device management",
+  "informationLinks": [],
+  "id": "5bd3f931-e0cd-49d8-893a-e6a8732dba39",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Create an attack surface reduction (ASR) policy",
+      "description": "This deployment creates an ASR policy that greatly reduces the ability for malicious users to infect and exploit endpoint. This set of tasks build upon the tasks in Endpoint enrollment. They're used to set up the appropriate security standards and best practices for day-to-day device management.",
+      "portalLink": {
+        "url": "https://endpoint.microsoft.com/{tenantName}/#blade/Microsoft_Intune_Workflows/SecurityManagementMenu/asr",
+        "displayName": "Microsoft Intune"
+      },
+      "userImpact": "Attack surface reduction policies protect your devices from potential malicious users and enhance device security.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262066",
+          "displayName": "Understand and use attack surface reduction (ASR)"
+        }
+      ],
+      "id": "0ab65932-e073-48c3-b8ab-ba081af41207",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "AttackSurfaceReductionPolicy",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "name",
+              "value": "M365 Lighthouse- Attack Surface Reduction Policy",
+              "isRequired": true,
+              "isReadOnly": true,
+              "referenceStrings": [],
+              "displayName": "Display name"
+            },
+            {
+              "name": "profile",
+              "value": "Attack Surface Reduction Rules",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [],
+              "displayName": "Profile"
+            },
+            {
+              "name": "platform",
+              "value": "Windows 10 and later",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [],
+              "displayName": "Platform"
+            },
+            {
+              "name": "blockCredentialStealing",
+              "value": "[\"block\"]",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "BlueprintDetail_Generic_ActionSteps_Settings_Block",
+                  "displayName": "Block"
+                }
+              ],
+              "displayName": "Block credential stealing from the windows local security authority subsystem (lsass.exe)"
+            },
+            {
+              "name": "blockExecuatableFiles",
+              "value": "[\"block\"]",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "BlueprintDetail_Generic_ActionSteps_Settings_Block",
+                  "displayName": "Block"
+                }
+              ],
+              "displayName": "Block executable files from running unless they meet prevalence, age or trusted list criterion"
+            },
+            {
+              "name": "blockProcessCreations",
+              "value": "[\"block\"]",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "BlueprintDetail_Generic_ActionSteps_Settings_Block",
+                  "displayName": "Block"
+                }
+              ],
+              "displayName": "Block process creations originating from PSExec and WMI commands"
+            },
+            {
+              "name": "blockPersistence",
+              "value": "[\"block\"]",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "BlueprintDetail_Generic_ActionSteps_Settings_Block",
+                  "displayName": "Block"
+                }
+              ],
+              "displayName": "Block persistence thru WMI event subscription "
+            },
+            {
+              "name": "useAdvancedProtectionAgainstRansomware",
+              "value": "[\"block\"]",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "BlueprintDetail_Generic_ActionSteps_Settings_Block",
+                  "displayName": "Block"
+                }
+              ],
+              "displayName": "Use advanced protection against ransomware"
+            },
+            {
+              "name": "blockExecutableContent",
+              "value": "[\"block\"]",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "BlueprintDetail_Generic_ActionSteps_Settings_Block",
+                  "displayName": "Block"
+                }
+              ],
+              "displayName": "Block executable content from email content and webmail"
+            },
+            {
+              "name": "blockExploitedVulnerableSignedDrivers",
+              "value": "[\"block\"]",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "BlueprintDetail_Generic_ActionSteps_Settings_Block",
+                  "displayName": "Block"
+                }
+              ],
+              "displayName": "Block abuse of exploited vulnerable signed drivers (Device)"
+            },
+            {
+              "name": "includeGroups",
+              "value": "[\"All\"]",
+              "isRequired": true,
+              "isReadOnly": false,
+              "referenceStrings": [
+                {
+                  "name": "Groups_AllGroups",
+                  "displayName": "All groups"
+                }
+              ],
+              "displayName": "Include groups"
+            },
+            {
+              "name": "excludeGroups",
+              "isRequired": false,
+              "isReadOnly": false,
+              "referenceStrings": [],
+              "displayName": "Exclude groups"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/configurationPolicies?$filter=name eq '[@name()]' and technologies eq 'mdm,microsoftSense' and platforms eq 'windows10'],\"id\")],\"policyId\")",
+                "{IncludeResponseBodyInException:true} PUT /beta/deviceManagement/configurationPolicies/[@sys.read(\"policyId\")] \\ { \"name\": \"[@name()]\",\r\n              \"platforms\": \"windows10\",\r\n              \"roleScopeTagIds\": [[\r\n                  \"0\"\r\n              ]],\r\n              \"technologies\": \"mdm,microsoftSense\",\r\n              \"templateReference\": {\r\n                  \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationPolicyTemplateReference\",\r\n                  \"templateId\": \"[@sys.project([\"{IncludeResponseBodyInException:true}\" GET /beta/deviceManagement/configurationPolicyTemplates?$filter=baseId eq 'e8c053d6-9f95-42b1-a7f1-ebfd71c67a4b'&$orderby=version desc&$top=1],\"id\")]\"\r\n                },\r\n              \"settings\": [[\r\n                {\r\n                  \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSetting\",\r\n                  \"settingInstance\": {\r\n                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstance\",\r\n                    \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules\",\r\n                    \"groupSettingCollectionValue\": [[\r\n                      {\r\n                        \"children\": [[\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                 \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockcredentialstealingfromwindowslocalsecurityauthoritysubsystem\",\r\n                                 \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockcredentialstealingfromwindowslocalsecurityauthoritysubsystem_block\"\r\n                                    }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablefilesrunningunlesstheymeetprevalenceagetrustedlistcriterion\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablefilesrunningunlesstheymeetprevalenceagetrustedlistcriterion_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockprocesscreationsfrompsexecandwmicommands\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockprocesscreationsfrompsexecandwmicommands_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockpersistencethroughwmieventsubscription\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockpersistencethroughwmieventsubscription_block\"\r\n                                    }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_useadvancedprotectionagainstransomware\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_useadvancedprotectionagainstransomware_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablecontentfromemailclientandwebmail\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablecontentfromemailclientandwebmail_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockabuseofexploitedvulnerablesigneddrivers\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockabuseofexploitedvulnerablesigneddrivers_block\"\r\n                                }\r\n                            }\r\n                        ]]\r\n                      }\r\n                    ]],\r\n                    \"settingInstanceTemplateReference\": {\r\n                      \"settingInstanceTemplateId\": \"19600663-e264-4c02-8f55-f2983216d6d7\"\r\n                    }\r\n                  }\r\n                }\r\n              ]]}",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/configurationPolicies[@sys.notexists(\"policyId\")] \\ { \"name\": \"[@name()]\",\r\n              \"platforms\": \"windows10\",\r\n              \"roleScopeTagIds\": [[\r\n                  \"0\"\r\n              ]],\r\n              \"technologies\": \"mdm,microsoftSense\",\r\n              \"templateReference\": {\r\n                  \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationPolicyTemplateReference\",\r\n                  \"templateId\": \"[@sys.project([\"{IncludeResponseBodyInException:true}\" GET /beta/deviceManagement/configurationPolicyTemplates?$filter=baseId eq 'e8c053d6-9f95-42b1-a7f1-ebfd71c67a4b'&$orderby=version desc&$top=1],\"id\")]\"\r\n                },\r\n              \"settings\": [[\r\n                {\r\n                  \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSetting\",\r\n                  \"settingInstance\": {\r\n                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstance\",\r\n                    \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules\",\r\n                    \"groupSettingCollectionValue\": [[\r\n                      {\r\n                        \"children\": [[\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                 \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockcredentialstealingfromwindowslocalsecurityauthoritysubsystem\",\r\n                                 \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockcredentialstealingfromwindowslocalsecurityauthoritysubsystem_block\"\r\n                                    }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablefilesrunningunlesstheymeetprevalenceagetrustedlistcriterion\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablefilesrunningunlesstheymeetprevalenceagetrustedlistcriterion_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockprocesscreationsfrompsexecandwmicommands\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockprocesscreationsfrompsexecandwmicommands_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockpersistencethroughwmieventsubscription\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockpersistencethroughwmieventsubscription_block\"\r\n                                    }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_useadvancedprotectionagainstransomware\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_useadvancedprotectionagainstransomware_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablecontentfromemailclientandwebmail\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablecontentfromemailclientandwebmail_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockabuseofexploitedvulnerablesigneddrivers\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockabuseofexploitedvulnerablesigneddrivers_block\"\r\n                                }\r\n                            }\r\n                        ]]\r\n                      }\r\n                    ]],\r\n                    \"settingInstanceTemplateReference\": {\r\n                      \"settingInstanceTemplateId\": \"19600663-e264-4c02-8f55-f2983216d6d7\"\r\n                    }\r\n                  }\r\n                }\r\n              ]]}],\"id\")],\"policyId\")",
+                "{IncludeResponseBodyInException:true} POST /beta/deviceManagement/configurationPolicies/[@sys.read(\"policyId\")]/assign \\ {\r\n            \"assignments\":\r\n            [[\r\n                [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])]\r\n            ]]\r\n        }",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/configurationPolicies?$filter=name eq '[@name()]' and technologies eq 'mdm,microsoftSense' and platforms eq 'windows10'],\"id\")],\"policyId\")",
+                "@sys.read(\"policyId\")"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                when data = 'All' then '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                }\r\n\t                }'\r\n\t                else '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                            \"groupId\": \"' || data || '\"\r\n\t\t                }\r\n\t                }'\r\n                end\r\n                from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                when data = '' then ''\r\n                else '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                            \"groupId\": \"' || data || '\"\r\n\t\t                }\r\n\t                }'\r\n                end\r\n                from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "name",
+                  "value": "select 'M365 Lighthouse- Attack Surface Reduction Policy'"
+                },
+                {
+                  "type": 0,
+                  "id": "profile",
+                  "value": "select 'Attack Surface Reduction Rules'"
+                },
+                {
+                  "type": 0,
+                  "id": "platform",
+                  "value": "select 'Windows 10 and later'"
+                },
+                {
+                  "type": 0,
+                  "id": "blockCredentialStealing",
+                  "value": "select '[\"block\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "blockExecuatableFiles",
+                  "value": "select '[\"block\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "blockProcessCreations",
+                  "value": "select '[\"block\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "blockPersistence",
+                  "value": "select '[\"block\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "useAdvancedProtectionAgainstRansomware",
+                  "value": "select '[\"block\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "blockExecutableContent",
+                  "value": "select '[\"block\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "blockExploitedVulnerableSignedDrivers",
+                  "value": "select '[\"block\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "includeGroups",
+                  "value": "select '[\"All\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "excludeGroups",
+                  "value": "select ''"
+                },
+                {
+                  "type": 0,
+                  "id": "tenantIds",
+                  "value": "select '[\"a380a655-8cdd-4484-9eaf-7c9f320a122a\"]'"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.validateUserCount([{IncludeResponseBodyInException:true,ConsistencyLevelHeader:\"eventual\"} /v1.0/users/$count])],\"userCount\")",
+                "@sys.write([@sys.normalize([{IncludeResponseBodyInException:true} /beta/deviceManagement/configurationPolicies?$expand=assignments])],\"policies\")",
+                "@sys.write([@sys.normalize([{IncludeResponseBodyInException:true} /v1.0/users?$select=id,displayName,userPrincipalName,assignedPlans,assignedLicenses,userType&$expand=memberOf($select=roleTemplateId)[@sys.exists(\"userCount\")] ])],\"allUsers\")",
+                "@sys.validateDeviceConfigurationPolicy([POST /echo \\ { \"name\": \"[@name()]\",\r\n              \"platforms\": \"windows10\",\r\n              \"roleScopeTagIds\": [[\r\n                  \"0\"\r\n              ]],\r\n              \"technologies\": \"mdm,microsoftSense\",\r\n              \"templateReference\": {\r\n                  \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationPolicyTemplateReference\",\r\n                  \"templateId\": \"[@sys.project([\"{IncludeResponseBodyInException:true}\" GET /beta/deviceManagement/configurationPolicyTemplates?$filter=baseId eq 'e8c053d6-9f95-42b1-a7f1-ebfd71c67a4b'&$orderby=version desc&$top=1],\"id\")]\"\r\n                },\r\n              \"settings\": [[\r\n                {\r\n                  \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSetting\",\r\n                  \"settingInstance\": {\r\n                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstance\",\r\n                    \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules\",\r\n                    \"groupSettingCollectionValue\": [[\r\n                      {\r\n                        \"children\": [[\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                 \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockcredentialstealingfromwindowslocalsecurityauthoritysubsystem\",\r\n                                 \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockcredentialstealingfromwindowslocalsecurityauthoritysubsystem_block\"\r\n                                    }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablefilesrunningunlesstheymeetprevalenceagetrustedlistcriterion\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablefilesrunningunlesstheymeetprevalenceagetrustedlistcriterion_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockprocesscreationsfrompsexecandwmicommands\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockprocesscreationsfrompsexecandwmicommands_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockpersistencethroughwmieventsubscription\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockpersistencethroughwmieventsubscription_block\"\r\n                                    }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_useadvancedprotectionagainstransomware\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_useadvancedprotectionagainstransomware_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablecontentfromemailclientandwebmail\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablecontentfromemailclientandwebmail_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockabuseofexploitedvulnerablesigneddrivers\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockabuseofexploitedvulnerablesigneddrivers_block\"\r\n                                }\r\n                            }\r\n                        ]]\r\n                      }\r\n                    ]],\r\n                    \"settingInstanceTemplateReference\": {\r\n                      \"settingInstanceTemplateId\": \"19600663-e264-4c02-8f55-f2983216d6d7\"\r\n                    }\r\n                  }\r\n                }\r\n              ]],\r\n            \"assignments\":\r\n            [[\r\n                [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])]\r\n            ]]\r\n        }],[@sys.read(\"policies\")],[@sys.read(\"allUsers\")])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                when data = 'All' then '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                }\r\n\t                }'\r\n\t                else '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                            \"groupId\": \"' || data || '\"\r\n\t\t                }\r\n\t                }'\r\n                end\r\n                from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                when data = '' then ''\r\n                else '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                            \"groupId\": \"' || data || '\"\r\n\t\t                }\r\n\t                }'\r\n                end\r\n                from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": true
+          },
+          "deletionAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/configurationPolicies?$filter=name eq '[@name()]'],\"id\")],\"policyId\")",
+                "{IncludeResponseBodyInException:true} DELETE /beta/deviceManagement/configurationPolicies/[@sys.read(\"policyId\")]"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                when data = 'All' then '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                }\r\n\t                }'\r\n\t                else '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                            \"groupId\": \"' || data || '\"\r\n\t\t                }\r\n\t                }'\r\n                end\r\n                from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                when data = '' then ''\r\n                else '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                            \"groupId\": \"' || data || '\"\r\n\t\t                }\r\n\t                }'\r\n                end\r\n                from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "processedDeploymentAction": "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/configurationPolicies?$filter=name eq '' and technologies eq 'mdm,microsoftSense' and platforms eq 'windows10'],\"id\")],\"policyId\") EOC {IncludeResponseBodyInException:true} PUT /beta/deviceManagement/configurationPolicies/[@sys.read(\"policyId\")] \\ { \"name\": \"\",\r\n              \"platforms\": \"windows10\",\r\n              \"roleScopeTagIds\": [[\r\n                  \"0\"\r\n              ]],\r\n              \"technologies\": \"mdm,microsoftSense\",\r\n              \"templateReference\": {\r\n                  \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationPolicyTemplateReference\",\r\n                  \"templateId\": \"[@sys.project([\"{IncludeResponseBodyInException:true}\" GET /beta/deviceManagement/configurationPolicyTemplates?$filter=baseId eq 'e8c053d6-9f95-42b1-a7f1-ebfd71c67a4b'&$orderby=version desc&$top=1],\"id\")]\"\r\n                },\r\n              \"settings\": [[\r\n                {\r\n                  \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSetting\",\r\n                  \"settingInstance\": {\r\n                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstance\",\r\n                    \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules\",\r\n                    \"groupSettingCollectionValue\": [[\r\n                      {\r\n                        \"children\": [[\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                 \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockcredentialstealingfromwindowslocalsecurityauthoritysubsystem\",\r\n                                 \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockcredentialstealingfromwindowslocalsecurityauthoritysubsystem_block\"\r\n                                    }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablefilesrunningunlesstheymeetprevalenceagetrustedlistcriterion\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablefilesrunningunlesstheymeetprevalenceagetrustedlistcriterion_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockprocesscreationsfrompsexecandwmicommands\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockprocesscreationsfrompsexecandwmicommands_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockpersistencethroughwmieventsubscription\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockpersistencethroughwmieventsubscription_block\"\r\n                                    }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_useadvancedprotectionagainstransomware\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_useadvancedprotectionagainstransomware_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablecontentfromemailclientandwebmail\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablecontentfromemailclientandwebmail_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockabuseofexploitedvulnerablesigneddrivers\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockabuseofexploitedvulnerablesigneddrivers_block\"\r\n                                }\r\n                            }\r\n                        ]]\r\n                      }\r\n                    ]],\r\n                    \"settingInstanceTemplateReference\": {\r\n                      \"settingInstanceTemplateId\": \"19600663-e264-4c02-8f55-f2983216d6d7\"\r\n                    }\r\n                  }\r\n                }\r\n              ]]} EOC @sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/configurationPolicies[@sys.notexists(\"policyId\")] \\ { \"name\": \"\",\r\n              \"platforms\": \"windows10\",\r\n              \"roleScopeTagIds\": [[\r\n                  \"0\"\r\n              ]],\r\n              \"technologies\": \"mdm,microsoftSense\",\r\n              \"templateReference\": {\r\n                  \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationPolicyTemplateReference\",\r\n                  \"templateId\": \"[@sys.project([\"{IncludeResponseBodyInException:true}\" GET /beta/deviceManagement/configurationPolicyTemplates?$filter=baseId eq 'e8c053d6-9f95-42b1-a7f1-ebfd71c67a4b'&$orderby=version desc&$top=1],\"id\")]\"\r\n                },\r\n              \"settings\": [[\r\n                {\r\n                  \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSetting\",\r\n                  \"settingInstance\": {\r\n                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstance\",\r\n                    \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules\",\r\n                    \"groupSettingCollectionValue\": [[\r\n                      {\r\n                        \"children\": [[\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                 \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockcredentialstealingfromwindowslocalsecurityauthoritysubsystem\",\r\n                                 \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockcredentialstealingfromwindowslocalsecurityauthoritysubsystem_block\"\r\n                                    }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablefilesrunningunlesstheymeetprevalenceagetrustedlistcriterion\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablefilesrunningunlesstheymeetprevalenceagetrustedlistcriterion_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockprocesscreationsfrompsexecandwmicommands\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockprocesscreationsfrompsexecandwmicommands_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockpersistencethroughwmieventsubscription\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockpersistencethroughwmieventsubscription_block\"\r\n                                    }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_useadvancedprotectionagainstransomware\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_useadvancedprotectionagainstransomware_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablecontentfromemailclientandwebmail\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablecontentfromemailclientandwebmail_block\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockabuseofexploitedvulnerablesigneddrivers\",\r\n                                \"choiceSettingValue\": {\r\n                                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                    \"value\": \"device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockabuseofexploitedvulnerablesigneddrivers_block\"\r\n                                }\r\n                            }\r\n                        ]]\r\n                      }\r\n                    ]],\r\n                    \"settingInstanceTemplateReference\": {\r\n                      \"settingInstanceTemplateId\": \"19600663-e264-4c02-8f55-f2983216d6d7\"\r\n                    }\r\n                  }\r\n                }\r\n              ]]}],\"id\")],\"policyId\") EOC {IncludeResponseBodyInException:true} POST /beta/deviceManagement/configurationPolicies/[@sys.read(\"policyId\")]/assign \\ {\r\n            \"assignments\":\r\n            [[\r\n                [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse()])],[@getExcludeGroups([@sys.jsonArrayParse()])])])]\r\n            ]]\r\n        } EOC @sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/configurationPolicies?$filter=name eq '' and technologies eq 'mdm,microsoftSense' and platforms eq 'windows10'],\"id\")],\"policyId\") EOC @sys.read(\"policyId\") EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "id": "29656f08-75f9-43aa-bcfc-3ccf104cbffb"
+        }
+      ]
+    }
+  ]
+}

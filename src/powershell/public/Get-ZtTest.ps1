@@ -16,6 +16,9 @@
 	.PARAMETER TenantType
 		The type of tenant the tests apply to.
 
+	.PARAMETER Framework
+		The assessment framework(s) to which the tests belong.
+
 	.PARAMETER Current
 		The test currently being processed.
 		Internal use only.
@@ -52,6 +55,12 @@
 		[string]
 		$TenantType,
 
+		[PsfArgumentCompleter('ZeroTrustAssessment.Tests.Framework')]
+		[AllowEmptyCollection()]
+		[AllowNull()]
+		[string[]]
+		$Framework,
+
 		[Parameter(DontShow = $true)]
 		[switch]
 		$Current,
@@ -78,6 +87,7 @@
 		$script:__ZtSession.TestMeta | Where-Object {
 			(-not $Tests -or $_.TestID -in $Tests) -and
 			(-not $Pillar -or $Pillar -contains 'All' -or $_.Pillar -in $Pillar) -and
+			(-not $Framework -or $Framework -contains 'All' -or (@($_.Framework) | Where-Object { $_ -in $Framework })) -and
 			(-not $TenantType -or $_.TenantType -contains $TenantType)
 		}
 	}

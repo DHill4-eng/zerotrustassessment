@@ -15,7 +15,11 @@ function Invoke-ZtTests {
 		# The Zero Trust pillar to assess. Defaults to All.
 		[ValidateSet('All', 'Identity', 'Devices')]
 		[string]
-		$Pillar = 'All'
+		$Pillar = 'All',
+
+		# The assessment framework(s) to run. Defaults to ZeroTrust.
+		[string[]]
+		$Framework = @('ZeroTrust')
 	)
 
 	# Get Tenant Type (AAD = Workforce, CIAM = EEID)
@@ -29,7 +33,15 @@ function Invoke-ZtTests {
 		"CIAM" = "External"
 	}
 
-	$testsToRun = Get-ZtTest -Tests $Tests -Pillar $Pillar -TenantType $tenantTypeMapping[$TenantType]
+	$effectiveFramework = @($Framework)
+	if ($effectiveFramework -contains 'All') {
+		$effectiveFramework = @('All')
+	}
+	elseif ($effectiveFramework -contains 'CyberEssentialsPlus' -and $effectiveFramework -notcontains 'ZeroTrust') {
+		$effectiveFramework += 'ZeroTrust'
+	}
+
+	$testsToRun = Get-ZtTest -Tests $Tests -Pillar $Pillar -Framework $effectiveFramework -TenantType $tenantTypeMapping[$TenantType]
 
 	foreach ($test in $testsToRun) {
 		# Check if the function exists and what parameters it has

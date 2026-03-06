@@ -1,0 +1,765 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 2,
+  "category": 1,
+  "provider": 0,
+  "parameters": [],
+  "workloadActions": [],
+  "version": 0,
+  "displayName": "Set up device enrollment",
+  "description": "Enroll devices in Microsoft Intune to keep data secure and allow users to access company data on their devices. Intune includes services and tools you can use to manage and monitor Windows 10 or later devices in Microsoft 365 Lighthouse.",
+  "userImpact": "This group of tasks enables device management through Microsoft Intune and Microsoft Entra. Devices will automatically enroll in Intune when a work or school account is configured. Device health and compliance metrics will be sent to Microsoft Intune and Microsoft 365 Lighthouse.",
+  "id": "69dccd99-9454-40ba-8121-8b4a367ccca1",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Configure Microsoft Entra for joining devices",
+      "description": "This task will configure the device registration policy in Microsoft Entra. Device registration with Microsoft Entra enables automatic device enrollment into Intune.",
+      "portalLink": {
+        "url": "https://entra.microsoft.com/{tenantName}",
+        "displayName": "Microsoft Entra Admin Center"
+      },
+      "userImpact": "This group of tasks enables device management through Microsoft Intune and Microsoft Entra. Devices will automatically enroll in Intune when a work or school account is configured. Device health and compliance metrics will be sent to Microsoft Intune and Microsoft 365 Lighthouse.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2185815",
+          "displayName": "What is device enrollment?"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2185919",
+          "displayName": "Enroll Windows 10 or later devices in Microsoft Intune"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262149",
+          "displayName": "Endpoint analytics documentation"
+        }
+      ],
+      "id": "7b30c3d0-5a26-49a4-b2e8-1ecc5f172e17",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "Automatic_DeviceEnrollmentMEM",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "userDeviceQuota",
+              "value": "50",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "displayName": "User device quota"
+            },
+            {
+              "name": "multiFactorAuthConfiguration",
+              "value": "[\"notRequired\"]",
+              "isRequired": true,
+              "isReadOnly": false,
+              "referenceStrings": [
+                {
+                  "name": "TemplateSettings_Required",
+                  "displayName": "Required"
+                },
+                {
+                  "name": "TemplateSettings_NotRequired",
+                  "displayName": "Not required"
+                }
+              ],
+              "displayName": "Multi factor auth configuration"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "{IncludeResponseBodyInException:true} PUT /beta/policies/deviceRegistrationPolicy \\ {\r\n             \"userDeviceQuota\" : [@userDeviceQuota()],\r\n             \"multiFactorAuthConfiguration\" : [@sys.trimArray([@multiFactorAuthConfiguration()])],\r\n             \"azureADRegistration\" : \r\n             {\r\n                \"appliesTo\" : \"all\",\r\n                \"isAdminConfigurable\" : false,\r\n                \"allowedToRegister\": {\r\n                    \"@odata.type\": \"#microsoft.graph.allDeviceRegistrationMembership\"\r\n                }\r\n             },\r\n              \"azureADJoin\": \r\n            {\r\n                \"appliesTo\" : \"all\",\r\n                \"isAdminConfigurable\": false,\r\n                \"allowedToJoin\": {\r\n                    \"@odata.type\": \"#microsoft.graph.allDeviceRegistrationMembership\"\r\n                },\r\n                \"localAdmins\": {\r\n                    \"enableGlobalAdmins\": true,\r\n                    \"registeringUsers\": {\r\n                        \"@odata.type\": \"#microsoft.graph.allDeviceRegistrationMembership\"\r\n                  }\r\n                }\r\n              },\r\n              \"localAdminPassword\": {\r\n                \"isEnabled\": true\r\n              }\r\n        }"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "userDeviceQuota",
+                  "value": "select '50'"
+                },
+                {
+                  "type": 0,
+                  "id": "multiFactorAuthConfiguration",
+                  "value": "select '[\"required\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "tenantIds",
+                  "value": "select '[\"a380a655-8cdd-4484-9eaf-7c9f320a122a\"]'"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "processedDeploymentAction": "{IncludeResponseBodyInException:true} PUT /beta/policies/deviceRegistrationPolicy \\ {\r\n             \"userDeviceQuota\" : 50,\r\n             \"multiFactorAuthConfiguration\" : [@sys.trimArray()],\r\n             \"azureADRegistration\" : \r\n             {\r\n                \"appliesTo\" : \"all\",\r\n                \"isAdminConfigurable\" : false,\r\n                \"allowedToRegister\": {\r\n                    \"@odata.type\": \"#microsoft.graph.allDeviceRegistrationMembership\"\r\n                }\r\n             },\r\n              \"azureADJoin\": \r\n            {\r\n                \"appliesTo\" : \"all\",\r\n                \"isAdminConfigurable\": false,\r\n                \"allowedToJoin\": {\r\n                    \"@odata.type\": \"#microsoft.graph.allDeviceRegistrationMembership\"\r\n                },\r\n                \"localAdmins\": {\r\n                    \"enableGlobalAdmins\": true,\r\n                    \"registeringUsers\": {\r\n                        \"@odata.type\": \"#microsoft.graph.allDeviceRegistrationMembership\"\r\n                  }\r\n                }\r\n              },\r\n              \"localAdminPassword\": {\r\n                \"isEnabled\": true\r\n              }\r\n        } EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "id": "26216455-fdfd-48da-ac04-7a2fe0e78802"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Configure device enrollment",
+      "description": "This task will configure Microsoft Entra to use Microsoft Intune for device management.",
+      "portalLink": {
+        "url": "https://endpoint.microsoft.com/{tenantName}/#blade/Microsoft_Intune_DeviceSettings/DevicesEnrollmentMenu/windowsEnrollment",
+        "displayName": "Microsoft Intune"
+      },
+      "userImpact": "This group of tasks enables device management through Microsoft Intune and Microsoft Entra. Devices will automatically enroll in Intune when a work or school account is configured. Device health and compliance metrics will be sent to Microsoft Intune and Microsoft 365 Lighthouse.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2185815",
+          "displayName": "What is device enrollment?"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2185919",
+          "displayName": "Enroll Windows 10 or later devices in Microsoft Intune"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262149",
+          "displayName": "Endpoint analytics documentation"
+        }
+      ],
+      "id": "a489b7de-e86a-4978-aa86-59afe46075a2",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "DeviceEnrollmentMEM",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "displayName",
+              "value": "Configure device enrollment",
+              "isRequired": true,
+              "isReadOnly": true,
+              "displayName": "Display name"
+            },
+            {
+              "name": "MDMUserScope",
+              "value": "All",
+              "isRequired": true,
+              "isReadOnly": true,
+              "displayName": "MDM User Scope"
+            },
+            {
+              "name": "MDMTermsOfUseURL",
+              "value": "https://portal.manage.microsoft.com/TermsofUse.aspx",
+              "isRequired": true,
+              "isReadOnly": true,
+              "displayName": "MDM Terms of Use URL"
+            },
+            {
+              "name": "MDMDiscoveryURL",
+              "value": "https://enrollment.manage.microsoft.com/enrollmentserver/discovery.svc",
+              "isRequired": true,
+              "isReadOnly": true,
+              "displayName": "MDM Discovery URL"
+            },
+            {
+              "name": "MDMComplianceURL",
+              "value": "https://portal.manage.microsoft.com/?portalAction=Compliance",
+              "isRequired": true,
+              "isReadOnly": true,
+              "displayName": "MDM Compliance URL"
+            },
+            {
+              "name": "MAMUserScope",
+              "value": "All",
+              "isRequired": true,
+              "isReadOnly": true,
+              "displayName": "MAM User Scope"
+            },
+            {
+              "name": "MAMTermsOfUseURL",
+              "value": "",
+              "isRequired": false,
+              "isReadOnly": true,
+              "displayName": "MAM Terms of Use URL"
+            },
+            {
+              "name": "MAMDiscoveryURL",
+              "value": "https://wip.mam.manage.microsoft.com/Enroll",
+              "isRequired": true,
+              "isReadOnly": true,
+              "displayName": "MAM Discovery URL"
+            },
+            {
+              "name": "MAMComplianceURL",
+              "value": "",
+              "isRequired": false,
+              "isReadOnly": true,
+              "displayName": "MAM Compliance URL"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "{IncludeResponseBodyInException:true} PATCH /beta/policies/mobileDeviceManagementPolicies/0000000a-0000-0000-c000-000000000000 \\ {\r\n            \"complianceUrl\": \"https://portal.manage.microsoft.com/?portalAction=Compliance\",\r\n            \"description\": \"Device Management Policy for Microsoft Intune (edited by M365Lighthouse)\",\r\n            \"discoveryUrl\": \"https://enrollment.manage.microsoft.com/enrollmentserver/discovery.svc\",\r\n            \"displayName\": \"Microsoft Intune\",\r\n            \"isValid\": true,\r\n            \"termsOfUseUrl\": \"https://portal.manage.microsoft.com/TermsofUse.aspx\"\r\n        }",
+                "{IncludeResponseBodyInException:true} PATCH /beta/policies/mobileDeviceManagementPolicies/0000000a-0000-0000-c000-000000000000 \\ {\r\n            \"appliesTo\": \"all\"\r\n        }",
+                "{IncludeResponseBodyInException:true} PATCH /beta/policies/mobileAppManagementPolicies/0000000a-0000-0000-c000-000000000000 \\ {\r\n            \"complianceUrl\": \"https://portal.manage.microsoft.com/?portalAction=Compliance\",\r\n            \"description\": \"Device Management Policy for Microsoft Intune (edited by M365Lighthouse)\",\r\n            \"discoveryUrl\": \"https://enrollment.manage.microsoft.com/enrollmentserver/discovery.svc\",\r\n            \"displayName\": \"Microsoft Intune\",\r\n            \"isValid\": true,\r\n            \"termsOfUseUrl\": \"https://portal.manage.microsoft.com/TermsofUse.aspx\"\r\n        }",
+                "{IncludeResponseBodyInException:true} PATCH /beta/policies/mobileAppManagementPolicies/0000000a-0000-0000-c000-000000000000 \\ {\r\n            \"appliesTo\": \"all\"\r\n        }"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "displayName",
+                  "value": "select 'Configure device enrollment'"
+                },
+                {
+                  "type": 0,
+                  "id": "MDMUserScope",
+                  "value": "select 'All'"
+                },
+                {
+                  "type": 0,
+                  "id": "MDMTermsOfUseURL",
+                  "value": "select 'https://portal.manage.microsoft.com/TermsofUse.aspx'"
+                },
+                {
+                  "type": 0,
+                  "id": "MDMDiscoveryURL",
+                  "value": "select 'https://enrollment.manage.microsoft.com/enrollmentserver/discovery.svc'"
+                },
+                {
+                  "type": 0,
+                  "id": "MDMComplianceURL",
+                  "value": "select 'https://portal.manage.microsoft.com/?portalAction=Compliance'"
+                },
+                {
+                  "type": 0,
+                  "id": "MAMUserScope",
+                  "value": "select 'All'"
+                },
+                {
+                  "type": 0,
+                  "id": "MAMTermsOfUseURL",
+                  "value": "select 'https://portal.manage.microsoft.com/TermsofUse.aspx'"
+                },
+                {
+                  "type": 0,
+                  "id": "MAMDiscoveryURL",
+                  "value": "select 'https://enrollment.manage.microsoft.com/enrollmentserver/discovery.svc'"
+                },
+                {
+                  "type": 0,
+                  "id": "MAMComplianceURL",
+                  "value": "select 'https://portal.manage.microsoft.com/?portalAction=Compliance'"
+                },
+                {
+                  "type": 0,
+                  "id": "tenantIds",
+                  "value": "select '[\"a380a655-8cdd-4484-9eaf-7c9f320a122a\"]'"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([{IncludeResponseBodyInException:true} GET /beta/policies/mobileDeviceManagementPolicies/0000000a-0000-0000-c000-000000000000],\"MDMresponse\")",
+                "@sys.write([@getAppliesTo([@sys.read(\"MDMresponse\")])],\"MDMappliesTo\")",
+                "@sys.write([@getTermsOfUseUrl([@sys.read(\"MDMresponse\")])],\"MDMtermsOfUseUrl\")",
+                "@sys.write([@getDiscoveryUrl([@sys.read(\"MDMresponse\")])],\"MDMdiscoveryUrl\")",
+                "@sys.write([@getComplianceUrl([@sys.read(\"MDMresponse\")])],\"MDMcomplianceUrl\")",
+                "@sys.write([{IncludeResponseBodyInException:true} GET /beta/policies/mobileAppManagementPolicies/0000000a-0000-0000-c000-000000000000],\"MAMresponse\")",
+                "@sys.write([@getAppliesTo([@sys.read(\"MAMresponse\")])],\"MAMappliesTo\")",
+                "@sys.write([@getTermsOfUseUrl([@sys.read(\"MAMresponse\")])],\"MAMtermsOfUseUrl\")",
+                "@sys.write([@getDiscoveryUrl([@sys.read(\"MAMresponse\")])],\"MAMdiscoveryUrl\")",
+                "@sys.write([@getComplianceUrl([@sys.read(\"MAMresponse\")])],\"MAMcomplianceUrl\")",
+                "@sys.VALIDATESIMPLEVALUES(DeviceEnrollment,[@sys.TOLIST([@sys.read(\"MDMappliesTo\")],[@sys.read(\"MDMtermsOfUseUrl\")],[@sys.read(\"MDMdiscoveryUrl\")],[@sys.read(\"MDMcomplianceUrl\")],[@sys.read(\"MAMappliesTo\")],[@sys.read(\"MAMtermsOfUseUrl\")],[@sys.read(\"MAMdiscoveryUrl\")],[@sys.read(\"MAMcomplianceUrl\")])])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getAppliesTo",
+                  "value": "select CASE\r\n                        when val is null then ''\r\n                        else val\r\n                        end\r\n                        from (select json_extract(data,'$.appliesTo') as val from arg0)"
+                },
+                {
+                  "type": 0,
+                  "id": "getTermsOfUseUrl",
+                  "value": "select CASE\r\n                        when val is null then ''\r\n                        else val\r\n                        end\r\n                        from (select json_extract(data,'$.termsOfUseUrl') as val from arg0)"
+                },
+                {
+                  "type": 0,
+                  "id": "getDiscoveryUrl",
+                  "value": "select CASE\r\n                        when val is null then ''\r\n                        else val\r\n                        end\r\n                        from (select json_extract(data,'$.discoveryUrl') as val from arg0)"
+                },
+                {
+                  "type": 0,
+                  "id": "getComplianceUrl",
+                  "value": "select CASE\r\n                        when val is null then ''\r\n                        else val\r\n                        end\r\n                        from (select json_extract(data,'$.complianceUrl') as val from arg0)"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": false
+          },
+          "processedDeploymentAction": "{IncludeResponseBodyInException:true} PATCH /beta/policies/mobileDeviceManagementPolicies/0000000a-0000-0000-c000-000000000000 \\ {\r\n            \"complianceUrl\": \"https://portal.manage.microsoft.com/?portalAction=Compliance\",\r\n            \"description\": \"Device Management Policy for Microsoft Intune (edited by M365Lighthouse)\",\r\n            \"discoveryUrl\": \"https://enrollment.manage.microsoft.com/enrollmentserver/discovery.svc\",\r\n            \"displayName\": \"Microsoft Intune\",\r\n            \"isValid\": true,\r\n            \"termsOfUseUrl\": \"https://portal.manage.microsoft.com/TermsofUse.aspx\"\r\n        } EOC {IncludeResponseBodyInException:true} PATCH /beta/policies/mobileDeviceManagementPolicies/0000000a-0000-0000-c000-000000000000 \\ {\r\n            \"appliesTo\": \"all\"\r\n        } EOC {IncludeResponseBodyInException:true} PATCH /beta/policies/mobileAppManagementPolicies/0000000a-0000-0000-c000-000000000000 \\ {\r\n            \"complianceUrl\": \"https://portal.manage.microsoft.com/?portalAction=Compliance\",\r\n            \"description\": \"Device Management Policy for Microsoft Intune (edited by M365Lighthouse)\",\r\n            \"discoveryUrl\": \"https://enrollment.manage.microsoft.com/enrollmentserver/discovery.svc\",\r\n            \"displayName\": \"Microsoft Intune\",\r\n            \"isValid\": true,\r\n            \"termsOfUseUrl\": \"https://portal.manage.microsoft.com/TermsofUse.aspx\"\r\n        } EOC {IncludeResponseBodyInException:true} PATCH /beta/policies/mobileAppManagementPolicies/0000000a-0000-0000-c000-000000000000 \\ {\r\n            \"appliesTo\": \"all\"\r\n        } EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "id": "cb21824d-1bc1-4318-8a9f-c3d3241e6b6d"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Enable Intune Endpoint Analytics",
+      "description": "This task enables Intune Endpoint Analytics, which proactively monitors the health of your tenant's enrolled devices. Endpoint Analytics collects device event information from supported Windows 10 or later devices and provides recommendations to improve device performance and application responsiveness. You can view Endpoint Analytics data in both Microsoft Intune and Microsoft 365 Lighthouse.",
+      "portalLink": {
+        "url": "https://endpoint.microsoft.com/{tenantName}/#blade/Microsoft_Intune_Enrollment/UXAnalyticsMenu/~/overview",
+        "displayName": "Microsoft Intune"
+      },
+      "userImpact": "This group of tasks enables device management through Microsoft Intune and Microsoft Entra. Devices will automatically enroll in Intune when a work or school account is configured. Device health and compliance metrics will be sent to Microsoft Intune and Microsoft 365 Lighthouse.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2185815",
+          "displayName": "What is device enrollment?"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2185919",
+          "displayName": "Enroll Windows 10 or later devices in Microsoft Intune"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262149",
+          "displayName": "Endpoint analytics documentation"
+        }
+      ],
+      "id": "f31e05ac-9c73-405d-992a-99f13902343e",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "DeviceHealth",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "displayName",
+              "value": "Intune data collection policy",
+              "isRequired": true,
+              "isReadOnly": true,
+              "displayName": "Display name"
+            },
+            {
+              "name": "allowDeviceHealthMonitoring",
+              "value": "[\"enabled\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "State_Enabled",
+                  "displayName": "Enable policy"
+                },
+                {
+                  "name": "State_Disabled",
+                  "displayName": "Disable policy"
+                }
+              ],
+              "displayName": "Allow device health monitoring"
+            },
+            {
+              "name": "configDeviceHealthMonitoringScope",
+              "value": "[\"bootPerformance\",\"windowsUpdates\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [
+                {
+                  "name": "DeviceHealthMonitoringScope_BootPerformance",
+                  "displayName": "Endpoint analytics"
+                },
+                {
+                  "name": "DeviceHealthMonitoringScope_WindowsUpdates",
+                  "displayName": "Windows updates"
+                }
+              ],
+              "displayName": "Device health monitoring scope"
+            },
+            {
+              "name": "includeGroups",
+              "value": "[\"All\"]",
+              "isRequired": true,
+              "isReadOnly": false,
+              "referenceStrings": [
+                {
+                  "name": "Groups_AllGroups",
+                  "displayName": "All groups"
+                }
+              ],
+              "displayName": "Include groups"
+            },
+            {
+              "name": "excludeGroups",
+              "isRequired": false,
+              "isReadOnly": false,
+              "displayName": "Exclude groups"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/deviceConfigurations?$filter=displayName eq '[@displayName()]'],\"id\")],\"deviceManagementId\")",
+                "{IncludeResponseBodyInException:true} PATCH /beta/deviceManagement/deviceConfigurations/[@sys.read(\"deviceManagementId\")] \\ {\"@odata.type\":\"#microsoft.graph.windowsHealthMonitoringConfiguration\",\"roleScopeTagIds\":[[\"0\"]],\"displayName\":\"[@displayName()]\",\"allowDeviceHealthMonitoring\":\"[@sys.first([@allowDeviceHealthMonitoring()])]\",\"configDeviceHealthMonitoringScope\":\"bootPerformance, windowsUpdates\"}",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/deviceConfigurations[@sys.notexists(\"deviceManagementId\")] \\ {\"@odata.type\":\"#microsoft.graph.windowsHealthMonitoringConfiguration\",\"roleScopeTagIds\":[[\"0\"]],\"displayName\":\"[@displayName()]\",\"allowDeviceHealthMonitoring\":\"[@sys.first([@allowDeviceHealthMonitoring()])]\",\"configDeviceHealthMonitoringScope\":\"bootPerformance, windowsUpdates\"}],\"id\")],\"deviceManagementId\")",
+                "{IncludeResponseBodyInException:true} POST /beta/deviceManagement/deviceConfigurations/[@sys.read(\"deviceManagementId\")]/assign \\ {\r\n            \"assignments\":\r\n            [[\r\n                [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])]\r\n            ]]\r\n        }",
+                "@sys.read(\"deviceManagementId\")"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                when data = 'All' then '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                }\r\n\t                }'\r\n\t                else '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                            \"groupId\": \"' || data || '\"\r\n\t\t                }\r\n\t                }'\r\n                end\r\n                from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                when data = '' then ''\r\n                else '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                            \"groupId\": \"' || data || '\"\r\n\t\t                }\r\n\t                }'\r\n                end\r\n                from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludedExtensionsJSON",
+                  "value": "select case\r\n                    when data = '' or data IS NULL then ''\r\n                    else ',{\r\n                        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSetting\",\r\n                        \"settingInstance\": {\r\n                            \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance\",\r\n                            \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_excludedextensions\",\r\n                            \"settingInstanceTemplateReference\": {\r\n                                \"settingInstanceTemplateId\": \"634df7cc-28ae-438c-81b7-65f2f8ec0c63\"\r\n                            },\r\n                            \"simpleSettingCollectionValue\": [\r\n                                ' || data || '\r\n                            ]\r\n                            }\r\n                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludedPathsJSON",
+                  "value": "select case\r\n                    when data = '' or data IS NULL then ''\r\n                    else ',{\r\n                        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSetting\",\r\n                        \"settingInstance\": {\r\n                            \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance\",\r\n                            \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_excludedpaths\",\r\n                            \"settingInstanceTemplateReference\": {\r\n                                \"settingInstanceTemplateId\": \"867f7498-1484-443f-bf6a-f12abb1f2f60\"\r\n                            },\r\n                            \"simpleSettingCollectionValue\": [\r\n                                ' || data || '\r\n                            ]\r\n                            }\r\n                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludedProcessesJSON",
+                  "value": "select case\r\n                    when data = '' or data IS NULL then ''\r\n                    else ',{\r\n                        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSetting\",\r\n                        \"settingInstance\": {\r\n                            \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance\",\r\n                            \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_excludedprocesses\",\r\n                            \"settingInstanceTemplateReference\": {\r\n                                \"settingInstanceTemplateId\": \"6b54c69b-1686-4088-95bb-62c19817e132\"\r\n                            },\r\n                            \"simpleSettingCollectionValue\": [\r\n                                ' || data || '\r\n                            ]\r\n                            }\r\n                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "displayName",
+                  "value": "select 'Intune data collection policy'"
+                },
+                {
+                  "type": 0,
+                  "id": "allowDeviceHealthMonitoring",
+                  "value": "select '[\"enabled\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "configDeviceHealthMonitoringScope",
+                  "value": "select '[\"bootPerformance\",\"windowsUpdates\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "includeGroups",
+                  "value": "select '[\"All\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "excludeGroups",
+                  "value": "select ''"
+                },
+                {
+                  "type": 0,
+                  "id": "tenantIds",
+                  "value": "select '[\"a380a655-8cdd-4484-9eaf-7c9f320a122a\"]'"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.normalize([/beta/deviceManagement/deviceConfigurations?$expand=assignments])],\"policies\")",
+                "@sys.write([@sys.normalize([/v1.0/users?$select=id,displayName,userPrincipalName,assignedPlans,assignedLicenses,userType&$expand=memberOf($select=roleTemplateId)])],\"allUsers\")",
+                "@sys.validateGraphEntity([POST /echo \\ {\"@odata.type\":\"#microsoft.graph.windowsHealthMonitoringConfiguration\",\"roleScopeTagIds\":[[\"0\"]],\"displayName\":\"[@displayName()]\", \"supportsScopeTags\":\"True\" ,\"allowDeviceHealthMonitoring\":\"[@sys.first([@allowDeviceHealthMonitoring()])]\",\"configDeviceHealthMonitoringScope\":\"bootPerformance, windowsUpdates\",\r\n            \"assignments\":\r\n            [[\r\n                [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])]\r\n            ]]\r\n        }],[@sys.read(\"policies\")],[@sys.read(\"allUsers\")])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                when data = 'All' then '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                }\r\n\t                }'\r\n\t                else '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                            \"groupId\": \"' || data || '\"\r\n\t\t                }\r\n\t                }'\r\n                end\r\n                from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                when data = '' then ''\r\n                else '{ \r\n\t\t                \"target\":\r\n                        {\r\n\t\t\t                \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                            \"groupId\": \"' || data || '\"\r\n\t\t                }\r\n\t                }'\r\n                end\r\n                from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludedExtensionsJSON",
+                  "value": "select case\r\n                    when data = '' or data IS NULL then ''\r\n                    else ',{\r\n                        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSetting\",\r\n                        \"settingInstance\": {\r\n                            \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance\",\r\n                            \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_excludedextensions\",\r\n                            \"settingInstanceTemplateReference\": {\r\n                                \"settingInstanceTemplateId\": \"634df7cc-28ae-438c-81b7-65f2f8ec0c63\"\r\n                            },\r\n                            \"simpleSettingCollectionValue\": [\r\n                                ' || data || '\r\n                            ]\r\n                            }\r\n                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludedPathsJSON",
+                  "value": "select case\r\n                    when data = '' or data IS NULL then ''\r\n                    else ',{\r\n                        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSetting\",\r\n                        \"settingInstance\": {\r\n                            \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance\",\r\n                            \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_excludedpaths\",\r\n                            \"settingInstanceTemplateReference\": {\r\n                                \"settingInstanceTemplateId\": \"867f7498-1484-443f-bf6a-f12abb1f2f60\"\r\n                            },\r\n                            \"simpleSettingCollectionValue\": [\r\n                                ' || data || '\r\n                            ]\r\n                            }\r\n                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludedProcessesJSON",
+                  "value": "select case\r\n                    when data = '' or data IS NULL then ''\r\n                    else ',{\r\n                        \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSetting\",\r\n                        \"settingInstance\": {\r\n                            \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance\",\r\n                            \"settingDefinitionId\": \"device_vendor_msft_policy_config_defender_excludedprocesses\",\r\n                            \"settingInstanceTemplateReference\": {\r\n                                \"settingInstanceTemplateId\": \"6b54c69b-1686-4088-95bb-62c19817e132\"\r\n                            },\r\n                            \"simpleSettingCollectionValue\": [\r\n                                ' || data || '\r\n                            ]\r\n                            }\r\n                    }'\r\n                    end\r\n                    from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": true
+          },
+          "processedDeploymentAction": "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/deviceConfigurations?$filter=displayName eq ''],\"id\")],\"deviceManagementId\") EOC {IncludeResponseBodyInException:true} PATCH /beta/deviceManagement/deviceConfigurations/[@sys.read(\"deviceManagementId\")] \\ {\"@odata.type\":\"#microsoft.graph.windowsHealthMonitoringConfiguration\",\"roleScopeTagIds\":[[\"0\"]],\"displayName\":\"\",\"allowDeviceHealthMonitoring\":\"[@sys.first([\"enabled\"])]\",\"configDeviceHealthMonitoringScope\":\"bootPerformance, windowsUpdates\"} EOC @sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/deviceConfigurations[@sys.notexists(\"deviceManagementId\")] \\ {\"@odata.type\":\"#microsoft.graph.windowsHealthMonitoringConfiguration\",\"roleScopeTagIds\":[[\"0\"]],\"displayName\":\"\",\"allowDeviceHealthMonitoring\":\"[@sys.first([\"enabled\"])]\",\"configDeviceHealthMonitoringScope\":\"bootPerformance, windowsUpdates\"}],\"id\")],\"deviceManagementId\") EOC {IncludeResponseBodyInException:true} POST /beta/deviceManagement/deviceConfigurations/[@sys.read(\"deviceManagementId\")]/assign \\ {\r\n            \"assignments\":\r\n            [[\r\n                [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse()])],[@getExcludeGroups([@sys.jsonArrayParse()])])])]\r\n            ]]\r\n        } EOC @sys.read(\"deviceManagementId\") EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "contentMarkdown": "When enabling this policy your tenants' devices won't be affected but Endpoint Analytics will be working in the background to provide recommendations and improve performance on your tenants' Windows Devices. ",
+          "id": "f98033a1-f88d-4fdf-948c-1d1efbc67f89"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Collect Windows event logs",
+      "description": "Deployment of this task creates a Microsoft Intune Proactive Remediation that forwards Windows event logs to Microsoft 365 Lighthouse. You can view and analyze events to troubleshoot device issues. To retain device connectivity to Microsoft 365 Lighthouse, this task must be redeployed annually.",
+      "portalLink": {
+        "url": "https://endpoint.microsoft.com/{tenantName}/#view/Microsoft_Intune_DeviceSettings/DevicesMenu/~/powershell",
+        "displayName": "Device Remediations"
+      },
+      "userImpact": "This group of tasks enables device management through Microsoft Intune and Microsoft Entra. Devices will automatically enroll in Intune when a work or school account is configured. Device health and compliance metrics will be sent to Microsoft Intune and Microsoft 365 Lighthouse.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2185815",
+          "displayName": "What is device enrollment?"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2185919",
+          "displayName": "Enroll Windows 10 or later devices in Microsoft Intune"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262149",
+          "displayName": "Endpoint analytics documentation"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262225",
+          "displayName": "Windows Event Viewer"
+        }
+      ],
+      "id": "3a5f7b65-02c3-4c65-8ed9-79ca39e1a707",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "Deploy script",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "69b0af55-adcd-4b1c-a924-cf9535473eee",
+          "settings": [
+            {
+              "name": "displayName",
+              "value": "M365 Lighthouse - Windows Logs",
+              "isRequired": true,
+              "isReadOnly": true,
+              "referenceStrings": [],
+              "displayName": "Script name"
+            },
+            {
+              "name": "entryTypes",
+              "value": "[\"Error\",\"Warning\",\"Information\",\"FailureAudit\",\"SuccessAudit\"]",
+              "isRequired": false,
+              "isReadOnly": false,
+              "referenceStrings": [
+                {
+                  "name": "WindowsLog_EntryTypes_Error",
+                  "displayName": "Error"
+                },
+                {
+                  "name": "WindowsLog_EntryTypes_Warning",
+                  "displayName": "Warning"
+                },
+                {
+                  "name": "WindowsLog_EntryTypes_Information",
+                  "displayName": "Information"
+                },
+                {
+                  "name": "WindowsLog_EntryTypes_FailureAudit",
+                  "displayName": "Failure Audit"
+                },
+                {
+                  "name": "WindowsLog_EntryTypes_SuccessAudit",
+                  "displayName": "Success Audit"
+                }
+              ],
+              "displayName": "Entry types",
+              "description": "Entry types"
+            },
+            {
+              "name": "logPaths",
+              "value": "[\"Application\",\"System\",\"Security\",\"Others\"]",
+              "isRequired": false,
+              "isReadOnly": false,
+              "referenceStrings": [
+                {
+                  "name": "WindowsLog_LogPaths_Application",
+                  "displayName": "Application"
+                },
+                {
+                  "name": "WindowsLog_LogPaths_System",
+                  "displayName": "System"
+                },
+                {
+                  "name": "WindowsLog_LogPaths_Security",
+                  "displayName": "Security"
+                },
+                {
+                  "name": "WindowsLog_LogPaths_Others",
+                  "displayName": "Others"
+                }
+              ],
+              "displayName": "Log paths",
+              "description": "Log paths"
+            },
+            {
+              "name": "uploadFrequencyInMinutes",
+              "value": "30",
+              "isRequired": false,
+              "isReadOnly": false,
+              "referenceStrings": [],
+              "displayName": "Upload frequency in minutes"
+            },
+            {
+              "name": "maxUploadSize",
+              "value": "20480",
+              "isRequired": false,
+              "isReadOnly": false,
+              "referenceStrings": [],
+              "displayName": "Maximum size (in KB) to upload per collection"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET graph.microsoft.com/beta/deviceManagement/deviceManagementScripts?$filter=displayName%20eq%20'M365%20Lighthouse%20-%20Windows%20Log'&$select=id],\"id\")],\"deploymentId\")",
+                "{IncludeResponseBodyInException:true} DELETE graph.microsoft.com/beta/deviceManagement/deviceManagementScripts/[@sys.read(\"deploymentId\")]",
+                "@sys.DEPLOYWINDOWSLOGSCRIPT([@sys.trimArray([@entryTypes()])],[@sys.trimArray([@logPaths()])],[@sys.trimArray([@uploadFrequencyInMinutes()])],[@sys.trimArray([@maxUploadSize()])])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([{IncludeResponseBodyInException:true} GET graph.microsoft.com/beta/deviceManagement/managedDevices?$filter=(((deviceType eq 'desktop') or (deviceType eq 'windowsRT') or (deviceType eq 'winEmbedded') or (deviceType eq 'surfaceHub')))&$select=deviceName,lastSyncDateTime,id,complianceState],\"deviceList\")",
+                "@sys.write([{IncludeResponseBodyInException:true} GET graph.microsoft.com/beta/deviceManagement/deviceManagementScripts?$filter=displayName%20eq%20'M365%20Lighthouse%20-%20Windows%20Log'&$select=id],\"deploymentId\")",
+                "@sys.write([{IncludeResponseBodyInException:true} GET graph.microsoft.com/beta/deviceManagement/deviceManagementScripts/[@sys.project([@sys.read(\"deploymentId\")],\"id\")]/deviceRunStates?$expand=managedDevice($select=deviceName,lastSyncDateTime,id,complianceState)&$select=runState,lastStateUpdateDateTime[@sys.exists(\"deploymentId\")] ],\"deployedDevices\")",
+                "@sys.VALIDATENULLABLEVALUES(WindowsLog,[@sys.read(\"deviceList\")],[@sys.read(\"deployedDevices\")])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": true
+          },
+          "processedDeploymentAction": "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET graph.microsoft.com/beta/deviceManagement/deviceManagementScripts?$filter=displayName%20eq%20'M365%20Lighthouse%20-%20Windows%20Log'&$select=id],\"id\")],\"deploymentId\") EOC {IncludeResponseBodyInException:true} DELETE graph.microsoft.com/beta/deviceManagement/deviceManagementScripts/[@sys.read(\"deploymentId\")] EOC @sys.DEPLOYWINDOWSLOGSCRIPT([@sys.trimArray()],[@sys.trimArray()],[@sys.trimArray()],[@sys.trimArray()]) EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "id": "711efabe-d75b-4e67-a3aa-08a2a294b6b7"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 15,
+  "category": 5,
+  "provider": 0,
+  "version": 0,
+  "displayName": "Enable Cloud Update for Microsoft 365 Apps",
+  "description": "Enabling Cloud Update ensures that users receive Microsoft 365 Application updates at least once per month. Cloud Update provides enhanced controls and insights for application update deployment, streamlining the monitoring and rollout of Microsoft 365 Apps. It also keeps users up to date with the latest application features and enhancements, which can include important security fixes.",
+  "userImpact": "This group of tasks enables Microsoft 365 Cloud Update for devices assigned to Current Channel or Monthly Enterprise Channel. User devices are mapped to servicing profiles and receive updates based on configurable profile rules. Insights on app health are sent to Microsoft 365 Apps Admin Center and Microsoft 365 Lighthouse.",
+  "informationLinks": [],
+  "id": "66946f7d-7285-4c63-b4a5-502fc16549ff",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Onboard to Microsoft 365 Apps inventory service",
+      "description": "This task onboards the tenant to the Microsoft 365 Apps Admin Center Inventory Service, which provides insights into the state of Office installations on tenant devices. Inventory Service catalogs the add-ins installed on each device and identifies devices running older, unsupported builds of Office. Onboarding to Inventory Service is required to enable cloud updates. This may take up to 10 minutes to complete. If it is not complete after 10 minutes, deploy the task again.",
+      "portalLink": {
+        "url": "https://config.office.com/officeSettings/",
+        "displayName": "Microsoft 365 Apps Admin Center"
+      },
+      "userImpact": "This group of tasks enables Microsoft 365 Cloud Update for devices assigned to Current Channel or Monthly Enterprise Channel. User devices are mapped to servicing profiles and receive updates based on configurable profile rules. Insights on app health are sent to Microsoft 365 Apps Admin Center and Microsoft 365 Lighthouse.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262221",
+          "displayName": "Overview of cloud update in the Microsoft 365 Apps admin center"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2261980",
+          "displayName": "Notifications your users see when you set an update deadline for Microsoft 365 Apps"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262404",
+          "displayName": "Best practices from the field: Roadmap to modern management of Microsoft 365 Apps in the enterprise"
+        }
+      ],
+      "id": "0ef678d4-0e74-4065-bc18-71c691db6444",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "DeviceInventory_Inventory",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "4bd487a8-4f05-43bb-949b-a2bd369604d2",
+          "settings": [],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true,LogResponseMessage:true} POST clients.config.office.net/onboarding/odata/v1.0/FeatureProvisionData"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "tenantIds",
+                  "value": "select '[\"a380a655-8cdd-4484-9eaf-7c9f320a122a\"]'"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@isProvisioned([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true,LogResponseMessage:true} GET clients.config.office.net/onboarding/odata/v1.0/FeatureProvisionData?$filter=featureName eq 'CloudUpdate'])],\"isProvisioned\")",
+                "@sys.VALIDATESIMPLEVALUES(Inventory,Provisioned,[@sys.read(\"isProvisioned\")])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "isProvisioned",
+                  "value": "select case when\r\n                    status IS NULL\r\n                    then 'Not Provisioned'\r\n                    else status\r\n                    end\r\n                    from (select json_extract(data,'$.value[0].featureProvisionStatus') as status from arg0)"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": false
+          },
+          "processedDeploymentAction": "{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true,LogResponseMessage:true} POST clients.config.office.net/onboarding/odata/v1.0/FeatureProvisionData EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 1,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 0
+            }
+          ],
+          "dependentVersions": [],
+          "id": "8619aa88-f8dc-42a1-b1b2-32d6b413d4e3"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Enable Cloud Update for Microsoft 365 Apps",
+      "description": "This task enables cloud update management for devices assigned to either Current Channel or Monthly Enterprise Channel. Deploying this task ensures that customers receive security and functionality updates to Microsoft Office.",
+      "portalLink": {
+        "url": "https://config.office.com/officeSettings/MPOverview/",
+        "displayName": "Microsoft 365 Apps Admin Center"
+      },
+      "userImpact": "This group of tasks enables Microsoft 365 Cloud Update for devices assigned to Current Channel or Monthly Enterprise Channel. User devices are mapped to servicing profiles and receive updates based on configurable profile rules. Insights on app health are sent to Microsoft 365 Apps Admin Center and Microsoft 365 Lighthouse.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262221",
+          "displayName": "Overview of cloud update in the Microsoft 365 Apps admin center"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2261980",
+          "displayName": "Notifications your users see when you set an update deadline for Microsoft 365 Apps"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262404",
+          "displayName": "Best practices from the field: Roadmap to modern management of Microsoft 365 Apps in the enterprise"
+        }
+      ],
+      "id": "a7555eff-fcff-49d3-97fd-bfd31e54fbb9",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "DeviceInventory_ServicingProfile",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "a89afb72-97b3-4cd9-a2f3-8659e7575a59",
+          "settings": [
+            {
+              "name": "servicingDeadline",
+              "value": "3",
+              "isRequired": false,
+              "isReadOnly": false,
+              "referenceStrings": [],
+              "displayName": "Days to complete update"
+            },
+            {
+              "name": "excludeGroups",
+              "isRequired": false,
+              "isReadOnly": false,
+              "referenceStrings": [],
+              "displayName": "Exclude groups"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} PUT clients.config.office.net/ServiceProfile/v1.0/enableCloud \\ [[\"MEC\",\"Monthly\"]] ],\"enableCloudRsp\")",
+                "@sys.write([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} GET clients.config.office.net/ServiceProfile/v1.0/Profiles],\"profilesRsp\")",
+                "@sys.write([@getMECChannelProfileId([@sys.read(\"profilesRsp\")])],\"MECprofilesId\")",
+                "@sys.write([@getCCChannelProfileId([@sys.read(\"profilesRsp\")])],\"CCprofilesId\")",
+                "@sys.write([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} GET clients.config.office.net/ServiceProfile/v1.0/[@sys.read(\"MECprofilesId\")]/rules],\"MECRulesRsp\")",
+                "@sys.write([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} GET clients.config.office.net/ServiceProfile/v1.0/[@sys.read(\"CCprofilesId\")]/rules],\"CCRulesRsp\")",
+                "@sys.DEPLOYSERVICINGPROFILE([@sys.read(\"enableCloudRsp\")],[@sys.read(\"MECRulesRsp\")],[@sys.read(\"CCRulesRsp\")],[@excludeGroups()])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getMECChannelProfileId",
+                  "value": "select id from\r\n                            (SELECT \r\n                            json_extract(value, '$.id') as id, json_extract(value,'$.targetChannel') as targetChannel, json_extract(value,'$.active') as active \r\n                            from arg0, json_each(data) \r\n                            where targetChannel = 4)"
+                },
+                {
+                  "type": 0,
+                  "id": "getCCChannelProfileId",
+                  "value": "select id from\r\n                            (SELECT \r\n                            json_extract(value, '$.id') as id, json_extract(value,'$.targetChannel') as targetChannel, json_extract(value,'$.active') as active \r\n                            from arg0, json_each(data) \r\n                            where targetChannel = 1)"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} GET clients.config.office.net/ServiceProfile/v1.0/Profiles],\"profilesRsp\")",
+                "@sys.write([@getMECChannelStatus([@sys.read(\"profilesRsp\")])],\"MECStatus\")",
+                "@sys.write([@getCCChannelStatus([@sys.read(\"profilesRsp\")])],\"CCStatus\")",
+                "@sys.write([@getMECChannelProfileId([@sys.read(\"profilesRsp\")])],\"MECprofilesId\")",
+                "@sys.write([@getCCChannelProfileId([@sys.read(\"profilesRsp\")])],\"CCprofilesId\")",
+                "@sys.CHECKPREREQSERVICINGPROFILE([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true,LogResponseMessage:true} GET clients.config.office.net/ServiceProfile/v1.0/[@sys.read(\"MECprofilesId\")]/rules])",
+                "@sys.CHECKPREREQSERVICINGPROFILE([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true,LogResponseMessage:true} GET clients.config.office.net/ServiceProfile/v1.0/[@sys.read(\"CCprofilesId\")]/rules])",
+                "@sys.write([@getServicingDeadline([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} GET clients.config.office.net/ServiceProfile/v1.0/[@sys.read(\"MECprofilesId\")]/rules])],\"MECServicingDeadline\")",
+                "@sys.write([@getServicingDeadline([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} GET clients.config.office.net/ServiceProfile/v1.0/[@sys.read(\"CCprofilesId\")]/rules])],\"CCServicingDeadline\")",
+                "@sys.VALIDATESIMPLEVALUES(ServicingProfile,[@sys.TOLIST(Active,Active,[@servicingDeadline()],[@servicingDeadline()])],[@sys.TOLIST([@sys.read(\"MECStatus\")],[@sys.read(\"CCStatus\")],[@sys.read(\"MECServicingDeadline\")],[@sys.read(\"CCServicingDeadline\")])])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getMECChannelProfileId",
+                  "value": "select id from\r\n                            (SELECT \r\n                            json_extract(value, '$.id') as id, json_extract(value,'$.targetChannel') as targetChannel, json_extract(value,'$.active') as active \r\n                            from arg0, json_each(data) \r\n                            where targetChannel = 4)"
+                },
+                {
+                  "type": 0,
+                  "id": "getCCChannelProfileId",
+                  "value": "select id from\r\n                            (SELECT \r\n                            json_extract(value, '$.id') as id, json_extract(value,'$.targetChannel') as targetChannel, json_extract(value,'$.active') as active \r\n                            from arg0, json_each(data) \r\n                            where targetChannel = 1)"
+                },
+                {
+                  "type": 0,
+                  "id": "getMECChannelStatus",
+                  "value": "select case when\r\n                            active IS NULL or active = 0 \r\n                            then 'Inactive'\r\n                            else 'Active'\r\n                            end\r\n                            from \r\n                            (SELECT \r\n                            json_extract(value, '$.id') as id, json_extract(value,'$.targetChannel') as targetChannel, json_extract(value,'$.active') as active \r\n                            from arg0, json_each(data) \r\n                            where targetChannel = 4)"
+                },
+                {
+                  "type": 0,
+                  "id": "getCCChannelStatus",
+                  "value": "select case when\r\n                            active IS NULL or active = 0 \r\n                            then 'Inactive'\r\n                            else 'Active'\r\n                            end\r\n                            from \r\n                            (SELECT \r\n                            json_extract(value, '$.id') as id, json_extract(value,'$.targetChannel') as targetChannel, json_extract(value,'$.active') as active \r\n                            from arg0, json_each(data) \r\n                            where targetChannel = 1)"
+                },
+                {
+                  "type": 0,
+                  "id": "getServicingDeadline",
+                  "value": "SELECT value from \r\n                            (SELECT json_extract(value, '$.name') as name1, json_extract(value, '$.value') as value,json_extract(value, '$.id') as id\r\n                            from arg0, json_each(json_extract(data, '$.rulesList.valueRules')) \r\n                            where name1 like '%ServicingDeadline%')"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": false
+          },
+          "processedDeploymentAction": "@sys.write([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} PUT clients.config.office.net/ServiceProfile/v1.0/enableCloud \\ [[\"MEC\",\"Monthly\"]] ],\"enableCloudRsp\") EOC @sys.write([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} GET clients.config.office.net/ServiceProfile/v1.0/Profiles],\"profilesRsp\") EOC @sys.write([@getMECChannelProfileId([@sys.read(\"profilesRsp\")])],\"MECprofilesId\") EOC @sys.write([@getCCChannelProfileId([@sys.read(\"profilesRsp\")])],\"CCprofilesId\") EOC @sys.write([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} GET clients.config.office.net/ServiceProfile/v1.0/[@sys.read(\"MECprofilesId\")]/rules],\"MECRulesRsp\") EOC @sys.write([{Resource:\"https://config.office.net/\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} GET clients.config.office.net/ServiceProfile/v1.0/[@sys.read(\"CCprofilesId\")]/rules],\"CCRulesRsp\") EOC @sys.DEPLOYSERVICINGPROFILE([@sys.read(\"enableCloudRsp\")],[@sys.read(\"MECRulesRsp\")],[@sys.read(\"CCRulesRsp\")],) EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 1,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 0
+            }
+          ],
+          "dependentVersions": [],
+          "id": "22f92511-2ca4-4e09-a763-a543421fc168"
+        }
+      ]
+    }
+  ]
+}

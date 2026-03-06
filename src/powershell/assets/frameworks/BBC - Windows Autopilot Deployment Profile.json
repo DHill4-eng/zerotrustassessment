@@ -1,0 +1,391 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 18,
+  "category": 0,
+  "provider": 0,
+  "parameters": [],
+  "workloadActions": [],
+  "version": 0,
+  "displayName": "BBC - Windows Autopilot Deployment Profile",
+  "description": "Allows devices to enroll in autopilot for easy device repurposing",
+  "userImpact": "None",
+  "informationLinks": [],
+  "id": "7988bace-cce9-4756-8892-5f3b1fa008a3",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 1,
+      "category": 1,
+      "displayName": "BBC - Windows Autopilot Deployment Profile",
+      "description": "Allows devices to enroll in autopilot for easy device repurposing",
+      "portalLink": {
+        "url": "https://endpoint.microsoft.com/{tenantName}/#blade/Microsoft_Intune_Enrollment/AutopilotDeploymentProfiles.ReactView",
+        "displayName": "Microsoft Intune"
+      },
+      "informationLinks": [],
+      "id": "3fb7cad0-f319-4f59-b9b9-ee9dd60d510b",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "BBC - Windows Autopilot Deployment Profile",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "displayName",
+              "value": "Backbone Windows Autopilot Device Profile",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": true,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Display name"
+            },
+            {
+              "name": "description",
+              "value": "Device enrollment profile for autopilot devices",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Description"
+            },
+            {
+              "name": "language",
+              "value": "os-default",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Language"
+            },
+            {
+              "name": "locale",
+              "value": "os-default",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Locale"
+            },
+            {
+              "name": "extractHardwareHash",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [],
+              "displayName": "Extract hardware hash"
+            },
+            {
+              "name": "hardwareHashExtractionEnabled",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [],
+              "displayName": "hardwareHashExtractionEnabled"
+            },
+            {
+              "name": "deviceNameTemplate",
+              "value": "",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Device name template"
+            },
+            {
+              "name": "deviceType",
+              "value": "windowsPc",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Device type"
+            },
+            {
+              "name": "enableWhiteGlove",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [],
+              "displayName": "Enable pre-provisioned deployment"
+            },
+            {
+              "name": "preprovisioningAllowed",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [],
+              "displayName": "preprovisioningAllowed"
+            },
+            {
+              "name": "outOfBoxExperienceSettings.hidePrivacySettings",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [],
+              "displayName": "Hide privacy settings"
+            },
+            {
+              "name": "outOfBoxExperienceSettings.hideEULA",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [],
+              "displayName": "Hide EULA"
+            },
+            {
+              "name": "outOfBoxExperienceSettings.userType",
+              "value": "standard",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "User type"
+            },
+            {
+              "name": "outOfBoxExperienceSettings.deviceUsageType",
+              "value": "singleUser",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Device usage type"
+            },
+            {
+              "name": "outOfBoxExperienceSettings.skipKeyboardSelectionPage",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [],
+              "displayName": "Skip keyboard selection page"
+            },
+            {
+              "name": "outOfBoxExperienceSettings.hideEscapeLink",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [],
+              "displayName": "Hide escape link"
+            },
+            {
+              "name": "outOfBoxExperienceSetting.privacySettingsHidden",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [],
+              "displayName": "privacySettingsHidden"
+            },
+            {
+              "name": "outOfBoxExperienceSetting.eulaHidden",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [],
+              "displayName": "eulaHidden"
+            },
+            {
+              "name": "outOfBoxExperienceSetting.userType",
+              "value": "standard",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "User type"
+            },
+            {
+              "name": "outOfBoxExperienceSetting.deviceUsageType",
+              "value": "singleUser",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Device usage type"
+            },
+            {
+              "name": "outOfBoxExperienceSetting.keyboardSelectionPageSkipped",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [],
+              "displayName": "keyboardSelectionPageSkipped"
+            },
+            {
+              "name": "outOfBoxExperienceSetting.escapeLinkHidden",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [],
+              "displayName": "escapeLinkHidden"
+            },
+            {
+              "name": "includeGroups",
+              "value": "[\"All\"]",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "Groups_AllGroups",
+                  "displayName": "All groups"
+                }
+              ],
+              "displayName": "Include groups"
+            },
+            {
+              "name": "excludeGroups",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [],
+              "displayName": "Exclude groups"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/windowsAutopilotDeploymentProfiles?$filter=displayName eq '[@displayName()]'],\"id\")],\"deviceManagementId\")",
+                "{IncludeResponseBodyInException:true} PATCH /beta/deviceManagement/windowsAutopilotDeploymentProfiles/[@sys.read(\"deviceManagementId\")] \\ {\r\n  \"@odata.type\": \"#microsoft.graph.azureADWindowsAutopilotDeploymentProfile\",\r\n  \"displayName\": \"[@displayName()]\",\r\n  \"description\": \"[@description()]\",\r\n  \"language\": \"[@language()]\",\r\n  \"locale\": \"[@locale()]\",\r\n  \"extractHardwareHash\": \"[@extractHardwareHash()]\",\r\n  \"hardwareHashExtractionEnabled\": \"[@hardwareHashExtractionEnabled()]\",\r\n  \"deviceNameTemplate\": \"[@deviceNameTemplate()]\",\r\n  \"deviceType\": \"[@deviceType()]\",\r\n  \"enableWhiteGlove\": \"[@enableWhiteGlove()]\",\r\n  \"preprovisioningAllowed\": \"[@preprovisioningAllowed()]\",\r\n  \"outOfBoxExperienceSettings\": {\r\n    \"hidePrivacySettings\": \"[@outOfBoxExperienceSettings.hidePrivacySettings()]\",\r\n    \"hideEULA\": \"[@outOfBoxExperienceSettings.hideEULA()]\",\r\n    \"userType\": \"[@outOfBoxExperienceSettings.userType()]\",\r\n    \"deviceUsageType\": \"[@outOfBoxExperienceSettings.deviceUsageType()]\",\r\n    \"skipKeyboardSelectionPage\": \"[@outOfBoxExperienceSettings.skipKeyboardSelectionPage()]\",\r\n    \"hideEscapeLink\": \"[@outOfBoxExperienceSettings.hideEscapeLink()]\"\r\n  },\r\n  \"outOfBoxExperienceSetting\": {\r\n    \"privacySettingsHidden\": \"[@outOfBoxExperienceSetting.privacySettingsHidden()]\",\r\n    \"eulaHidden\": \"[@outOfBoxExperienceSetting.eulaHidden()]\",\r\n    \"userType\": \"[@outOfBoxExperienceSetting.userType()]\",\r\n    \"deviceUsageType\": \"[@outOfBoxExperienceSetting.deviceUsageType()]\",\r\n    \"keyboardSelectionPageSkipped\": \"[@outOfBoxExperienceSetting.keyboardSelectionPageSkipped()]\",\r\n    \"escapeLinkHidden\": \"[@outOfBoxExperienceSetting.escapeLinkHidden()]\"\r\n  }\r\n}",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/windowsAutopilotDeploymentProfiles[@sys.notexists(\"deviceManagementId\")] \\ {\r\n  \"@odata.type\": \"#microsoft.graph.azureADWindowsAutopilotDeploymentProfile\",\r\n  \"displayName\": \"[@displayName()]\",\r\n  \"description\": \"[@description()]\",\r\n  \"language\": \"[@language()]\",\r\n  \"locale\": \"[@locale()]\",\r\n  \"extractHardwareHash\": \"[@extractHardwareHash()]\",\r\n  \"hardwareHashExtractionEnabled\": \"[@hardwareHashExtractionEnabled()]\",\r\n  \"deviceNameTemplate\": \"[@deviceNameTemplate()]\",\r\n  \"deviceType\": \"[@deviceType()]\",\r\n  \"enableWhiteGlove\": \"[@enableWhiteGlove()]\",\r\n  \"preprovisioningAllowed\": \"[@preprovisioningAllowed()]\",\r\n  \"outOfBoxExperienceSettings\": {\r\n    \"hidePrivacySettings\": \"[@outOfBoxExperienceSettings.hidePrivacySettings()]\",\r\n    \"hideEULA\": \"[@outOfBoxExperienceSettings.hideEULA()]\",\r\n    \"userType\": \"[@outOfBoxExperienceSettings.userType()]\",\r\n    \"deviceUsageType\": \"[@outOfBoxExperienceSettings.deviceUsageType()]\",\r\n    \"skipKeyboardSelectionPage\": \"[@outOfBoxExperienceSettings.skipKeyboardSelectionPage()]\",\r\n    \"hideEscapeLink\": \"[@outOfBoxExperienceSettings.hideEscapeLink()]\"\r\n  },\r\n  \"outOfBoxExperienceSetting\": {\r\n    \"privacySettingsHidden\": \"[@outOfBoxExperienceSetting.privacySettingsHidden()]\",\r\n    \"eulaHidden\": \"[@outOfBoxExperienceSetting.eulaHidden()]\",\r\n    \"userType\": \"[@outOfBoxExperienceSetting.userType()]\",\r\n    \"deviceUsageType\": \"[@outOfBoxExperienceSetting.deviceUsageType()]\",\r\n    \"keyboardSelectionPageSkipped\": \"[@outOfBoxExperienceSetting.keyboardSelectionPageSkipped()]\",\r\n    \"escapeLinkHidden\": \"[@outOfBoxExperienceSetting.escapeLinkHidden()]\"\r\n  }\r\n}],\"id\")],\"deviceManagementId\")",
+                "DELETE /beta/deviceManagement/windowsAutopilotDeploymentProfiles/[@sys.read(\"deviceManagementId\")]/assignments/[@sys.project([GET /beta/deviceManagement/windowsAutopilotDeploymentProfiles/[@sys.read(\"deviceManagementId\")]/assignments],\"id\")]",
+                "POST /beta/deviceManagement/windowsAutopilotDeploymentProfiles/[@sys.read(\"deviceManagementId\")]/assignments \\ \r\n                    [@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])]\r\n                ",
+                "POST /beta/deviceManagement/windowsAutopilotDeploymentProfiles/[@sys.read(\"deviceManagementId\")]/assignments \\\r\n                    [@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])]\r\n                "
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                            when data like 'All' then '{ \r\n\t\t                            \"target\":\r\n                                    {\r\n\t\t\t                            \"@odata.type\": \"#microsoft.graph.allDevicesAssignmentTarget\"\r\n\t\t                            }\r\n\t                            }'\r\n                                when data = '' then ''\r\n\t                            else '{ \r\n\t\t                            \"target\":\r\n                                    {\r\n\t\t\t                            \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                        \"groupId\": \"' || data || '\"\r\n\t\t                            }\r\n\t                            }'\r\n                            end\r\n                            from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select\r\n                            '{ \r\n\t\t                            \"target\":\r\n                                    {\r\n\t\t\t                            \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                        \"groupId\": \"' || data || '\"\r\n\t\t                            }\r\n\t                            }'\r\n                            from arg0\r\n                            where data != ''"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "values": [],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.normalize([/beta/deviceManagement/windowsAutopilotDeploymentProfiles?$expand=assignments])],\"policies\")",
+                "@sys.write([@sys.normalize([/v1.0/users?$select=id,displayName,userPrincipalName,assignedPlans,assignedLicenses,userType&$expand=memberOf($select=roleTemplateId)])],\"allUsers\")",
+                "@sys.validateGraphEntity([POST /echo \\ {\r\n  \"@odata.type\": \"#microsoft.graph.azureADWindowsAutopilotDeploymentProfile\",\r\n  \"displayName\": \"[@displayName()]\",\r\n  \"description\": \"[@description()]\",\r\n  \"language\": \"[@language()]\",\r\n  \"locale\": \"[@locale()]\",\r\n  \"extractHardwareHash\": \"[@extractHardwareHash()]\",\r\n  \"hardwareHashExtractionEnabled\": \"[@hardwareHashExtractionEnabled()]\",\r\n  \"deviceNameTemplate\": \"[@deviceNameTemplate()]\",\r\n  \"deviceType\": \"[@deviceType()]\",\r\n  \"enableWhiteGlove\": \"[@enableWhiteGlove()]\",\r\n  \"preprovisioningAllowed\": \"[@preprovisioningAllowed()]\",\r\n  \"outOfBoxExperienceSettings\": {\r\n    \"hidePrivacySettings\": \"[@outOfBoxExperienceSettings.hidePrivacySettings()]\",\r\n    \"hideEULA\": \"[@outOfBoxExperienceSettings.hideEULA()]\",\r\n    \"userType\": \"[@outOfBoxExperienceSettings.userType()]\",\r\n    \"deviceUsageType\": \"[@outOfBoxExperienceSettings.deviceUsageType()]\",\r\n    \"skipKeyboardSelectionPage\": \"[@outOfBoxExperienceSettings.skipKeyboardSelectionPage()]\",\r\n    \"hideEscapeLink\": \"[@outOfBoxExperienceSettings.hideEscapeLink()]\"\r\n  },\r\n  \"outOfBoxExperienceSetting\": {\r\n    \"privacySettingsHidden\": \"[@outOfBoxExperienceSetting.privacySettingsHidden()]\",\r\n    \"eulaHidden\": \"[@outOfBoxExperienceSetting.eulaHidden()]\",\r\n    \"userType\": \"[@outOfBoxExperienceSetting.userType()]\",\r\n    \"deviceUsageType\": \"[@outOfBoxExperienceSetting.deviceUsageType()]\",\r\n    \"keyboardSelectionPageSkipped\": \"[@outOfBoxExperienceSetting.keyboardSelectionPageSkipped()]\",\r\n    \"escapeLinkHidden\": \"[@outOfBoxExperienceSetting.escapeLinkHidden()]\"\r\n  }\r,\"assignments\":[[ [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])] ]]\n}],[@sys.read(\"policies\")],[@sys.read(\"allUsers\")])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                    when data like 'All' then '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                    }\r\n\t                    }'\r\n\t                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                    when data = '' then ''\r\n                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "values": [],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": true
+          },
+          "extractionAction": {
+            "operationDefinition": {
+              "values": [
+                "/beta/deviceManagement/windowsAutopilotDeploymentProfiles/7e792da4-013e-4080-b5ff-2fba5c221ca2?$expand=assignments"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "values": [],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "deletionAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/windowsAutopilotDeploymentProfiles?$filter=displayName eq '[@displayName()]'],\"id\")],\"deviceManagementId\")",
+                "{IncludeResponseBodyInException:true} DELETE /beta/deviceManagement/windowsAutopilotDeploymentProfiles/[@sys.read(\"deviceManagementId\")]"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "id": "7d41f471-b219-4a96-8731-56382042fd98"
+        }
+      ]
+    }
+  ]
+}

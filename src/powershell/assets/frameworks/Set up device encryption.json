@@ -1,0 +1,1371 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 35,
+  "category": 0,
+  "provider": 0,
+  "version": 0,
+  "displayName": "Set up device encryption",
+  "description": "This policy enables BitLocker and enforces encryption and specific policies to ensure the usability of encryption and ensures drives can be recovered if needed.",
+  "userImpact": "Low - Silently enables BitLocker without user interaction.",
+  "id": "8583920c-947e-4220-813b-a4cc93fc82b0",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 1,
+      "category": 1,
+      "displayName": "Set up device encryption",
+      "description": "This policy enables BitLocker and enforces encryption and specific policies to ensure the usability of encryption and ensures drives can be recovered if needed.",
+      "portalLink": {
+        "url": "https://endpoint.microsoft.com/{tenantName}",
+        "displayName": "Microsoft Intune"
+      },
+      "informationLinks": [],
+      "id": "be46b32e-f1a0-4608-8d06-641ace102e3b",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "Set up device encryption",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "description",
+              "value": "Silent Configuration of BitLocker Configuration Profile for Windows 10 and later devices.",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "Description"
+            },
+            {
+              "name": "displayName",
+              "value": "Backbone BitLocker Configuration Profile",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": true,
+              "settingType": "String",
+              "displayName": "Display name"
+            },
+            {
+              "name": "version",
+              "value": "1",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Integer",
+              "displayName": "Version"
+            },
+            {
+              "name": "applicationGuardEnabled",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "applicationGuardEnabled"
+            },
+            {
+              "name": "applicationGuardEnabledOptions",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "applicationGuardEnabledOptions"
+            },
+            {
+              "name": "applicationGuardBlockFileTransfer",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "applicationGuardBlockFileTransfer"
+            },
+            {
+              "name": "applicationGuardBlockNonEnterpriseContent",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "applicationGuardBlockNonEnterpriseContent"
+            },
+            {
+              "name": "applicationGuardAllowPersistence",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "applicationGuardAllowPersistence"
+            },
+            {
+              "name": "applicationGuardForceAuditing",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "applicationGuardForceAuditing"
+            },
+            {
+              "name": "applicationGuardBlockClipboardSharing",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "applicationGuardBlockClipboardSharing"
+            },
+            {
+              "name": "applicationGuardAllowPrintToPDF",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "applicationGuardAllowPrintToPDF"
+            },
+            {
+              "name": "applicationGuardAllowPrintToXPS",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "applicationGuardAllowPrintToXPS"
+            },
+            {
+              "name": "applicationGuardAllowPrintToLocalPrinters",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "applicationGuardAllowPrintToLocalPrinters"
+            },
+            {
+              "name": "applicationGuardAllowPrintToNetworkPrinters",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "applicationGuardAllowPrintToNetworkPrinters"
+            },
+            {
+              "name": "applicationGuardAllowVirtualGPU",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "applicationGuardAllowVirtualGPU"
+            },
+            {
+              "name": "applicationGuardAllowFileSaveOnHost",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "applicationGuardAllowFileSaveOnHost"
+            },
+            {
+              "name": "appLockerApplicationControl",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "appLockerApplicationControl"
+            },
+            {
+              "name": "bitLockerAllowStandardUserEncryption",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "bitLockerAllowStandardUserEncryption"
+            },
+            {
+              "name": "bitLockerDisableWarningForOtherDiskEncryption",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "bitLockerDisableWarningForOtherDiskEncryption"
+            },
+            {
+              "name": "bitLockerEnableStorageCardEncryptionOnMobile",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "bitLockerEnableStorageCardEncryptionOnMobile"
+            },
+            {
+              "name": "bitLockerEncryptDevice",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "bitLockerEncryptDevice"
+            },
+            {
+              "name": "bitLockerRecoveryPasswordRotation",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "bitLockerRecoveryPasswordRotation"
+            },
+            {
+              "name": "defenderSecurityCenterNotificationsFromApp",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderSecurityCenterNotificationsFromApp"
+            },
+            {
+              "name": "defenderSecurityCenterITContactDisplay",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderSecurityCenterITContactDisplay"
+            },
+            {
+              "name": "windowsDefenderTamperProtection",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "windowsDefenderTamperProtection"
+            },
+            {
+              "name": "defenderAdobeReaderLaunchChildProcess",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderAdobeReaderLaunchChildProcess"
+            },
+            {
+              "name": "defenderOfficeAppsOtherProcessInjectionType",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderOfficeAppsOtherProcessInjectionType"
+            },
+            {
+              "name": "defenderOfficeAppsOtherProcessInjection",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderOfficeAppsOtherProcessInjection"
+            },
+            {
+              "name": "defenderOfficeCommunicationAppsLaunchChildProcess",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderOfficeCommunicationAppsLaunchChildProcess"
+            },
+            {
+              "name": "defenderOfficeAppsExecutableContentCreationOrLaunchType",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderOfficeAppsExecutableContentCreationOrLaunchType"
+            },
+            {
+              "name": "defenderOfficeAppsExecutableContentCreationOrLaunch",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderOfficeAppsExecutableContentCreationOrLaunch"
+            },
+            {
+              "name": "defenderOfficeAppsLaunchChildProcessType",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderOfficeAppsLaunchChildProcessType"
+            },
+            {
+              "name": "defenderOfficeAppsLaunchChildProcess",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderOfficeAppsLaunchChildProcess"
+            },
+            {
+              "name": "defenderOfficeMacroCodeAllowWin32ImportsType",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderOfficeMacroCodeAllowWin32ImportsType"
+            },
+            {
+              "name": "defenderOfficeMacroCodeAllowWin32Imports",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderOfficeMacroCodeAllowWin32Imports"
+            },
+            {
+              "name": "defenderScriptObfuscatedMacroCodeType",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderScriptObfuscatedMacroCodeType"
+            },
+            {
+              "name": "defenderScriptObfuscatedMacroCode",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderScriptObfuscatedMacroCode"
+            },
+            {
+              "name": "defenderScriptDownloadedPayloadExecutionType",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderScriptDownloadedPayloadExecutionType"
+            },
+            {
+              "name": "defenderScriptDownloadedPayloadExecution",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderScriptDownloadedPayloadExecution"
+            },
+            {
+              "name": "defenderPreventCredentialStealingType",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderPreventCredentialStealingType"
+            },
+            {
+              "name": "defenderProcessCreationType",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderProcessCreationType"
+            },
+            {
+              "name": "defenderProcessCreation",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderProcessCreation"
+            },
+            {
+              "name": "defenderUntrustedUSBProcessType",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderUntrustedUSBProcessType"
+            },
+            {
+              "name": "defenderUntrustedUSBProcess",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderUntrustedUSBProcess"
+            },
+            {
+              "name": "defenderUntrustedExecutableType",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderUntrustedExecutableType"
+            },
+            {
+              "name": "defenderUntrustedExecutable",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderUntrustedExecutable"
+            },
+            {
+              "name": "defenderEmailContentExecutionType",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderEmailContentExecutionType"
+            },
+            {
+              "name": "defenderEmailContentExecution",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderEmailContentExecution"
+            },
+            {
+              "name": "defenderAdvancedRansomewareProtectionType",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderAdvancedRansomewareProtectionType"
+            },
+            {
+              "name": "defenderGuardMyFoldersType",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderGuardMyFoldersType"
+            },
+            {
+              "name": "defenderNetworkProtectionType",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderNetworkProtectionType"
+            },
+            {
+              "name": "defenderSecurityCenterBlockExploitProtectionOverride",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "defenderSecurityCenterBlockExploitProtectionOverride"
+            },
+            {
+              "name": "defenderBlockPersistenceThroughWmiType",
+              "value": "userDefined",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "defenderBlockPersistenceThroughWmiType"
+            },
+            {
+              "name": "firewallPreSharedKeyEncodingMethod",
+              "value": "deviceDefault",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "firewallPreSharedKeyEncodingMethod"
+            },
+            {
+              "name": "firewallIPSecExemptionsNone",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "firewallIPSecExemptionsNone"
+            },
+            {
+              "name": "firewallIPSecExemptionsAllowNeighborDiscovery",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "firewallIPSecExemptionsAllowNeighborDiscovery"
+            },
+            {
+              "name": "firewallIPSecExemptionsAllowICMP",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "firewallIPSecExemptionsAllowICMP"
+            },
+            {
+              "name": "firewallIPSecExemptionsAllowRouterDiscovery",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "firewallIPSecExemptionsAllowRouterDiscovery"
+            },
+            {
+              "name": "firewallIPSecExemptionsAllowDHCP",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "firewallIPSecExemptionsAllowDHCP"
+            },
+            {
+              "name": "firewallCertificateRevocationListCheckMethod",
+              "value": "deviceDefault",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "firewallCertificateRevocationListCheckMethod"
+            },
+            {
+              "name": "firewallPacketQueueingMethod",
+              "value": "deviceDefault",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "firewallPacketQueueingMethod"
+            },
+            {
+              "name": "localSecurityOptionsBlockMicrosoftAccounts",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsBlockMicrosoftAccounts"
+            },
+            {
+              "name": "localSecurityOptionsBlockRemoteLogonWithBlankPassword",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsBlockRemoteLogonWithBlankPassword"
+            },
+            {
+              "name": "localSecurityOptionsDisableAdministratorAccount",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsDisableAdministratorAccount"
+            },
+            {
+              "name": "localSecurityOptionsDisableGuestAccount",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsDisableGuestAccount"
+            },
+            {
+              "name": "localSecurityOptionsAllowUndockWithoutHavingToLogon",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsAllowUndockWithoutHavingToLogon"
+            },
+            {
+              "name": "localSecurityOptionsBlockUsersInstallingPrinterDrivers",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsBlockUsersInstallingPrinterDrivers"
+            },
+            {
+              "name": "localSecurityOptionsBlockRemoteOpticalDriveAccess",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsBlockRemoteOpticalDriveAccess"
+            },
+            {
+              "name": "localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser"
+            },
+            {
+              "name": "localSecurityOptionsDoNotRequireCtrlAltDel",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsDoNotRequireCtrlAltDel"
+            },
+            {
+              "name": "localSecurityOptionsHideLastSignedInUser",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsHideLastSignedInUser"
+            },
+            {
+              "name": "localSecurityOptionsHideUsernameAtSignIn",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsHideUsernameAtSignIn"
+            },
+            {
+              "name": "localSecurityOptionsAllowPKU2UAuthenticationRequests",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsAllowPKU2UAuthenticationRequests"
+            },
+            {
+              "name": "localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool"
+            },
+            {
+              "name": "localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients",
+              "value": "none",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients"
+            },
+            {
+              "name": "localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers",
+              "value": "none",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers"
+            },
+            {
+              "name": "lanManagerAuthenticationLevel",
+              "value": "lmAndNltm",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "lanManagerAuthenticationLevel"
+            },
+            {
+              "name": "lanManagerWorkstationDisableInsecureGuestLogons",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "lanManagerWorkstationDisableInsecureGuestLogons"
+            },
+            {
+              "name": "localSecurityOptionsClearVirtualMemoryPageFile",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsClearVirtualMemoryPageFile"
+            },
+            {
+              "name": "localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn"
+            },
+            {
+              "name": "localSecurityOptionsAllowUIAccessApplicationElevation",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsAllowUIAccessApplicationElevation"
+            },
+            {
+              "name": "localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations"
+            },
+            {
+              "name": "localSecurityOptionsOnlyElevateSignedExecutables",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsOnlyElevateSignedExecutables"
+            },
+            {
+              "name": "localSecurityOptionsAdministratorElevationPromptBehavior",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "localSecurityOptionsAdministratorElevationPromptBehavior"
+            },
+            {
+              "name": "localSecurityOptionsStandardUserElevationPromptBehavior",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "localSecurityOptionsStandardUserElevationPromptBehavior"
+            },
+            {
+              "name": "localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation"
+            },
+            {
+              "name": "localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation"
+            },
+            {
+              "name": "localSecurityOptionsAllowUIAccessApplicationsForSecureLocations",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsAllowUIAccessApplicationsForSecureLocations"
+            },
+            {
+              "name": "localSecurityOptionsUseAdminApprovalMode",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsUseAdminApprovalMode"
+            },
+            {
+              "name": "localSecurityOptionsUseAdminApprovalModeForAdministrators",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsUseAdminApprovalModeForAdministrators"
+            },
+            {
+              "name": "localSecurityOptionsInformationShownOnLockScreen",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "localSecurityOptionsInformationShownOnLockScreen"
+            },
+            {
+              "name": "localSecurityOptionsInformationDisplayedOnLockScreen",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "localSecurityOptionsInformationDisplayedOnLockScreen"
+            },
+            {
+              "name": "localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees"
+            },
+            {
+              "name": "localSecurityOptionsClientDigitallySignCommunicationsAlways",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsClientDigitallySignCommunicationsAlways"
+            },
+            {
+              "name": "localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers"
+            },
+            {
+              "name": "localSecurityOptionsDisableServerDigitallySignCommunicationsAlways",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsDisableServerDigitallySignCommunicationsAlways"
+            },
+            {
+              "name": "localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees"
+            },
+            {
+              "name": "localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares"
+            },
+            {
+              "name": "localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts"
+            },
+            {
+              "name": "localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares"
+            },
+            {
+              "name": "localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange"
+            },
+            {
+              "name": "localSecurityOptionsSmartCardRemovalBehavior",
+              "value": "noAction",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "localSecurityOptionsSmartCardRemovalBehavior"
+            },
+            {
+              "name": "deviceGuardLocalSystemAuthorityCredentialGuardSettings",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "deviceGuardLocalSystemAuthorityCredentialGuardSettings"
+            },
+            {
+              "name": "deviceGuardEnableVirtualizationBasedSecurity",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "deviceGuardEnableVirtualizationBasedSecurity"
+            },
+            {
+              "name": "deviceGuardEnableSecureBootWithDMA",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "deviceGuardEnableSecureBootWithDMA"
+            },
+            {
+              "name": "deviceGuardSecureBootWithDMA",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "deviceGuardSecureBootWithDMA"
+            },
+            {
+              "name": "deviceGuardLaunchSystemGuard",
+              "value": "notConfigured",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "deviceGuardLaunchSystemGuard"
+            },
+            {
+              "name": "dmaGuardDeviceEnumerationPolicy",
+              "value": "deviceDefault",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "dmaGuardDeviceEnumerationPolicy"
+            },
+            {
+              "name": "smartScreenEnableInShell",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "smartScreenEnableInShell"
+            },
+            {
+              "name": "smartScreenBlockOverrideForFiles",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "smartScreenBlockOverrideForFiles"
+            },
+            {
+              "name": "xboxServicesEnableXboxGameSaveTask",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "xboxServicesEnableXboxGameSaveTask"
+            },
+            {
+              "name": "xboxServicesAccessoryManagementServiceStartupMode",
+              "value": "manual",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "xboxServicesAccessoryManagementServiceStartupMode"
+            },
+            {
+              "name": "xboxServicesLiveAuthManagerServiceStartupMode",
+              "value": "manual",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "xboxServicesLiveAuthManagerServiceStartupMode"
+            },
+            {
+              "name": "xboxServicesLiveGameSaveServiceStartupMode",
+              "value": "manual",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "xboxServicesLiveGameSaveServiceStartupMode"
+            },
+            {
+              "name": "xboxServicesLiveNetworkingServiceStartupMode",
+              "value": "manual",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "xboxServicesLiveNetworkingServiceStartupMode"
+            },
+            {
+              "name": "deviceManagementApplicabilityRuleOsEdition.osEditionTypes",
+              "value": "[\"windows10Enterprise\",\"windows10Professional\",\"windows10ProfessionalEducation\",\"windows10ProfessionalWorkstation\"]",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Array",
+              "displayName": "osEditionTypes"
+            },
+            {
+              "name": "deviceManagementApplicabilityRuleOsEdition.ruleType",
+              "value": "include",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "ruleType"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.startupAuthenticationRequired",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "startupAuthenticationRequired"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.startupAuthenticationBlockWithoutTpmChip",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "startupAuthenticationBlockWithoutTpmChip"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.startupAuthenticationTpmUsage",
+              "value": "allowed",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "startupAuthenticationTpmUsage"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.startupAuthenticationTpmPinUsage",
+              "value": "blocked",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "startupAuthenticationTpmPinUsage"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.startupAuthenticationTpmKeyUsage",
+              "value": "blocked",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "startupAuthenticationTpmKeyUsage"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.startupAuthenticationTpmPinAndKeyUsage",
+              "value": "blocked",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "startupAuthenticationTpmPinAndKeyUsage"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.prebootRecoveryEnableMessageAndUrl",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "prebootRecoveryEnableMessageAndUrl"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.recoveryOptions.blockDataRecoveryAgent",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "blockDataRecoveryAgent"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.recoveryOptions.recoveryPasswordUsage",
+              "value": "allowed",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "recoveryPasswordUsage"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.recoveryOptions.recoveryKeyUsage",
+              "value": "allowed",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "recoveryKeyUsage"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.recoveryOptions.hideRecoveryOptions",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "hideRecoveryOptions"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.recoveryOptions.enableRecoveryInformationSaveToStore",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "enableRecoveryInformationSaveToStore"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.recoveryOptions.recoveryInformationToStore",
+              "value": "passwordAndKey",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "recoveryInformationToStore"
+            },
+            {
+              "name": "bitLockerSystemDrivePolicy.recoveryOptions.enableBitLockerAfterRecoveryInformationToStore",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "enableBitLockerAfterRecoveryInformationToStore"
+            },
+            {
+              "name": "bitLockerFixedDrivePolicy.requireEncryptionForWriteAccess",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "requireEncryptionForWriteAccess"
+            },
+            {
+              "name": "bitLockerRemovableDrivePolicy.requireEncryptionForWriteAccess",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "requireEncryptionForWriteAccess"
+            },
+            {
+              "name": "bitLockerRemovableDrivePolicy.blockCrossOrganizationWriteAccess",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "displayName": "blockCrossOrganizationWriteAccess"
+            },
+            {
+              "name": "includeGroups",
+              "value": "[\"All\"]",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "Groups_AllGroups",
+                  "displayName": "All groups"
+                }
+              ],
+              "displayName": "Include groups"
+            },
+            {
+              "name": "excludeGroups",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "Exclude groups"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/deviceConfigurations?$filter=displayName eq '[@displayName()]'],\"id\")],\"deviceManagementId\")",
+                "{IncludeResponseBodyInException:true} PATCH /beta/deviceManagement/deviceConfigurations/[@sys.read(\"deviceManagementId\")] \\ {\r\n  \"@odata.type\": \"#microsoft.graph.windows10EndpointProtectionConfiguration\",\r\n  \"roleScopeTagIds\": [[\r\n    \"0\"\r\n  ]],\r\n  \"description\": \"[@description()]\",\r\n  \"displayName\": \"[@displayName()]\",\r\n  \"version\": \"[@version()]\",\r\n  \"applicationGuardEnabled\": \"[@applicationGuardEnabled()]\",\r\n  \"applicationGuardEnabledOptions\": \"[@applicationGuardEnabledOptions()]\",\r\n  \"applicationGuardBlockFileTransfer\": \"[@applicationGuardBlockFileTransfer()]\",\r\n  \"applicationGuardBlockNonEnterpriseContent\": \"[@applicationGuardBlockNonEnterpriseContent()]\",\r\n  \"applicationGuardAllowPersistence\": \"[@applicationGuardAllowPersistence()]\",\r\n  \"applicationGuardForceAuditing\": \"[@applicationGuardForceAuditing()]\",\r\n  \"applicationGuardBlockClipboardSharing\": \"[@applicationGuardBlockClipboardSharing()]\",\r\n  \"applicationGuardAllowPrintToPDF\": \"[@applicationGuardAllowPrintToPDF()]\",\r\n  \"applicationGuardAllowPrintToXPS\": \"[@applicationGuardAllowPrintToXPS()]\",\r\n  \"applicationGuardAllowPrintToLocalPrinters\": \"[@applicationGuardAllowPrintToLocalPrinters()]\",\r\n  \"applicationGuardAllowPrintToNetworkPrinters\": \"[@applicationGuardAllowPrintToNetworkPrinters()]\",\r\n  \"applicationGuardAllowVirtualGPU\": \"[@applicationGuardAllowVirtualGPU()]\",\r\n  \"applicationGuardAllowFileSaveOnHost\": \"[@applicationGuardAllowFileSaveOnHost()]\",\r\n  \"applicationGuardCertificateThumbprints\": [[]],\r\n  \"appLockerApplicationControl\": \"[@appLockerApplicationControl()]\",\r\n  \"bitLockerAllowStandardUserEncryption\": \"[@bitLockerAllowStandardUserEncryption()]\",\r\n  \"bitLockerDisableWarningForOtherDiskEncryption\": \"[@bitLockerDisableWarningForOtherDiskEncryption()]\",\r\n  \"bitLockerEnableStorageCardEncryptionOnMobile\": \"[@bitLockerEnableStorageCardEncryptionOnMobile()]\",\r\n  \"bitLockerEncryptDevice\": \"[@bitLockerEncryptDevice()]\",\r\n  \"bitLockerRecoveryPasswordRotation\": \"[@bitLockerRecoveryPasswordRotation()]\",\r\n  \"defenderSecurityCenterNotificationsFromApp\": \"[@defenderSecurityCenterNotificationsFromApp()]\",\r\n  \"defenderSecurityCenterITContactDisplay\": \"[@defenderSecurityCenterITContactDisplay()]\",\r\n  \"windowsDefenderTamperProtection\": \"[@windowsDefenderTamperProtection()]\",\r\n  \"defenderAdobeReaderLaunchChildProcess\": \"[@defenderAdobeReaderLaunchChildProcess()]\",\r\n  \"defenderAttackSurfaceReductionExcludedPaths\": [[]],\r\n  \"defenderOfficeAppsOtherProcessInjectionType\": \"[@defenderOfficeAppsOtherProcessInjectionType()]\",\r\n  \"defenderOfficeAppsOtherProcessInjection\": \"[@defenderOfficeAppsOtherProcessInjection()]\",\r\n  \"defenderOfficeCommunicationAppsLaunchChildProcess\": \"[@defenderOfficeCommunicationAppsLaunchChildProcess()]\",\r\n  \"defenderOfficeAppsExecutableContentCreationOrLaunchType\": \"[@defenderOfficeAppsExecutableContentCreationOrLaunchType()]\",\r\n  \"defenderOfficeAppsExecutableContentCreationOrLaunch\": \"[@defenderOfficeAppsExecutableContentCreationOrLaunch()]\",\r\n  \"defenderOfficeAppsLaunchChildProcessType\": \"[@defenderOfficeAppsLaunchChildProcessType()]\",\r\n  \"defenderOfficeAppsLaunchChildProcess\": \"[@defenderOfficeAppsLaunchChildProcess()]\",\r\n  \"defenderOfficeMacroCodeAllowWin32ImportsType\": \"[@defenderOfficeMacroCodeAllowWin32ImportsType()]\",\r\n  \"defenderOfficeMacroCodeAllowWin32Imports\": \"[@defenderOfficeMacroCodeAllowWin32Imports()]\",\r\n  \"defenderScriptObfuscatedMacroCodeType\": \"[@defenderScriptObfuscatedMacroCodeType()]\",\r\n  \"defenderScriptObfuscatedMacroCode\": \"[@defenderScriptObfuscatedMacroCode()]\",\r\n  \"defenderScriptDownloadedPayloadExecutionType\": \"[@defenderScriptDownloadedPayloadExecutionType()]\",\r\n  \"defenderScriptDownloadedPayloadExecution\": \"[@defenderScriptDownloadedPayloadExecution()]\",\r\n  \"defenderPreventCredentialStealingType\": \"[@defenderPreventCredentialStealingType()]\",\r\n  \"defenderProcessCreationType\": \"[@defenderProcessCreationType()]\",\r\n  \"defenderProcessCreation\": \"[@defenderProcessCreation()]\",\r\n  \"defenderUntrustedUSBProcessType\": \"[@defenderUntrustedUSBProcessType()]\",\r\n  \"defenderUntrustedUSBProcess\": \"[@defenderUntrustedUSBProcess()]\",\r\n  \"defenderUntrustedExecutableType\": \"[@defenderUntrustedExecutableType()]\",\r\n  \"defenderUntrustedExecutable\": \"[@defenderUntrustedExecutable()]\",\r\n  \"defenderEmailContentExecutionType\": \"[@defenderEmailContentExecutionType()]\",\r\n  \"defenderEmailContentExecution\": \"[@defenderEmailContentExecution()]\",\r\n  \"defenderAdvancedRansomewareProtectionType\": \"[@defenderAdvancedRansomewareProtectionType()]\",\r\n  \"defenderGuardMyFoldersType\": \"[@defenderGuardMyFoldersType()]\",\r\n  \"defenderGuardedFoldersAllowedAppPaths\": [[]],\r\n  \"defenderAdditionalGuardedFolders\": [[]],\r\n  \"defenderNetworkProtectionType\": \"[@defenderNetworkProtectionType()]\",\r\n  \"defenderSecurityCenterBlockExploitProtectionOverride\": \"[@defenderSecurityCenterBlockExploitProtectionOverride()]\",\r\n  \"defenderBlockPersistenceThroughWmiType\": \"[@defenderBlockPersistenceThroughWmiType()]\",\r\n  \"firewallPreSharedKeyEncodingMethod\": \"[@firewallPreSharedKeyEncodingMethod()]\",\r\n  \"firewallIPSecExemptionsNone\": \"[@firewallIPSecExemptionsNone()]\",\r\n  \"firewallIPSecExemptionsAllowNeighborDiscovery\": \"[@firewallIPSecExemptionsAllowNeighborDiscovery()]\",\r\n  \"firewallIPSecExemptionsAllowICMP\": \"[@firewallIPSecExemptionsAllowICMP()]\",\r\n  \"firewallIPSecExemptionsAllowRouterDiscovery\": \"[@firewallIPSecExemptionsAllowRouterDiscovery()]\",\r\n  \"firewallIPSecExemptionsAllowDHCP\": \"[@firewallIPSecExemptionsAllowDHCP()]\",\r\n  \"firewallCertificateRevocationListCheckMethod\": \"[@firewallCertificateRevocationListCheckMethod()]\",\r\n  \"firewallPacketQueueingMethod\": \"[@firewallPacketQueueingMethod()]\",\r\n  \"localSecurityOptionsBlockMicrosoftAccounts\": \"[@localSecurityOptionsBlockMicrosoftAccounts()]\",\r\n  \"localSecurityOptionsBlockRemoteLogonWithBlankPassword\": \"[@localSecurityOptionsBlockRemoteLogonWithBlankPassword()]\",\r\n  \"localSecurityOptionsDisableAdministratorAccount\": \"[@localSecurityOptionsDisableAdministratorAccount()]\",\r\n  \"localSecurityOptionsDisableGuestAccount\": \"[@localSecurityOptionsDisableGuestAccount()]\",\r\n  \"localSecurityOptionsAllowUndockWithoutHavingToLogon\": \"[@localSecurityOptionsAllowUndockWithoutHavingToLogon()]\",\r\n  \"localSecurityOptionsBlockUsersInstallingPrinterDrivers\": \"[@localSecurityOptionsBlockUsersInstallingPrinterDrivers()]\",\r\n  \"localSecurityOptionsBlockRemoteOpticalDriveAccess\": \"[@localSecurityOptionsBlockRemoteOpticalDriveAccess()]\",\r\n  \"localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser\": \"[@localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser()]\",\r\n  \"localSecurityOptionsDoNotRequireCtrlAltDel\": \"[@localSecurityOptionsDoNotRequireCtrlAltDel()]\",\r\n  \"localSecurityOptionsHideLastSignedInUser\": \"[@localSecurityOptionsHideLastSignedInUser()]\",\r\n  \"localSecurityOptionsHideUsernameAtSignIn\": \"[@localSecurityOptionsHideUsernameAtSignIn()]\",\r\n  \"localSecurityOptionsAllowPKU2UAuthenticationRequests\": \"[@localSecurityOptionsAllowPKU2UAuthenticationRequests()]\",\r\n  \"localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool\": \"[@localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool()]\",\r\n  \"localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients\": \"[@localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients()]\",\r\n  \"localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers\": \"[@localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers()]\",\r\n  \"lanManagerAuthenticationLevel\": \"[@lanManagerAuthenticationLevel()]\",\r\n  \"lanManagerWorkstationDisableInsecureGuestLogons\": \"[@lanManagerWorkstationDisableInsecureGuestLogons()]\",\r\n  \"localSecurityOptionsClearVirtualMemoryPageFile\": \"[@localSecurityOptionsClearVirtualMemoryPageFile()]\",\r\n  \"localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn\": \"[@localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn()]\",\r\n  \"localSecurityOptionsAllowUIAccessApplicationElevation\": \"[@localSecurityOptionsAllowUIAccessApplicationElevation()]\",\r\n  \"localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations\": \"[@localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations()]\",\r\n  \"localSecurityOptionsOnlyElevateSignedExecutables\": \"[@localSecurityOptionsOnlyElevateSignedExecutables()]\",\r\n  \"localSecurityOptionsAdministratorElevationPromptBehavior\": \"[@localSecurityOptionsAdministratorElevationPromptBehavior()]\",\r\n  \"localSecurityOptionsStandardUserElevationPromptBehavior\": \"[@localSecurityOptionsStandardUserElevationPromptBehavior()]\",\r\n  \"localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation\": \"[@localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation()]\",\r\n  \"localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation\": \"[@localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation()]\",\r\n  \"localSecurityOptionsAllowUIAccessApplicationsForSecureLocations\": \"[@localSecurityOptionsAllowUIAccessApplicationsForSecureLocations()]\",\r\n  \"localSecurityOptionsUseAdminApprovalMode\": \"[@localSecurityOptionsUseAdminApprovalMode()]\",\r\n  \"localSecurityOptionsUseAdminApprovalModeForAdministrators\": \"[@localSecurityOptionsUseAdminApprovalModeForAdministrators()]\",\r\n  \"localSecurityOptionsInformationShownOnLockScreen\": \"[@localSecurityOptionsInformationShownOnLockScreen()]\",\r\n  \"localSecurityOptionsInformationDisplayedOnLockScreen\": \"[@localSecurityOptionsInformationDisplayedOnLockScreen()]\",\r\n  \"localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees\": \"[@localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees()]\",\r\n  \"localSecurityOptionsClientDigitallySignCommunicationsAlways\": \"[@localSecurityOptionsClientDigitallySignCommunicationsAlways()]\",\r\n  \"localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers\": \"[@localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers()]\",\r\n  \"localSecurityOptionsDisableServerDigitallySignCommunicationsAlways\": \"[@localSecurityOptionsDisableServerDigitallySignCommunicationsAlways()]\",\r\n  \"localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees\": \"[@localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees()]\",\r\n  \"localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares\": \"[@localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares()]\",\r\n  \"localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts\": \"[@localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts()]\",\r\n  \"localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares\": \"[@localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares()]\",\r\n  \"localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange\": \"[@localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange()]\",\r\n  \"localSecurityOptionsSmartCardRemovalBehavior\": \"[@localSecurityOptionsSmartCardRemovalBehavior()]\",\r\n  \"deviceGuardLocalSystemAuthorityCredentialGuardSettings\": \"[@deviceGuardLocalSystemAuthorityCredentialGuardSettings()]\",\r\n  \"deviceGuardEnableVirtualizationBasedSecurity\": \"[@deviceGuardEnableVirtualizationBasedSecurity()]\",\r\n  \"deviceGuardEnableSecureBootWithDMA\": \"[@deviceGuardEnableSecureBootWithDMA()]\",\r\n  \"deviceGuardSecureBootWithDMA\": \"[@deviceGuardSecureBootWithDMA()]\",\r\n  \"deviceGuardLaunchSystemGuard\": \"[@deviceGuardLaunchSystemGuard()]\",\r\n  \"defenderFileExtensionsToExclude\": [[]],\r\n  \"defenderFilesAndFoldersToExclude\": [[]],\r\n  \"defenderProcessesToExclude\": [[]],\r\n  \"dmaGuardDeviceEnumerationPolicy\": \"[@dmaGuardDeviceEnumerationPolicy()]\",\r\n  \"smartScreenEnableInShell\": \"[@smartScreenEnableInShell()]\",\r\n  \"smartScreenBlockOverrideForFiles\": \"[@smartScreenBlockOverrideForFiles()]\",\r\n  \"xboxServicesEnableXboxGameSaveTask\": \"[@xboxServicesEnableXboxGameSaveTask()]\",\r\n  \"xboxServicesAccessoryManagementServiceStartupMode\": \"[@xboxServicesAccessoryManagementServiceStartupMode()]\",\r\n  \"xboxServicesLiveAuthManagerServiceStartupMode\": \"[@xboxServicesLiveAuthManagerServiceStartupMode()]\",\r\n  \"xboxServicesLiveGameSaveServiceStartupMode\": \"[@xboxServicesLiveGameSaveServiceStartupMode()]\",\r\n  \"xboxServicesLiveNetworkingServiceStartupMode\": \"[@xboxServicesLiveNetworkingServiceStartupMode()]\",\r\n  \"deviceManagementApplicabilityRuleOsEdition\": {\r\n    \"osEditionTypes\": [[ [@sys.trimArray([@deviceManagementApplicabilityRuleOsEdition.osEditionTypes()])] ]],\r\n    \"ruleType\": \"[@deviceManagementApplicabilityRuleOsEdition.ruleType()]\"\r\n  },\r\n  \"bitLockerSystemDrivePolicy\": {\r\n    \"startupAuthenticationRequired\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationRequired()]\",\r\n    \"startupAuthenticationBlockWithoutTpmChip\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationBlockWithoutTpmChip()]\",\r\n    \"startupAuthenticationTpmUsage\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationTpmUsage()]\",\r\n    \"startupAuthenticationTpmPinUsage\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationTpmPinUsage()]\",\r\n    \"startupAuthenticationTpmKeyUsage\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationTpmKeyUsage()]\",\r\n    \"startupAuthenticationTpmPinAndKeyUsage\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationTpmPinAndKeyUsage()]\",\r\n    \"prebootRecoveryEnableMessageAndUrl\": \"[@bitLockerSystemDrivePolicy.prebootRecoveryEnableMessageAndUrl()]\",\r\n    \"recoveryOptions\": {\r\n      \"blockDataRecoveryAgent\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.blockDataRecoveryAgent()]\",\r\n      \"recoveryPasswordUsage\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.recoveryPasswordUsage()]\",\r\n      \"recoveryKeyUsage\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.recoveryKeyUsage()]\",\r\n      \"hideRecoveryOptions\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.hideRecoveryOptions()]\",\r\n      \"enableRecoveryInformationSaveToStore\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.enableRecoveryInformationSaveToStore()]\",\r\n      \"recoveryInformationToStore\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.recoveryInformationToStore()]\",\r\n      \"enableBitLockerAfterRecoveryInformationToStore\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.enableBitLockerAfterRecoveryInformationToStore()]\"\r\n    }\r\n  },\r\n  \"bitLockerFixedDrivePolicy\": {\r\n    \"requireEncryptionForWriteAccess\": \"[@bitLockerFixedDrivePolicy.requireEncryptionForWriteAccess()]\"\r\n  },\r\n  \"bitLockerRemovableDrivePolicy\": {\r\n    \"requireEncryptionForWriteAccess\": \"[@bitLockerRemovableDrivePolicy.requireEncryptionForWriteAccess()]\",\r\n    \"blockCrossOrganizationWriteAccess\": \"[@bitLockerRemovableDrivePolicy.blockCrossOrganizationWriteAccess()]\"\r\n  },\r\n  \"firewallRules\": [[]]\r\n}",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/deviceConfigurations[@sys.notexists(\"deviceManagementId\")] \\ {\r\n  \"@odata.type\": \"#microsoft.graph.windows10EndpointProtectionConfiguration\",\r\n  \"roleScopeTagIds\": [[\r\n    \"0\"\r\n  ]],\r\n  \"description\": \"[@description()]\",\r\n  \"displayName\": \"[@displayName()]\",\r\n  \"version\": \"[@version()]\",\r\n  \"applicationGuardEnabled\": \"[@applicationGuardEnabled()]\",\r\n  \"applicationGuardEnabledOptions\": \"[@applicationGuardEnabledOptions()]\",\r\n  \"applicationGuardBlockFileTransfer\": \"[@applicationGuardBlockFileTransfer()]\",\r\n  \"applicationGuardBlockNonEnterpriseContent\": \"[@applicationGuardBlockNonEnterpriseContent()]\",\r\n  \"applicationGuardAllowPersistence\": \"[@applicationGuardAllowPersistence()]\",\r\n  \"applicationGuardForceAuditing\": \"[@applicationGuardForceAuditing()]\",\r\n  \"applicationGuardBlockClipboardSharing\": \"[@applicationGuardBlockClipboardSharing()]\",\r\n  \"applicationGuardAllowPrintToPDF\": \"[@applicationGuardAllowPrintToPDF()]\",\r\n  \"applicationGuardAllowPrintToXPS\": \"[@applicationGuardAllowPrintToXPS()]\",\r\n  \"applicationGuardAllowPrintToLocalPrinters\": \"[@applicationGuardAllowPrintToLocalPrinters()]\",\r\n  \"applicationGuardAllowPrintToNetworkPrinters\": \"[@applicationGuardAllowPrintToNetworkPrinters()]\",\r\n  \"applicationGuardAllowVirtualGPU\": \"[@applicationGuardAllowVirtualGPU()]\",\r\n  \"applicationGuardAllowFileSaveOnHost\": \"[@applicationGuardAllowFileSaveOnHost()]\",\r\n  \"applicationGuardCertificateThumbprints\": [[]],\r\n  \"appLockerApplicationControl\": \"[@appLockerApplicationControl()]\",\r\n  \"bitLockerAllowStandardUserEncryption\": \"[@bitLockerAllowStandardUserEncryption()]\",\r\n  \"bitLockerDisableWarningForOtherDiskEncryption\": \"[@bitLockerDisableWarningForOtherDiskEncryption()]\",\r\n  \"bitLockerEnableStorageCardEncryptionOnMobile\": \"[@bitLockerEnableStorageCardEncryptionOnMobile()]\",\r\n  \"bitLockerEncryptDevice\": \"[@bitLockerEncryptDevice()]\",\r\n  \"bitLockerRecoveryPasswordRotation\": \"[@bitLockerRecoveryPasswordRotation()]\",\r\n  \"defenderSecurityCenterNotificationsFromApp\": \"[@defenderSecurityCenterNotificationsFromApp()]\",\r\n  \"defenderSecurityCenterITContactDisplay\": \"[@defenderSecurityCenterITContactDisplay()]\",\r\n  \"windowsDefenderTamperProtection\": \"[@windowsDefenderTamperProtection()]\",\r\n  \"defenderAdobeReaderLaunchChildProcess\": \"[@defenderAdobeReaderLaunchChildProcess()]\",\r\n  \"defenderAttackSurfaceReductionExcludedPaths\": [[]],\r\n  \"defenderOfficeAppsOtherProcessInjectionType\": \"[@defenderOfficeAppsOtherProcessInjectionType()]\",\r\n  \"defenderOfficeAppsOtherProcessInjection\": \"[@defenderOfficeAppsOtherProcessInjection()]\",\r\n  \"defenderOfficeCommunicationAppsLaunchChildProcess\": \"[@defenderOfficeCommunicationAppsLaunchChildProcess()]\",\r\n  \"defenderOfficeAppsExecutableContentCreationOrLaunchType\": \"[@defenderOfficeAppsExecutableContentCreationOrLaunchType()]\",\r\n  \"defenderOfficeAppsExecutableContentCreationOrLaunch\": \"[@defenderOfficeAppsExecutableContentCreationOrLaunch()]\",\r\n  \"defenderOfficeAppsLaunchChildProcessType\": \"[@defenderOfficeAppsLaunchChildProcessType()]\",\r\n  \"defenderOfficeAppsLaunchChildProcess\": \"[@defenderOfficeAppsLaunchChildProcess()]\",\r\n  \"defenderOfficeMacroCodeAllowWin32ImportsType\": \"[@defenderOfficeMacroCodeAllowWin32ImportsType()]\",\r\n  \"defenderOfficeMacroCodeAllowWin32Imports\": \"[@defenderOfficeMacroCodeAllowWin32Imports()]\",\r\n  \"defenderScriptObfuscatedMacroCodeType\": \"[@defenderScriptObfuscatedMacroCodeType()]\",\r\n  \"defenderScriptObfuscatedMacroCode\": \"[@defenderScriptObfuscatedMacroCode()]\",\r\n  \"defenderScriptDownloadedPayloadExecutionType\": \"[@defenderScriptDownloadedPayloadExecutionType()]\",\r\n  \"defenderScriptDownloadedPayloadExecution\": \"[@defenderScriptDownloadedPayloadExecution()]\",\r\n  \"defenderPreventCredentialStealingType\": \"[@defenderPreventCredentialStealingType()]\",\r\n  \"defenderProcessCreationType\": \"[@defenderProcessCreationType()]\",\r\n  \"defenderProcessCreation\": \"[@defenderProcessCreation()]\",\r\n  \"defenderUntrustedUSBProcessType\": \"[@defenderUntrustedUSBProcessType()]\",\r\n  \"defenderUntrustedUSBProcess\": \"[@defenderUntrustedUSBProcess()]\",\r\n  \"defenderUntrustedExecutableType\": \"[@defenderUntrustedExecutableType()]\",\r\n  \"defenderUntrustedExecutable\": \"[@defenderUntrustedExecutable()]\",\r\n  \"defenderEmailContentExecutionType\": \"[@defenderEmailContentExecutionType()]\",\r\n  \"defenderEmailContentExecution\": \"[@defenderEmailContentExecution()]\",\r\n  \"defenderAdvancedRansomewareProtectionType\": \"[@defenderAdvancedRansomewareProtectionType()]\",\r\n  \"defenderGuardMyFoldersType\": \"[@defenderGuardMyFoldersType()]\",\r\n  \"defenderGuardedFoldersAllowedAppPaths\": [[]],\r\n  \"defenderAdditionalGuardedFolders\": [[]],\r\n  \"defenderNetworkProtectionType\": \"[@defenderNetworkProtectionType()]\",\r\n  \"defenderSecurityCenterBlockExploitProtectionOverride\": \"[@defenderSecurityCenterBlockExploitProtectionOverride()]\",\r\n  \"defenderBlockPersistenceThroughWmiType\": \"[@defenderBlockPersistenceThroughWmiType()]\",\r\n  \"firewallPreSharedKeyEncodingMethod\": \"[@firewallPreSharedKeyEncodingMethod()]\",\r\n  \"firewallIPSecExemptionsNone\": \"[@firewallIPSecExemptionsNone()]\",\r\n  \"firewallIPSecExemptionsAllowNeighborDiscovery\": \"[@firewallIPSecExemptionsAllowNeighborDiscovery()]\",\r\n  \"firewallIPSecExemptionsAllowICMP\": \"[@firewallIPSecExemptionsAllowICMP()]\",\r\n  \"firewallIPSecExemptionsAllowRouterDiscovery\": \"[@firewallIPSecExemptionsAllowRouterDiscovery()]\",\r\n  \"firewallIPSecExemptionsAllowDHCP\": \"[@firewallIPSecExemptionsAllowDHCP()]\",\r\n  \"firewallCertificateRevocationListCheckMethod\": \"[@firewallCertificateRevocationListCheckMethod()]\",\r\n  \"firewallPacketQueueingMethod\": \"[@firewallPacketQueueingMethod()]\",\r\n  \"localSecurityOptionsBlockMicrosoftAccounts\": \"[@localSecurityOptionsBlockMicrosoftAccounts()]\",\r\n  \"localSecurityOptionsBlockRemoteLogonWithBlankPassword\": \"[@localSecurityOptionsBlockRemoteLogonWithBlankPassword()]\",\r\n  \"localSecurityOptionsDisableAdministratorAccount\": \"[@localSecurityOptionsDisableAdministratorAccount()]\",\r\n  \"localSecurityOptionsDisableGuestAccount\": \"[@localSecurityOptionsDisableGuestAccount()]\",\r\n  \"localSecurityOptionsAllowUndockWithoutHavingToLogon\": \"[@localSecurityOptionsAllowUndockWithoutHavingToLogon()]\",\r\n  \"localSecurityOptionsBlockUsersInstallingPrinterDrivers\": \"[@localSecurityOptionsBlockUsersInstallingPrinterDrivers()]\",\r\n  \"localSecurityOptionsBlockRemoteOpticalDriveAccess\": \"[@localSecurityOptionsBlockRemoteOpticalDriveAccess()]\",\r\n  \"localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser\": \"[@localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser()]\",\r\n  \"localSecurityOptionsDoNotRequireCtrlAltDel\": \"[@localSecurityOptionsDoNotRequireCtrlAltDel()]\",\r\n  \"localSecurityOptionsHideLastSignedInUser\": \"[@localSecurityOptionsHideLastSignedInUser()]\",\r\n  \"localSecurityOptionsHideUsernameAtSignIn\": \"[@localSecurityOptionsHideUsernameAtSignIn()]\",\r\n  \"localSecurityOptionsAllowPKU2UAuthenticationRequests\": \"[@localSecurityOptionsAllowPKU2UAuthenticationRequests()]\",\r\n  \"localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool\": \"[@localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool()]\",\r\n  \"localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients\": \"[@localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients()]\",\r\n  \"localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers\": \"[@localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers()]\",\r\n  \"lanManagerAuthenticationLevel\": \"[@lanManagerAuthenticationLevel()]\",\r\n  \"lanManagerWorkstationDisableInsecureGuestLogons\": \"[@lanManagerWorkstationDisableInsecureGuestLogons()]\",\r\n  \"localSecurityOptionsClearVirtualMemoryPageFile\": \"[@localSecurityOptionsClearVirtualMemoryPageFile()]\",\r\n  \"localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn\": \"[@localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn()]\",\r\n  \"localSecurityOptionsAllowUIAccessApplicationElevation\": \"[@localSecurityOptionsAllowUIAccessApplicationElevation()]\",\r\n  \"localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations\": \"[@localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations()]\",\r\n  \"localSecurityOptionsOnlyElevateSignedExecutables\": \"[@localSecurityOptionsOnlyElevateSignedExecutables()]\",\r\n  \"localSecurityOptionsAdministratorElevationPromptBehavior\": \"[@localSecurityOptionsAdministratorElevationPromptBehavior()]\",\r\n  \"localSecurityOptionsStandardUserElevationPromptBehavior\": \"[@localSecurityOptionsStandardUserElevationPromptBehavior()]\",\r\n  \"localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation\": \"[@localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation()]\",\r\n  \"localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation\": \"[@localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation()]\",\r\n  \"localSecurityOptionsAllowUIAccessApplicationsForSecureLocations\": \"[@localSecurityOptionsAllowUIAccessApplicationsForSecureLocations()]\",\r\n  \"localSecurityOptionsUseAdminApprovalMode\": \"[@localSecurityOptionsUseAdminApprovalMode()]\",\r\n  \"localSecurityOptionsUseAdminApprovalModeForAdministrators\": \"[@localSecurityOptionsUseAdminApprovalModeForAdministrators()]\",\r\n  \"localSecurityOptionsInformationShownOnLockScreen\": \"[@localSecurityOptionsInformationShownOnLockScreen()]\",\r\n  \"localSecurityOptionsInformationDisplayedOnLockScreen\": \"[@localSecurityOptionsInformationDisplayedOnLockScreen()]\",\r\n  \"localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees\": \"[@localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees()]\",\r\n  \"localSecurityOptionsClientDigitallySignCommunicationsAlways\": \"[@localSecurityOptionsClientDigitallySignCommunicationsAlways()]\",\r\n  \"localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers\": \"[@localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers()]\",\r\n  \"localSecurityOptionsDisableServerDigitallySignCommunicationsAlways\": \"[@localSecurityOptionsDisableServerDigitallySignCommunicationsAlways()]\",\r\n  \"localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees\": \"[@localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees()]\",\r\n  \"localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares\": \"[@localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares()]\",\r\n  \"localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts\": \"[@localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts()]\",\r\n  \"localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares\": \"[@localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares()]\",\r\n  \"localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange\": \"[@localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange()]\",\r\n  \"localSecurityOptionsSmartCardRemovalBehavior\": \"[@localSecurityOptionsSmartCardRemovalBehavior()]\",\r\n  \"deviceGuardLocalSystemAuthorityCredentialGuardSettings\": \"[@deviceGuardLocalSystemAuthorityCredentialGuardSettings()]\",\r\n  \"deviceGuardEnableVirtualizationBasedSecurity\": \"[@deviceGuardEnableVirtualizationBasedSecurity()]\",\r\n  \"deviceGuardEnableSecureBootWithDMA\": \"[@deviceGuardEnableSecureBootWithDMA()]\",\r\n  \"deviceGuardSecureBootWithDMA\": \"[@deviceGuardSecureBootWithDMA()]\",\r\n  \"deviceGuardLaunchSystemGuard\": \"[@deviceGuardLaunchSystemGuard()]\",\r\n  \"defenderFileExtensionsToExclude\": [[]],\r\n  \"defenderFilesAndFoldersToExclude\": [[]],\r\n  \"defenderProcessesToExclude\": [[]],\r\n  \"dmaGuardDeviceEnumerationPolicy\": \"[@dmaGuardDeviceEnumerationPolicy()]\",\r\n  \"smartScreenEnableInShell\": \"[@smartScreenEnableInShell()]\",\r\n  \"smartScreenBlockOverrideForFiles\": \"[@smartScreenBlockOverrideForFiles()]\",\r\n  \"xboxServicesEnableXboxGameSaveTask\": \"[@xboxServicesEnableXboxGameSaveTask()]\",\r\n  \"xboxServicesAccessoryManagementServiceStartupMode\": \"[@xboxServicesAccessoryManagementServiceStartupMode()]\",\r\n  \"xboxServicesLiveAuthManagerServiceStartupMode\": \"[@xboxServicesLiveAuthManagerServiceStartupMode()]\",\r\n  \"xboxServicesLiveGameSaveServiceStartupMode\": \"[@xboxServicesLiveGameSaveServiceStartupMode()]\",\r\n  \"xboxServicesLiveNetworkingServiceStartupMode\": \"[@xboxServicesLiveNetworkingServiceStartupMode()]\",\r\n  \"deviceManagementApplicabilityRuleOsEdition\": {\r\n    \"osEditionTypes\": [[ [@sys.trimArray([@deviceManagementApplicabilityRuleOsEdition.osEditionTypes()])] ]],\r\n    \"ruleType\": \"[@deviceManagementApplicabilityRuleOsEdition.ruleType()]\"\r\n  },\r\n  \"bitLockerSystemDrivePolicy\": {\r\n    \"startupAuthenticationRequired\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationRequired()]\",\r\n    \"startupAuthenticationBlockWithoutTpmChip\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationBlockWithoutTpmChip()]\",\r\n    \"startupAuthenticationTpmUsage\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationTpmUsage()]\",\r\n    \"startupAuthenticationTpmPinUsage\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationTpmPinUsage()]\",\r\n    \"startupAuthenticationTpmKeyUsage\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationTpmKeyUsage()]\",\r\n    \"startupAuthenticationTpmPinAndKeyUsage\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationTpmPinAndKeyUsage()]\",\r\n    \"prebootRecoveryEnableMessageAndUrl\": \"[@bitLockerSystemDrivePolicy.prebootRecoveryEnableMessageAndUrl()]\",\r\n    \"recoveryOptions\": {\r\n      \"blockDataRecoveryAgent\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.blockDataRecoveryAgent()]\",\r\n      \"recoveryPasswordUsage\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.recoveryPasswordUsage()]\",\r\n      \"recoveryKeyUsage\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.recoveryKeyUsage()]\",\r\n      \"hideRecoveryOptions\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.hideRecoveryOptions()]\",\r\n      \"enableRecoveryInformationSaveToStore\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.enableRecoveryInformationSaveToStore()]\",\r\n      \"recoveryInformationToStore\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.recoveryInformationToStore()]\",\r\n      \"enableBitLockerAfterRecoveryInformationToStore\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.enableBitLockerAfterRecoveryInformationToStore()]\"\r\n    }\r\n  },\r\n  \"bitLockerFixedDrivePolicy\": {\r\n    \"requireEncryptionForWriteAccess\": \"[@bitLockerFixedDrivePolicy.requireEncryptionForWriteAccess()]\"\r\n  },\r\n  \"bitLockerRemovableDrivePolicy\": {\r\n    \"requireEncryptionForWriteAccess\": \"[@bitLockerRemovableDrivePolicy.requireEncryptionForWriteAccess()]\",\r\n    \"blockCrossOrganizationWriteAccess\": \"[@bitLockerRemovableDrivePolicy.blockCrossOrganizationWriteAccess()]\"\r\n  },\r\n  \"firewallRules\": [[]]\r\n}],\"id\")],\"deviceManagementId\")",
+                "POST /beta/deviceManagement/deviceConfigurations/[@sys.read(\"deviceManagementId\")]/assign  \\ \n              { \n                \"assignments\":\n                [[\n                    [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])]\n                ]]\n              }"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\n\t                            when data like 'All' then '{ \n\t\t                            \"target\":\n                                    {\n\t\t\t                            \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\n\t\t                            }\n\t                            }'\n                                when data = '' then ''\n\t                            else '{ \n\t\t                            \"target\":\n                                    {\n\t\t\t                            \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\n                                        \"groupId\": \"' || data || '\"\n\t\t                            }\n\t                            }'\n                            end\n                            from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\n                            when data = '' then ''\n                            else '{ \n\t\t                            \"target\":\n                                    {\n\t\t\t                            \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\n                                        \"groupId\": \"' || data || '\"\n\t\t                            }\n\t                            }'\n                            end\n                            from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "values": [],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.normalize([/beta/deviceManagement/deviceConfigurations?$expand=assignments])],\"policies\")",
+                "@sys.write([@sys.normalize([/v1.0/users?$select=id,displayName,userPrincipalName,assignedPlans,assignedLicenses,userType&$expand=memberOf($select=roleTemplateId)])],\"allUsers\")",
+                "@sys.validateGraphEntity([POST /echo \\ {\r\n  \"@odata.type\": \"#microsoft.graph.windows10EndpointProtectionConfiguration\",\r\n  \"roleScopeTagIds\": [[\r\n    \"0\"\r\n  ]],\r\n  \"description\": \"[@description()]\",\r\n  \"displayName\": \"[@displayName()]\",\r\n  \"version\": \"[@version()]\",\r\n  \"applicationGuardEnabled\": \"[@applicationGuardEnabled()]\",\r\n  \"applicationGuardEnabledOptions\": \"[@applicationGuardEnabledOptions()]\",\r\n  \"applicationGuardBlockFileTransfer\": \"[@applicationGuardBlockFileTransfer()]\",\r\n  \"applicationGuardBlockNonEnterpriseContent\": \"[@applicationGuardBlockNonEnterpriseContent()]\",\r\n  \"applicationGuardAllowPersistence\": \"[@applicationGuardAllowPersistence()]\",\r\n  \"applicationGuardForceAuditing\": \"[@applicationGuardForceAuditing()]\",\r\n  \"applicationGuardBlockClipboardSharing\": \"[@applicationGuardBlockClipboardSharing()]\",\r\n  \"applicationGuardAllowPrintToPDF\": \"[@applicationGuardAllowPrintToPDF()]\",\r\n  \"applicationGuardAllowPrintToXPS\": \"[@applicationGuardAllowPrintToXPS()]\",\r\n  \"applicationGuardAllowPrintToLocalPrinters\": \"[@applicationGuardAllowPrintToLocalPrinters()]\",\r\n  \"applicationGuardAllowPrintToNetworkPrinters\": \"[@applicationGuardAllowPrintToNetworkPrinters()]\",\r\n  \"applicationGuardAllowVirtualGPU\": \"[@applicationGuardAllowVirtualGPU()]\",\r\n  \"applicationGuardAllowFileSaveOnHost\": \"[@applicationGuardAllowFileSaveOnHost()]\",\r\n  \"applicationGuardCertificateThumbprints\": [[]],\r\n  \"appLockerApplicationControl\": \"[@appLockerApplicationControl()]\",\r\n  \"bitLockerAllowStandardUserEncryption\": \"[@bitLockerAllowStandardUserEncryption()]\",\r\n  \"bitLockerDisableWarningForOtherDiskEncryption\": \"[@bitLockerDisableWarningForOtherDiskEncryption()]\",\r\n  \"bitLockerEnableStorageCardEncryptionOnMobile\": \"[@bitLockerEnableStorageCardEncryptionOnMobile()]\",\r\n  \"bitLockerEncryptDevice\": \"[@bitLockerEncryptDevice()]\",\r\n  \"bitLockerRecoveryPasswordRotation\": \"[@bitLockerRecoveryPasswordRotation()]\",\r\n  \"defenderSecurityCenterNotificationsFromApp\": \"[@defenderSecurityCenterNotificationsFromApp()]\",\r\n  \"defenderSecurityCenterITContactDisplay\": \"[@defenderSecurityCenterITContactDisplay()]\",\r\n  \"windowsDefenderTamperProtection\": \"[@windowsDefenderTamperProtection()]\",\r\n  \"defenderAdobeReaderLaunchChildProcess\": \"[@defenderAdobeReaderLaunchChildProcess()]\",\r\n  \"defenderAttackSurfaceReductionExcludedPaths\": [[]],\r\n  \"defenderOfficeAppsOtherProcessInjectionType\": \"[@defenderOfficeAppsOtherProcessInjectionType()]\",\r\n  \"defenderOfficeAppsOtherProcessInjection\": \"[@defenderOfficeAppsOtherProcessInjection()]\",\r\n  \"defenderOfficeCommunicationAppsLaunchChildProcess\": \"[@defenderOfficeCommunicationAppsLaunchChildProcess()]\",\r\n  \"defenderOfficeAppsExecutableContentCreationOrLaunchType\": \"[@defenderOfficeAppsExecutableContentCreationOrLaunchType()]\",\r\n  \"defenderOfficeAppsExecutableContentCreationOrLaunch\": \"[@defenderOfficeAppsExecutableContentCreationOrLaunch()]\",\r\n  \"defenderOfficeAppsLaunchChildProcessType\": \"[@defenderOfficeAppsLaunchChildProcessType()]\",\r\n  \"defenderOfficeAppsLaunchChildProcess\": \"[@defenderOfficeAppsLaunchChildProcess()]\",\r\n  \"defenderOfficeMacroCodeAllowWin32ImportsType\": \"[@defenderOfficeMacroCodeAllowWin32ImportsType()]\",\r\n  \"defenderOfficeMacroCodeAllowWin32Imports\": \"[@defenderOfficeMacroCodeAllowWin32Imports()]\",\r\n  \"defenderScriptObfuscatedMacroCodeType\": \"[@defenderScriptObfuscatedMacroCodeType()]\",\r\n  \"defenderScriptObfuscatedMacroCode\": \"[@defenderScriptObfuscatedMacroCode()]\",\r\n  \"defenderScriptDownloadedPayloadExecutionType\": \"[@defenderScriptDownloadedPayloadExecutionType()]\",\r\n  \"defenderScriptDownloadedPayloadExecution\": \"[@defenderScriptDownloadedPayloadExecution()]\",\r\n  \"defenderPreventCredentialStealingType\": \"[@defenderPreventCredentialStealingType()]\",\r\n  \"defenderProcessCreationType\": \"[@defenderProcessCreationType()]\",\r\n  \"defenderProcessCreation\": \"[@defenderProcessCreation()]\",\r\n  \"defenderUntrustedUSBProcessType\": \"[@defenderUntrustedUSBProcessType()]\",\r\n  \"defenderUntrustedUSBProcess\": \"[@defenderUntrustedUSBProcess()]\",\r\n  \"defenderUntrustedExecutableType\": \"[@defenderUntrustedExecutableType()]\",\r\n  \"defenderUntrustedExecutable\": \"[@defenderUntrustedExecutable()]\",\r\n  \"defenderEmailContentExecutionType\": \"[@defenderEmailContentExecutionType()]\",\r\n  \"defenderEmailContentExecution\": \"[@defenderEmailContentExecution()]\",\r\n  \"defenderAdvancedRansomewareProtectionType\": \"[@defenderAdvancedRansomewareProtectionType()]\",\r\n  \"defenderGuardMyFoldersType\": \"[@defenderGuardMyFoldersType()]\",\r\n  \"defenderGuardedFoldersAllowedAppPaths\": [[]],\r\n  \"defenderAdditionalGuardedFolders\": [[]],\r\n  \"defenderNetworkProtectionType\": \"[@defenderNetworkProtectionType()]\",\r\n  \"defenderSecurityCenterBlockExploitProtectionOverride\": \"[@defenderSecurityCenterBlockExploitProtectionOverride()]\",\r\n  \"defenderBlockPersistenceThroughWmiType\": \"[@defenderBlockPersistenceThroughWmiType()]\",\r\n  \"firewallPreSharedKeyEncodingMethod\": \"[@firewallPreSharedKeyEncodingMethod()]\",\r\n  \"firewallIPSecExemptionsNone\": \"[@firewallIPSecExemptionsNone()]\",\r\n  \"firewallIPSecExemptionsAllowNeighborDiscovery\": \"[@firewallIPSecExemptionsAllowNeighborDiscovery()]\",\r\n  \"firewallIPSecExemptionsAllowICMP\": \"[@firewallIPSecExemptionsAllowICMP()]\",\r\n  \"firewallIPSecExemptionsAllowRouterDiscovery\": \"[@firewallIPSecExemptionsAllowRouterDiscovery()]\",\r\n  \"firewallIPSecExemptionsAllowDHCP\": \"[@firewallIPSecExemptionsAllowDHCP()]\",\r\n  \"firewallCertificateRevocationListCheckMethod\": \"[@firewallCertificateRevocationListCheckMethod()]\",\r\n  \"firewallPacketQueueingMethod\": \"[@firewallPacketQueueingMethod()]\",\r\n  \"localSecurityOptionsBlockMicrosoftAccounts\": \"[@localSecurityOptionsBlockMicrosoftAccounts()]\",\r\n  \"localSecurityOptionsBlockRemoteLogonWithBlankPassword\": \"[@localSecurityOptionsBlockRemoteLogonWithBlankPassword()]\",\r\n  \"localSecurityOptionsDisableAdministratorAccount\": \"[@localSecurityOptionsDisableAdministratorAccount()]\",\r\n  \"localSecurityOptionsDisableGuestAccount\": \"[@localSecurityOptionsDisableGuestAccount()]\",\r\n  \"localSecurityOptionsAllowUndockWithoutHavingToLogon\": \"[@localSecurityOptionsAllowUndockWithoutHavingToLogon()]\",\r\n  \"localSecurityOptionsBlockUsersInstallingPrinterDrivers\": \"[@localSecurityOptionsBlockUsersInstallingPrinterDrivers()]\",\r\n  \"localSecurityOptionsBlockRemoteOpticalDriveAccess\": \"[@localSecurityOptionsBlockRemoteOpticalDriveAccess()]\",\r\n  \"localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser\": \"[@localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser()]\",\r\n  \"localSecurityOptionsDoNotRequireCtrlAltDel\": \"[@localSecurityOptionsDoNotRequireCtrlAltDel()]\",\r\n  \"localSecurityOptionsHideLastSignedInUser\": \"[@localSecurityOptionsHideLastSignedInUser()]\",\r\n  \"localSecurityOptionsHideUsernameAtSignIn\": \"[@localSecurityOptionsHideUsernameAtSignIn()]\",\r\n  \"localSecurityOptionsAllowPKU2UAuthenticationRequests\": \"[@localSecurityOptionsAllowPKU2UAuthenticationRequests()]\",\r\n  \"localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool\": \"[@localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool()]\",\r\n  \"localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients\": \"[@localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients()]\",\r\n  \"localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers\": \"[@localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers()]\",\r\n  \"lanManagerAuthenticationLevel\": \"[@lanManagerAuthenticationLevel()]\",\r\n  \"lanManagerWorkstationDisableInsecureGuestLogons\": \"[@lanManagerWorkstationDisableInsecureGuestLogons()]\",\r\n  \"localSecurityOptionsClearVirtualMemoryPageFile\": \"[@localSecurityOptionsClearVirtualMemoryPageFile()]\",\r\n  \"localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn\": \"[@localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn()]\",\r\n  \"localSecurityOptionsAllowUIAccessApplicationElevation\": \"[@localSecurityOptionsAllowUIAccessApplicationElevation()]\",\r\n  \"localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations\": \"[@localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations()]\",\r\n  \"localSecurityOptionsOnlyElevateSignedExecutables\": \"[@localSecurityOptionsOnlyElevateSignedExecutables()]\",\r\n  \"localSecurityOptionsAdministratorElevationPromptBehavior\": \"[@localSecurityOptionsAdministratorElevationPromptBehavior()]\",\r\n  \"localSecurityOptionsStandardUserElevationPromptBehavior\": \"[@localSecurityOptionsStandardUserElevationPromptBehavior()]\",\r\n  \"localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation\": \"[@localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation()]\",\r\n  \"localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation\": \"[@localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation()]\",\r\n  \"localSecurityOptionsAllowUIAccessApplicationsForSecureLocations\": \"[@localSecurityOptionsAllowUIAccessApplicationsForSecureLocations()]\",\r\n  \"localSecurityOptionsUseAdminApprovalMode\": \"[@localSecurityOptionsUseAdminApprovalMode()]\",\r\n  \"localSecurityOptionsUseAdminApprovalModeForAdministrators\": \"[@localSecurityOptionsUseAdminApprovalModeForAdministrators()]\",\r\n  \"localSecurityOptionsInformationShownOnLockScreen\": \"[@localSecurityOptionsInformationShownOnLockScreen()]\",\r\n  \"localSecurityOptionsInformationDisplayedOnLockScreen\": \"[@localSecurityOptionsInformationDisplayedOnLockScreen()]\",\r\n  \"localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees\": \"[@localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees()]\",\r\n  \"localSecurityOptionsClientDigitallySignCommunicationsAlways\": \"[@localSecurityOptionsClientDigitallySignCommunicationsAlways()]\",\r\n  \"localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers\": \"[@localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers()]\",\r\n  \"localSecurityOptionsDisableServerDigitallySignCommunicationsAlways\": \"[@localSecurityOptionsDisableServerDigitallySignCommunicationsAlways()]\",\r\n  \"localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees\": \"[@localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees()]\",\r\n  \"localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares\": \"[@localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares()]\",\r\n  \"localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts\": \"[@localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts()]\",\r\n  \"localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares\": \"[@localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares()]\",\r\n  \"localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange\": \"[@localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange()]\",\r\n  \"localSecurityOptionsSmartCardRemovalBehavior\": \"[@localSecurityOptionsSmartCardRemovalBehavior()]\",\r\n  \"deviceGuardLocalSystemAuthorityCredentialGuardSettings\": \"[@deviceGuardLocalSystemAuthorityCredentialGuardSettings()]\",\r\n  \"deviceGuardEnableVirtualizationBasedSecurity\": \"[@deviceGuardEnableVirtualizationBasedSecurity()]\",\r\n  \"deviceGuardEnableSecureBootWithDMA\": \"[@deviceGuardEnableSecureBootWithDMA()]\",\r\n  \"deviceGuardSecureBootWithDMA\": \"[@deviceGuardSecureBootWithDMA()]\",\r\n  \"deviceGuardLaunchSystemGuard\": \"[@deviceGuardLaunchSystemGuard()]\",\r\n  \"defenderFileExtensionsToExclude\": [[]],\r\n  \"defenderFilesAndFoldersToExclude\": [[]],\r\n  \"defenderProcessesToExclude\": [[]],\r\n  \"dmaGuardDeviceEnumerationPolicy\": \"[@dmaGuardDeviceEnumerationPolicy()]\",\r\n  \"smartScreenEnableInShell\": \"[@smartScreenEnableInShell()]\",\r\n  \"smartScreenBlockOverrideForFiles\": \"[@smartScreenBlockOverrideForFiles()]\",\r\n  \"xboxServicesEnableXboxGameSaveTask\": \"[@xboxServicesEnableXboxGameSaveTask()]\",\r\n  \"xboxServicesAccessoryManagementServiceStartupMode\": \"[@xboxServicesAccessoryManagementServiceStartupMode()]\",\r\n  \"xboxServicesLiveAuthManagerServiceStartupMode\": \"[@xboxServicesLiveAuthManagerServiceStartupMode()]\",\r\n  \"xboxServicesLiveGameSaveServiceStartupMode\": \"[@xboxServicesLiveGameSaveServiceStartupMode()]\",\r\n  \"xboxServicesLiveNetworkingServiceStartupMode\": \"[@xboxServicesLiveNetworkingServiceStartupMode()]\",\r\n  \"deviceManagementApplicabilityRuleOsEdition\": {\r\n    \"osEditionTypes\": [[ [@sys.trimArray([@deviceManagementApplicabilityRuleOsEdition.osEditionTypes()])] ]],\r\n    \"ruleType\": \"[@deviceManagementApplicabilityRuleOsEdition.ruleType()]\"\r\n  },\r\n  \"bitLockerSystemDrivePolicy\": {\r\n    \"startupAuthenticationRequired\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationRequired()]\",\r\n    \"startupAuthenticationBlockWithoutTpmChip\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationBlockWithoutTpmChip()]\",\r\n    \"startupAuthenticationTpmUsage\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationTpmUsage()]\",\r\n    \"startupAuthenticationTpmPinUsage\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationTpmPinUsage()]\",\r\n    \"startupAuthenticationTpmKeyUsage\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationTpmKeyUsage()]\",\r\n    \"startupAuthenticationTpmPinAndKeyUsage\": \"[@bitLockerSystemDrivePolicy.startupAuthenticationTpmPinAndKeyUsage()]\",\r\n    \"prebootRecoveryEnableMessageAndUrl\": \"[@bitLockerSystemDrivePolicy.prebootRecoveryEnableMessageAndUrl()]\",\r\n    \"recoveryOptions\": {\r\n      \"blockDataRecoveryAgent\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.blockDataRecoveryAgent()]\",\r\n      \"recoveryPasswordUsage\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.recoveryPasswordUsage()]\",\r\n      \"recoveryKeyUsage\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.recoveryKeyUsage()]\",\r\n      \"hideRecoveryOptions\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.hideRecoveryOptions()]\",\r\n      \"enableRecoveryInformationSaveToStore\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.enableRecoveryInformationSaveToStore()]\",\r\n      \"recoveryInformationToStore\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.recoveryInformationToStore()]\",\r\n      \"enableBitLockerAfterRecoveryInformationToStore\": \"[@bitLockerSystemDrivePolicy.recoveryOptions.enableBitLockerAfterRecoveryInformationToStore()]\"\r\n    }\r\n  },\r\n  \"bitLockerFixedDrivePolicy\": {\r\n    \"requireEncryptionForWriteAccess\": \"[@bitLockerFixedDrivePolicy.requireEncryptionForWriteAccess()]\"\r\n  },\r\n  \"bitLockerRemovableDrivePolicy\": {\r\n    \"requireEncryptionForWriteAccess\": \"[@bitLockerRemovableDrivePolicy.requireEncryptionForWriteAccess()]\",\r\n    \"blockCrossOrganizationWriteAccess\": \"[@bitLockerRemovableDrivePolicy.blockCrossOrganizationWriteAccess()]\"\r\n  },\r\n  \"firewallRules\": [[]]\r,\"assignments\":[[ [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])] ]]\n}],[@sys.read(\"policies\")],[@sys.read(\"allUsers\")])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                    when data like 'All' then '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                    }\r\n\t                    }'\r\n\t                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                    when data = '' then ''\r\n                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "values": [],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": true
+          },
+          "extractionAction": {
+            "operationDefinition": {
+              "values": [
+                "/beta/deviceManagement/deviceConfigurations/766780e4-40a3-4043-b8d9-18514924489f?$expand=assignments"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "values": [],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "deletionAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/deviceConfigurations?$filter=displayName eq '[@displayName()]'],\"id\")],\"deviceManagementId\")",
+                "{IncludeResponseBodyInException:true} DELETE /beta/deviceManagement/deviceConfigurations/[@sys.read(\"deviceManagementId\")]"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "id": "9747c427-8ad9-404d-b6bd-ffb055b0d7ae"
+        }
+      ]
+    }
+  ]
+}

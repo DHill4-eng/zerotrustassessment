@@ -1,0 +1,540 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 14,
+  "category": 1,
+  "provider": 0,
+  "version": 0,
+  "displayName": "Configure device compliance policy",
+  "description": "With device compliance policies in Microsoft Intune, you can define the rules and requirements that devices must meet to be considered compliant. For example, you can specify a minimum operating system version. This task deploys policy settings that help safeguard tenant data.",
+  "userImpact": "Windows 10 and later devices that don't meet the specified requirements are marked as noncompliant. When device compliance policies are enforced, noncompliant devices cannot be used to access tenant data.",
+  "informationLinks": [],
+  "id": "dcdfab18-6a56-4f15-b241-6ec70aea5c12",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Configure a device compliance policy for Windows 10 and later",
+      "description": "With device compliance policies in Microsoft Intune, you can define the rules and requirements that devices must meet to be considered compliant. For example, you can specify a minimum operating system version. This task deploys policy settings that help safeguard tenant data.",
+      "portalLink": {
+        "url": "https://endpoint.microsoft.com/{tenantName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/policies",
+        "displayName": "Microsoft Intune"
+      },
+      "userImpact": "Windows 10 and later devices that don't meet the specified requirements are marked as noncompliant. When device compliance policies are enforced, noncompliant devices cannot be used to access tenant data.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2185819",
+          "displayName": "Protect data and devices with Microsoft Intune"
+        }
+      ],
+      "id": "976151e1-20a9-4f42-a1b0-1aeadfe962a2",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "DeviceCompliance-1",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "displayName",
+              "value": "M365 Lighthouse - Setup Compliance Policy for Windows 10 devices",
+              "isRequired": true,
+              "isReadOnly": true,
+              "referenceStrings": [],
+              "displayName": "Display name"
+            },
+            {
+              "name": "osMinimumVersion",
+              "value": "10.0.18363",
+              "isRequired": true,
+              "isReadOnly": false,
+              "referenceStrings": [
+                {
+                  "name": "Groups_AllGroups",
+                  "displayName": "A valid Windows version string is required."
+                }
+              ],
+              "displayName": "OS minimum version"
+            },
+            {
+              "name": "activeFirewallRequired",
+              "value": "true",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [],
+              "displayName": "Active firewall required"
+            },
+            {
+              "name": "antivirusRequired",
+              "value": "true",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [],
+              "displayName": "Antivirus required"
+            },
+            {
+              "name": "antiSpywareRequired",
+              "value": "true",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [],
+              "displayName": "Antispyware required"
+            },
+            {
+              "name": "notificationTemplateDisplayName",
+              "value": "M365 Lighthouse - Non-compliance Notification",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [],
+              "displayName": "Notification template display name"
+            },
+            {
+              "name": "defenderEnabled",
+              "value": "true",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [],
+              "displayName": "Defender enabled"
+            },
+            {
+              "name": "storageRequireEncryption",
+              "value": "true",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [],
+              "displayName": "Storage require encryption"
+            },
+            {
+              "name": "rtpEnabled",
+              "value": "true",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [],
+              "displayName": "Rtp enabled"
+            },
+            {
+              "name": "gracePeriodHours",
+              "value": "0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "referenceStrings": [],
+              "displayName": "Schedule (days after noncompliance)"
+            },
+            {
+              "name": "includeGroups",
+              "value": "[\"All\"]",
+              "isRequired": true,
+              "isReadOnly": false,
+              "referenceStrings": [
+                {
+                  "name": "Groups_AllGroups",
+                  "displayName": "All groups"
+                }
+              ],
+              "displayName": "Include groups"
+            },
+            {
+              "name": "excludeGroups",
+              "isRequired": false,
+              "isReadOnly": false,
+              "referenceStrings": [],
+              "displayName": "Exclude groups"
+            },
+            {
+              "name": "notificationMessageCCList",
+              "isRequired": false,
+              "isReadOnly": false,
+              "displayName": "Additional recipients (via email)"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/deviceCompliancePolicies?$filter=displayName eq '[@displayName()]'],\"id\")],\"policyId\")",
+                "{IncludeResponseBodyInException:true} PATCH /beta/deviceManagement/deviceCompliancePolicies/[@sys.read(\"policyId\")] \\ {\r\n                \"@odata.type\": \"microsoft.graph.windows10CompliancePolicy\",\r\n                \"displayName\": \"[@displayName()]\",\r\n                \"osMinimumVersion\": \"[@osMinimumVersion()]\",\r\n                \"storageRequireEncryption\": [@storageRequireEncryption()],\r\n                \"activeFirewallRequired\": [@activeFirewallRequired()],\r\n                \"defenderEnabled\": [@defenderEnabled()],\r\n                \"rtpEnabled\": [@rtpEnabled()],\r\n                \"antivirusRequired\": [@antivirusRequired()],\r\n                \"antiSpywareRequired\": [@antiSpywareRequired()]\r\n            }",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/deviceCompliancePolicies[@sys.notexists(\"policyId\")] \\ {\r\n                \"@odata.type\": \"microsoft.graph.windows10CompliancePolicy\",\r\n                \"displayName\": \"[@displayName()]\",\r\n                \"osMinimumVersion\": \"[@osMinimumVersion()]\",\r\n                \"storageRequireEncryption\": [@storageRequireEncryption()],\r\n                \"activeFirewallRequired\": [@activeFirewallRequired()],\r\n                \"defenderEnabled\": [@defenderEnabled()],\r\n                \"rtpEnabled\": [@rtpEnabled()],\r\n                \"antivirusRequired\": [@antivirusRequired()],\r\n                \"antiSpywareRequired\": [@antiSpywareRequired()],\r\n                \"scheduledActionsForRule\":\r\n                    [[\r\n                     {\r\n                            \"ruleName\": \"PasswordRequired\",\r\n                            \"scheduledActionConfigurations\":\r\n                                [[\r\n                                     {\r\n                                        \"actionType\": \"block\",\r\n                                        \"gracePeriodHours\": [@gracePeriodHours()],\r\n                                        \"notificationTemplateId\": \"00000000-0000-0000-0000-000000000000\",\r\n                                        \"notificationMessageCCList\": [[]]\r\n                                    }\r\n                                ]]\r\n                        }\r\n                    ]]\r\n            }],\"id\")],\"policyId\")",
+                "{IncludeResponseBodyInException:true} POST /beta/deviceManagement/deviceCompliancePolicies/[@sys.read(\"policyId\")]/assign \\ {\r\n                 \"assignments\":\r\n                [[\r\n                    [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])]\r\n                ]]\r\n            }",
+                "{IncludeResponseBodyInException:true} POST /beta/deviceManagement/deviceCompliancePolicies/[@sys.read(\"policyId\")]/scheduleActionsForRules \\ {\r\n               \"deviceComplianceScheduledActionForRules\": \r\n                [[\r\n                    {\r\n                        \"ruleName\": \"PasswordRequired\",\r\n                        \"scheduledActionConfigurations\":\r\n                            [[\r\n                                {\r\n                                \"actionType\": \"block\",\r\n                                \"gracePeriodHours\": [@gracePeriodHours()],\r\n                                \"notificationTemplateId\": \"00000000-0000-0000-0000-000000000000\",\r\n                                \"notificationMessageCCList\": [[]]\r\n                                },\r\n                                {\r\n                                \"actionType\": \"notification\",\r\n                                \"gracePeriodHours\": [@gracePeriodHours()],\r\n                                \"notificationTemplateId\": \"[@sys.project([\"{IncludeResponseBodyInException:true}\" GET /beta/deviceManagement/notificationMessageTemplates?$filter=displayName eq '[@notificationTemplateDisplayName()]'],\"id\")]\",\r\n                                \"notificationMessageCCList\": [[ [@sys.trimArray([@notificationMessageCCList()])] ]]\r\n                                }\r\n                            ]]\r\n                    }\r\n                ]]\r\n            }"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                    when data like 'All' then '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                    }\r\n\t                    }'\r\n\t                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                    when data = '' then ''\r\n                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "displayName",
+                  "value": "select 'M365 Lighthouse - Setup Compliance Policy for Windows 10 devices'"
+                },
+                {
+                  "type": 0,
+                  "id": "osMinimumVersion",
+                  "value": "select '10.0.18363'"
+                },
+                {
+                  "type": 0,
+                  "id": "activeFirewallRequired",
+                  "value": "select 'true'"
+                },
+                {
+                  "type": 0,
+                  "id": "antivirusRequired",
+                  "value": "select 'true'"
+                },
+                {
+                  "type": 0,
+                  "id": "antiSpywareRequired",
+                  "value": "select 'true'"
+                },
+                {
+                  "type": 0,
+                  "id": "notificationTemplateDisplayName",
+                  "value": "select 'M365 Lighthouse - Non-compliance Notification'"
+                },
+                {
+                  "type": 0,
+                  "id": "defenderEnabled",
+                  "value": "select 'true'"
+                },
+                {
+                  "type": 0,
+                  "id": "storageRequireEncryption",
+                  "value": "select 'true'"
+                },
+                {
+                  "type": 0,
+                  "id": "rtpEnabled",
+                  "value": "select 'true'"
+                },
+                {
+                  "type": 0,
+                  "id": "gracePeriodHours",
+                  "value": "select '0'"
+                },
+                {
+                  "type": 0,
+                  "id": "includeGroups",
+                  "value": "select '[\"All\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "excludeGroups",
+                  "value": "select ''"
+                },
+                {
+                  "type": 0,
+                  "id": "notificationMessageCCList",
+                  "value": "select ''"
+                },
+                {
+                  "type": 0,
+                  "id": "tenantIds",
+                  "value": "select '[\"a380a655-8cdd-4484-9eaf-7c9f320a122a\"]'"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.validateUserCount([{IncludeResponseBodyInException:true,ConsistencyLevelHeader:\"eventual\"} /v1.0/users/$count])],\"userCount\")",
+                "@sys.write([@sys.normalize([{IncludeResponseBodyInException:true} /beta/deviceManagement/deviceCompliancePolicies?$expand=assignments])],\"policies\")",
+                "@sys.write([@sys.normalize([{IncludeResponseBodyInException:true} /v1.0/users?$select=id,displayName,userPrincipalName,assignedPlans,assignedLicenses,userType&$expand=memberOf($select=roleTemplateId)[@sys.exists(\"userCount\")] ])],\"allUsers\")",
+                "@sys.validateDeviceCompliancePolicy([POST /echo \\ {\r\n                \"@odata.type\": \"microsoft.graph.windows10CompliancePolicy\",\r\n                \"displayName\": \"[@displayName()]\",\r\n                \"osMinimumVersion\": \"[@osMinimumVersion()]\",\r\n                \"storageRequireEncryption\": [@storageRequireEncryption()],\r\n                \"activeFirewallRequired\": [@activeFirewallRequired()],\r\n                \"defenderEnabled\": [@defenderEnabled()],\r\n                \"rtpEnabled\": [@rtpEnabled()],\r\n                \"antivirusRequired\": [@antivirusRequired()],\r\n                \"antiSpywareRequired\": [@antiSpywareRequired()],\r\n                \"passwordRequired\": false,\r\n                \"passwordBlockSimple\": false,\r\n                \"passwordRequiredToUnlockFromIdle\": false,\r\n                \"passwordRequiredType\": \"deviceDefault\",\r\n                \"requireHealthyDeviceReport\": false,\r\n                \"earlyLaunchAntiMalwareDriverEnabled\": false,\r\n                \"bitLockerEnabled\": false,\r\n                \"secureBootEnabled\": false,\r\n                \"codeIntegrityEnabled\": false,\r\n                \"signatureOutOfDate\": false,\r\n                \"deviceThreatProtectionEnabled\": false,\r\n                \"deviceThreatProtectionRequiredSecurityLevel\": \"unavailable\",\r\n                \"configurationManagerComplianceRequired\": false,\r\n                \"tpmRequired\": false,\r\n                \"assignments\":\r\n                    [[\r\n                        [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])]\r\n                    ]]\r\n            }],[@sys.read(\"policies\")],[@sys.read(\"allUsers\")])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                    when data like 'All' then '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                    }\r\n\t                    }'\r\n\t                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                    when data = '' then ''\r\n                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": true
+          },
+          "deletionAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/deviceCompliancePolicies?$filter=displayName eq '[@displayName()]'],\"id\")],\"policyId\")",
+                "{IncludeResponseBodyInException:true} DELETE /beta/deviceManagement/deviceCompliancePolicies/[@sys.read(\"policyId\")]"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                    when data like 'All' then '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                    }\r\n\t                    }'\r\n\t                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                    when data = '' then ''\r\n                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "processedDeploymentAction": "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/deviceCompliancePolicies?$filter=displayName eq ''],\"id\")],\"policyId\") EOC {IncludeResponseBodyInException:true} PATCH /beta/deviceManagement/deviceCompliancePolicies/[@sys.read(\"policyId\")] \\ {\r\n                \"@odata.type\": \"microsoft.graph.windows10CompliancePolicy\",\r\n                \"displayName\": \"\",\r\n                \"osMinimumVersion\": \"\",\r\n                \"storageRequireEncryption\": true,\r\n                \"activeFirewallRequired\": true,\r\n                \"defenderEnabled\": true,\r\n                \"rtpEnabled\": true,\r\n                \"antivirusRequired\": true,\r\n                \"antiSpywareRequired\": true\r\n            } EOC @sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/deviceCompliancePolicies[@sys.notexists(\"policyId\")] \\ {\r\n                \"@odata.type\": \"microsoft.graph.windows10CompliancePolicy\",\r\n                \"displayName\": \"\",\r\n                \"osMinimumVersion\": \"\",\r\n                \"storageRequireEncryption\": true,\r\n                \"activeFirewallRequired\": true,\r\n                \"defenderEnabled\": true,\r\n                \"rtpEnabled\": true,\r\n                \"antivirusRequired\": true,\r\n                \"antiSpywareRequired\": true,\r\n                \"scheduledActionsForRule\":\r\n                    [[\r\n                     {\r\n                            \"ruleName\": \"PasswordRequired\",\r\n                            \"scheduledActionConfigurations\":\r\n                                [[\r\n                                     {\r\n                                        \"actionType\": \"block\",\r\n                                        \"gracePeriodHours\": 0,\r\n                                        \"notificationTemplateId\": \"00000000-0000-0000-0000-000000000000\",\r\n                                        \"notificationMessageCCList\": [[]]\r\n                                    }\r\n                                ]]\r\n                        }\r\n                    ]]\r\n            }],\"id\")],\"policyId\") EOC {IncludeResponseBodyInException:true} POST /beta/deviceManagement/deviceCompliancePolicies/[@sys.read(\"policyId\")]/assign \\ {\r\n                 \"assignments\":\r\n                [[\r\n                    [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse()])],[@getExcludeGroups([@sys.jsonArrayParse()])])])]\r\n                ]]\r\n            } EOC {IncludeResponseBodyInException:true} POST /beta/deviceManagement/deviceCompliancePolicies/[@sys.read(\"policyId\")]/scheduleActionsForRules \\ {\r\n               \"deviceComplianceScheduledActionForRules\": \r\n                [[\r\n                    {\r\n                        \"ruleName\": \"PasswordRequired\",\r\n                        \"scheduledActionConfigurations\":\r\n                            [[\r\n                                {\r\n                                \"actionType\": \"block\",\r\n                                \"gracePeriodHours\": 0,\r\n                                \"notificationTemplateId\": \"00000000-0000-0000-0000-000000000000\",\r\n                                \"notificationMessageCCList\": [[]]\r\n                                },\r\n                                {\r\n                                \"actionType\": \"notification\",\r\n                                \"gracePeriodHours\": 0,\r\n                                \"notificationTemplateId\": \"[@sys.project([\"{IncludeResponseBodyInException:true}\" GET /beta/deviceManagement/notificationMessageTemplates?$filter=displayName eq 'M365 Lighthouse - Non-compliance Notification'],\"id\")]\",\r\n                                \"notificationMessageCCList\": [[ [@sys.trimArray()] ]]\r\n                                }\r\n                            ]]\r\n                    }\r\n                ]]\r\n            } EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "id": "679a377d-645e-478d-b129-1936267d7585"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Set up notifications for noncompliant devices?",
+      "description": "When Microsoft Intune detects that a managed device is not in compliance with configured policies, the owner of the device will receive an e-mail with instructions on how to remedy the issue.",
+      "portalLink": {
+        "url": "https://endpoint.microsoft.com/{tenantName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/notifications",
+        "displayName": "Microsoft Intune"
+      },
+      "userImpact": "Windows 10 and later devices that don't meet the specified requirements are marked as noncompliant. When device compliance policies are enforced, noncompliant devices cannot be used to access tenant data.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2185819",
+          "displayName": "Protect data and devices with Microsoft Intune"
+        }
+      ],
+      "id": "136a3307-228d-4a87-a14f-9eeb2f7d8d20",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "NotificationForNonCompliantDevices",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "displayName",
+              "value": "M365 Lighthouse - Non-compliance Notification",
+              "isRequired": true,
+              "isReadOnly": true,
+              "displayName": "Display name"
+            },
+            {
+              "name": "includeCompanyLogo",
+              "value": "true",
+              "isRequired": true,
+              "isReadOnly": false,
+              "displayName": "Email header - Include company logo"
+            },
+            {
+              "name": "includeContactInformation",
+              "value": "true",
+              "isRequired": true,
+              "isReadOnly": false,
+              "displayName": "Email footer - Include contact information"
+            },
+            {
+              "name": "includeCompanyName",
+              "value": "true",
+              "isRequired": true,
+              "isReadOnly": false,
+              "displayName": "Email footer - Include company name"
+            },
+            {
+              "name": "includeCompanyPortalLink",
+              "value": "true",
+              "isRequired": true,
+              "isReadOnly": false,
+              "displayName": "Company portal website link"
+            },
+            {
+              "name": "locale",
+              "value": "en-us",
+              "isRequired": true,
+              "isReadOnly": true,
+              "displayName": "Locale"
+            },
+            {
+              "name": "subject",
+              "value": "Device is not compliant",
+              "isRequired": true,
+              "isReadOnly": false,
+              "displayName": "Subject"
+            },
+            {
+              "name": "messageTemplate",
+              "value": "A device assigned to you is out-of-compliance.",
+              "isRequired": true,
+              "isReadOnly": false,
+              "displayName": "Message"
+            },
+            {
+              "name": "isDefault",
+              "value": "true",
+              "isRequired": true,
+              "isReadOnly": true,
+              "displayName": "Is default"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/notificationMessageTemplates?$filter=displayName eq '[@displayName()]'],\"id\")],\"notificationMessageTemplateId\")",
+                "{IncludeResponseBodyInException:true} PATCH /beta/deviceManagement/notificationMessageTemplates/[@sys.read(\"notificationMessageTemplateId\")] \\ {\r\n                \"displayName\": \"[@displayName()]\",\r\n                \"brandingOptions\": \"[@generateBrandingOptions([@includeCompanyLogo()],[@includeCompanyName()],[@includeContactInformation()],[@includeCompanyPortalLink()])]\",\r\n                \"roleScopeTagIds\":[[ \"0\" ]]\r\n            }",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/notificationMessageTemplates[@sys.notexists(\"notificationMessageTemplateId\")] \\ {\r\n                \"displayName\": \"[@displayName()]\",\r\n                \"brandingOptions\": \"[@generateBrandingOptions([@includeCompanyLogo()],[@includeCompanyName()],[@includeContactInformation()],[@includeCompanyPortalLink()])]\",\r\n                \"roleScopeTagIds\":[[ \"0\" ]]\r\n            }],\"id\")],\"notificationMessageTemplateId\")",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/notificationMessageTemplates/[@sys.read(\"notificationMessageTemplateId\")]/localizedNotificationMessages?$filter=locale eq 'en-us'],\"id\")],\"x\")",
+                "{IncludeResponseBodyInException:true} PATCH /beta/deviceManagement/notificationMessageTemplates/[@sys.read(\"notificationMessageTemplateId\")]/localizedNotificationMessages/[@sys.read(\"x\")] \\ {\r\n                \"messageTemplate\": \"[@messageTemplate()]\",\r\n                \"subject\": \"[@subject()]\"\r\n            }",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/notificationMessageTemplates/[@sys.read(\"notificationMessageTemplateId\")]/localizedNotificationMessages[@sys.notexists(\"x\")] \\ {\r\n                \"isDefault\": true,\r\n                \"locale\": \"[@locale()]\",\r\n                \"messageTemplate\": \"[@messageTemplate()]\",\r\n                \"subject\": \"[@subject()]\"\r\n            }],\"id\")],\"x\")"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "generateBrandingOptions",
+                  "value": "\r\n                    select coalesce(group_concat(x),'none')\r\n                    FROM\r\n                    (\r\n                        select case when data like 'true' then 'includeCompanyLogo' else NULL end as x from arg0\r\n                        union\r\n                        select case when data like 'true' then 'includeCompanyName' else NULL end as x from arg1\r\n                        union\r\n                        select case when data like 'true' then 'includeContactInformation' else NULL end as x from arg2\r\n                        union\r\n                        select case when data like 'true' then 'includeCompanyPortalLink' else NULL end as x from arg3\r\n                    )"
+                },
+                {
+                  "type": 0,
+                  "id": "displayName",
+                  "value": "select 'M365 Lighthouse - Non-compliance Notification'"
+                },
+                {
+                  "type": 0,
+                  "id": "includeCompanyLogo",
+                  "value": "select 'true'"
+                },
+                {
+                  "type": 0,
+                  "id": "includeContactInformation",
+                  "value": "select 'true'"
+                },
+                {
+                  "type": 0,
+                  "id": "includeCompanyName",
+                  "value": "select 'true'"
+                },
+                {
+                  "type": 0,
+                  "id": "includeCompanyPortalLink",
+                  "value": "select 'true'"
+                },
+                {
+                  "type": 0,
+                  "id": "locale",
+                  "value": "select 'en-us'"
+                },
+                {
+                  "type": 0,
+                  "id": "subject",
+                  "value": "select 'Device is not compliant'"
+                },
+                {
+                  "type": 0,
+                  "id": "messageTemplate",
+                  "value": "select 'A device assigned to you is out-of-compliance.'"
+                },
+                {
+                  "type": 0,
+                  "id": "isDefault",
+                  "value": "select 'true'"
+                },
+                {
+                  "type": 0,
+                  "id": "tenantIds",
+                  "value": "select '[\"a380a655-8cdd-4484-9eaf-7c9f320a122a\"]'"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "deletionAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/notificationMessageTemplates?$filter=displayName eq '[@displayName()]'],\"id\")],\"notificationMessageTemplateId\")",
+                "{IncludeResponseBodyInException:true} DELETE /beta/deviceManagement/notificationMessageTemplates/[@sys.read(\"notificationMessageTemplateId\")]"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "processedDeploymentAction": "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/notificationMessageTemplates?$filter=displayName eq ''],\"id\")],\"notificationMessageTemplateId\") EOC {IncludeResponseBodyInException:true} PATCH /beta/deviceManagement/notificationMessageTemplates/[@sys.read(\"notificationMessageTemplateId\")] \\ {\r\n                \"displayName\": \"\",\r\n                \"brandingOptions\": \"[@generateBrandingOptions(,,,)]\",\r\n                \"roleScopeTagIds\":[[ \"0\" ]]\r\n            } EOC @sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/notificationMessageTemplates[@sys.notexists(\"notificationMessageTemplateId\")] \\ {\r\n                \"displayName\": \"\",\r\n                \"brandingOptions\": \"[@generateBrandingOptions(,,,)]\",\r\n                \"roleScopeTagIds\":[[ \"0\" ]]\r\n            }],\"id\")],\"notificationMessageTemplateId\") EOC @sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/notificationMessageTemplates/[@sys.read(\"notificationMessageTemplateId\")]/localizedNotificationMessages?$filter=locale eq 'en-us'],\"id\")],\"x\") EOC {IncludeResponseBodyInException:true} PATCH /beta/deviceManagement/notificationMessageTemplates/[@sys.read(\"notificationMessageTemplateId\")]/localizedNotificationMessages/[@sys.read(\"x\")] \\ {\r\n                \"messageTemplate\": \"\",\r\n                \"subject\": \"\"\r\n            } EOC @sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/notificationMessageTemplates/[@sys.read(\"notificationMessageTemplateId\")]/localizedNotificationMessages[@sys.notexists(\"x\")] \\ {\r\n                \"isDefault\": true,\r\n                \"locale\": \"\",\r\n                \"messageTemplate\": \"\",\r\n                \"subject\": \"\"\r\n            }],\"id\")],\"x\") EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "id": "e8c7ec2b-8e64-460d-8e77-561e5f685dc1"
+        }
+      ]
+    }
+  ]
+}

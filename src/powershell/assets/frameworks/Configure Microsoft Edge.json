@@ -1,0 +1,338 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 17,
+  "category": 1,
+  "provider": 0,
+  "parameters": [],
+  "workloadActions": [],
+  "version": 0,
+  "displayName": "Configure Microsoft Edge",
+  "description": "Microsoft Edge policies support a rich set of features and provide optimal browser performance. In addition, Microsoft Edge gives users better security than other browsers. This includes blocking malware and phishing attempts, site reputation checks, download protections, and password security.",
+  "userImpact": "After these policies are applied to tenant devices, users will be better protected when browsing the web and working online.",
+  "informationLinks": [
+    {
+      "url": "https://go.microsoft.com/fwlink/?linkid=2211171",
+      "displayName": "Learn more about Microsoft Edge security"
+    },
+    {
+      "url": "https://go.microsoft.com/fwlink/?linkid=2211353",
+      "displayName": "Learn more about Microsoft Edge security SmartScreen"
+    }
+  ],
+  "id": "87c4a151-1bf1-4730-8305-d29f7ad20105",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Configure Microsoft Edge profile for Windows 10 and later",
+      "description": "This task deploys a Microsoft Intune device configuration profile that optimizes user security in Microsoft Edge.",
+      "portalLink": {
+        "url": "https://endpoint.microsoft.com/{tenantName}/#view/Microsoft_Intune_DeviceSettings/DevicesMenu/~/configurationProfiles",
+        "displayName": "Microsoft Intune"
+      },
+      "informationLinks": [],
+      "id": "83565413-388c-44dc-bbf3-f678455b43ab",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "Configure Microsoft Edge",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "name",
+              "value": "Configure Microsoft Edge policy for Windows 10 and later",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isIdentifier": true,
+              "settingType": "String",
+              "displayName": "Name"
+            },
+            {
+              "name": "platforms",
+              "value": "windows10",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "windows10",
+                  "displayName": "Windows 10 and later"
+                }
+              ],
+              "displayName": "Platforms"
+            },
+            {
+              "name": "technologies",
+              "value": "mdm",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "mdm",
+                  "displayName": "MDM"
+                }
+              ],
+              "displayName": "Technologies"
+            },
+            {
+              "name": "settings.1.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_microsoft_edgev85diff~policy~microsoft_edge~passwordmanager_passwordmonitorallowed_1",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_microsoft_edgev85diff~policy~microsoft_edge~passwordmanager_passwordmonitorallowed_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Allow users to be alerted if their passwords are found to be unsafe (User)"
+            },
+            {
+              "name": "settings.2.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_microsoft_edgev93~policy~microsoft_edge~passwordmanager_passwordgeneratorenabled_1",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_microsoft_edgev93~policy~microsoft_edge~passwordmanager_passwordgeneratorenabled_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Allow users to get a strong password suggestion whenever they are creating an account online"
+            },
+            {
+              "name": "passwordmanagerenabled",
+              "value": "[\"user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~passwordmanager_passwordmanagerenabled_1\"]",
+              "isRequired": true,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~passwordmanager_passwordmanagerenabled_1",
+                  "displayName": "Enabled"
+                },
+                {
+                  "name": "user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~passwordmanager_passwordmanagerenabled_0",
+                  "displayName": "Disabled"
+                },
+                {
+                  "name": "user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~passwordmanager_passwordmanagerenabled_1_description",
+                  "displayName": "Your customers will now be able to save their passwords in Microsoft Edge safely. If you're using a 3rd party password manager tool, they will be prompted to autofill their password from Microsoft Edge password manager and the 3rd party tool."
+                }
+              ],
+              "displayName": "Enable saving passwords to the password manager"
+            },
+            {
+              "name": "settings.4.settingInstance.choiceSettingValue.value",
+              "value": "user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_smartscreenenabled_1",
+              "isRequired": true,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_smartscreenenabled_1",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Configure Microsoft Defender SmartScreen"
+            },
+            {
+              "name": "includeGroups",
+              "value": "[\"All\"]",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "Groups_AllGroups",
+                  "displayName": "All groups"
+                }
+              ],
+              "displayName": "Include groups"
+            },
+            {
+              "name": "excludeGroups",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "Exclude groups"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/configurationPolicies?$filter=name eq '[@name()]'],\"id\")],\"deviceManagementId\")",
+                "{IncludeResponseBodyInException:true} PUT /beta/deviceManagement/configurationPolicies/[@sys.read(\"deviceManagementId\")] \\ {\"name\":\"[@name()]\",\"platforms\":\"[@platforms()]\",\"roleScopeTagIds\":[[\"0\"]],\"technologies\":\"[@technologies()]\",\"templateReference\":{\"templateId\":\"\",\"templateFamily\":\"none\",\"templateDisplayName\":null,\"templateDisplayVersion\":null},\"settings\":[[{\"settingInstance\":{\"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\"settingDefinitionId\":\"user_vendor_msft_policy_config_microsoft_edgev85diff~policy~microsoft_edge~passwordmanager_passwordmonitorallowed\",\"settingInstanceTemplateReference\":null,\"choiceSettingValue\":{\"settingValueTemplateReference\":null,\"value\":\"[@settings.1.settingInstance.choiceSettingValue.value()]\",\"children\":[[]]}}},{\"settingInstance\":{\"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\"settingDefinitionId\":\"user_vendor_msft_policy_config_microsoft_edgev93~policy~microsoft_edge~passwordmanager_passwordgeneratorenabled\",\"settingInstanceTemplateReference\":null,\"choiceSettingValue\":{\"settingValueTemplateReference\":null,\"value\":\"[@settings.2.settingInstance.choiceSettingValue.value()]\",\"children\":[[]]}}},{\"settingInstance\":{\"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\"settingDefinitionId\":\"user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~passwordmanager_passwordmanagerenabled\",\"settingInstanceTemplateReference\":null,\"choiceSettingValue\":{\"settingValueTemplateReference\":null,\"value\":\"[@sys.first([@passwordmanagerenabled()])]\",\"children\":[[]]}}},{\"settingInstance\":{\"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\"settingDefinitionId\":\"user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_smartscreenenabled\",\"settingInstanceTemplateReference\":null,\"choiceSettingValue\":{\"settingValueTemplateReference\":null,\"value\":\"[@settings.4.settingInstance.choiceSettingValue.value()]\",\"children\":[[]]}}}]]}",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/configurationPolicies[@sys.notexists(\"deviceManagementId\")] \\ {\"name\":\"[@name()]\",\"platforms\":\"[@platforms()]\",\"roleScopeTagIds\":[[\"0\"]],\"technologies\":\"[@technologies()]\",\"templateReference\":{\"templateId\":\"\",\"templateFamily\":\"none\",\"templateDisplayName\":null,\"templateDisplayVersion\":null},\"settings\":[[{\"settingInstance\":{\"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\"settingDefinitionId\":\"user_vendor_msft_policy_config_microsoft_edgev85diff~policy~microsoft_edge~passwordmanager_passwordmonitorallowed\",\"settingInstanceTemplateReference\":null,\"choiceSettingValue\":{\"settingValueTemplateReference\":null,\"value\":\"[@settings.1.settingInstance.choiceSettingValue.value()]\",\"children\":[[]]}}},{\"settingInstance\":{\"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\"settingDefinitionId\":\"user_vendor_msft_policy_config_microsoft_edgev93~policy~microsoft_edge~passwordmanager_passwordgeneratorenabled\",\"settingInstanceTemplateReference\":null,\"choiceSettingValue\":{\"settingValueTemplateReference\":null,\"value\":\"[@settings.2.settingInstance.choiceSettingValue.value()]\",\"children\":[[]]}}},{\"settingInstance\":{\"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\"settingDefinitionId\":\"user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~passwordmanager_passwordmanagerenabled\",\"settingInstanceTemplateReference\":null,\"choiceSettingValue\":{\"settingValueTemplateReference\":null,\"value\":\"[@sys.first([@passwordmanagerenabled()])]\",\"children\":[[]]}}},{\"settingInstance\":{\"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\"settingDefinitionId\":\"user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_smartscreenenabled\",\"settingInstanceTemplateReference\":null,\"choiceSettingValue\":{\"settingValueTemplateReference\":null,\"value\":\"[@settings.4.settingInstance.choiceSettingValue.value()]\",\"children\":[[]]}}}]]}],\"id\")],\"deviceManagementId\")",
+                "@sys.read(\"deviceManagementId\")",
+                "{IncludeResponseBodyInException: true} POST /beta/deviceManagement/configurationPolicies/[@sys.read(\"deviceManagementId\")]/assign \\ {\"assignments\":[[ [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])] ]]}"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                    when data like 'All' then '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                    }\r\n\t                    }'\r\n\t                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                    when data = '' then ''\r\n                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "name",
+                  "value": "select 'Configure Microsoft Edge policy for Windows 10 and later'"
+                },
+                {
+                  "type": 0,
+                  "id": "platforms",
+                  "value": "select 'windows10'"
+                },
+                {
+                  "type": 0,
+                  "id": "technologies",
+                  "value": "select 'mdm'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.1.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_microsoft_edgev85diff~policy~microsoft_edge~passwordmanager_passwordmonitorallowed_1'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.2.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_microsoft_edgev93~policy~microsoft_edge~passwordmanager_passwordgeneratorenabled_1'"
+                },
+                {
+                  "type": 0,
+                  "id": "passwordmanagerenabled",
+                  "value": "select '[\"user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~passwordmanager_passwordmanagerenabled_1\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "settings.4.settingInstance.choiceSettingValue.value",
+                  "value": "select 'user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_smartscreenenabled_1'"
+                },
+                {
+                  "type": 0,
+                  "id": "includeGroups",
+                  "value": "select '[\"All\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "excludeGroups",
+                  "value": "select ''"
+                },
+                {
+                  "type": 0,
+                  "id": "tenantIds",
+                  "value": "select '[\"a380a655-8cdd-4484-9eaf-7c9f320a122a\"]'"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.normalize([/beta/deviceManagement/configurationPolicies?$expand=assignments])],\"policies\")",
+                "@sys.write([@sys.normalize([/v1.0/users?$select=id,displayName,userPrincipalName,assignedPlans,assignedLicenses,userType&$expand=memberOf($select=roleTemplateId)])],\"allUsers\")",
+                "@sys.validateDeviceConfigurationPolicy([POST /echo \\ {\"name\":\"[@name()]\",\"platforms\":\"[@platforms()]\",\"roleScopeTagIds\":[[\"0\"]],\"technologies\":\"[@technologies()]\",\"templateReference\":{\"templateId\":\"\",\"templateFamily\":\"none\",\"templateDisplayName\":null,\"templateDisplayVersion\":null},\"settings\":[[{\"settingInstance\":{\"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\"settingDefinitionId\":\"user_vendor_msft_policy_config_microsoft_edgev85diff~policy~microsoft_edge~passwordmanager_passwordmonitorallowed\",\"settingInstanceTemplateReference\":null,\"choiceSettingValue\":{\"settingValueTemplateReference\":null,\"value\":\"[@settings.1.settingInstance.choiceSettingValue.value()]\",\"children\":[[]]}}},{\"settingInstance\":{\"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\"settingDefinitionId\":\"user_vendor_msft_policy_config_microsoft_edgev93~policy~microsoft_edge~passwordmanager_passwordgeneratorenabled\",\"settingInstanceTemplateReference\":null,\"choiceSettingValue\":{\"settingValueTemplateReference\":null,\"value\":\"[@settings.2.settingInstance.choiceSettingValue.value()]\",\"children\":[[]]}}},{\"settingInstance\":{\"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\"settingDefinitionId\":\"user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~passwordmanager_passwordmanagerenabled\",\"settingInstanceTemplateReference\":null,\"choiceSettingValue\":{\"settingValueTemplateReference\":null,\"value\":\"[@sys.first([@passwordmanagerenabled()])]\",\"children\":[[]]}}},{\"settingInstance\":{\"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\"settingDefinitionId\":\"user_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_smartscreenenabled\",\"settingInstanceTemplateReference\":null,\"choiceSettingValue\":{\"settingValueTemplateReference\":null,\"value\":\"[@settings.4.settingInstance.choiceSettingValue.value()]\",\"children\":[[]]}}}]],\"assignments\":[[ [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])] ]]}],[@sys.read(\"policies\")],[@sys.read(\"allUsers\")])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                    when data like 'All' then '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                    }\r\n\t                    }'\r\n\t                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                    when data = '' then ''\r\n                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": true
+          },
+          "extractionAction": {
+            "operationDefinition": {
+              "values": [
+                "/beta/deviceManagement/configurationPolicies/6aa64722-65d1-4ab3-a7bb-9463334e5b14?$expand=settings"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "deletionAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/configurationPolicies?$filter=name eq '[@name()]'],\"id\")],\"deviceManagementId\")",
+                "{IncludeResponseBodyInException:true} DELETE /beta/deviceManagement/configurationPolicies/[@sys.read(\"deviceManagementId\")]"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "id": "56cc3b23-c007-4a39-9129-eaffe4110a25"
+        }
+      ]
+    }
+  ]
+}

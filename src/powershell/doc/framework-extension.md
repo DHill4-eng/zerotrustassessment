@@ -41,10 +41,12 @@ Each policy object supports:
 - `ApiVersion` (`v1.0` or `beta`)
 - `RelativeUri` (Graph path)
 - `CollectionPath` (where to find list in response, default `value`)
-- `MatchMode` (`AnyObjectMatchesAllRules` or `FirstObjectMatchesAllRules`)
+- `MatchMode` (`AnyObjectMatchesAllRules`, `FirstObjectMatchesAllRules`, `AllObjectsMatchAllRules`)
+- `LogicalOperator` (`All` or `Any`, defaults to `All`)
+- Optional Graph query controls: `QueryParameters`, `Filter`, `Select`, `Top`
 - `Rules[]` where each rule has:
   - `Path` (dot notation path in object)
-  - `Operator` (`Equals`, `Contains`, `Exists`)
+  - `Operator` (`Equals`, `NotEquals`, `Contains`, `NotContains`, `In`, `NotIn`, `Exists`, `GreaterThan`, `GreaterOrEquals`, `LessThan`, `LessOrEquals`, `MatchesRegex`)
   - `ExpectedValue` (not required for `Exists`)
 
 Output section in report JSON:
@@ -65,3 +67,12 @@ Policy status values are:
 3. Tell us the filenames; we can then tune query and rule operators for each policy type.
 
 This lets the tool perform rapid “already in place vs missing” checks for your deployment baselines.
+
+## Using policy checkpoint JSON files directly
+
+Place your policy checkpoint JSON files directly in `src/powershell/assets/frameworks/` using the naming pattern:
+
+- `SecureModernWorkplace.policies.json`
+- `SecureModernWorkplace.<any-name>.policies.json`
+
+All matching files are merged during assessment so you can split checkpoints by platform/workload (for example `SecureModernWorkplace.intune.policies.json` and `SecureModernWorkplace.entra.policies.json`). This allows you to upload policy sets directly without ZIP import tooling.

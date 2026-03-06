@@ -1,0 +1,36 @@
+{
+  "Framework": "CyberEssentialsPlus",
+  "Version": "Technical Controls v3.1",
+  "Controls": [
+    {
+      "ControlId": "CEP-FW-01",
+      "Title": "Firewalls",
+      "Description": "Boundary and host-based firewall protections are configured and managed.",
+      "MappedTestIds": [24552, 24574, 24839]
+    },
+    {
+      "ControlId": "CEP-SC-01",
+      "Title": "Secure Configuration",
+      "Description": "Security baselines and hardened configuration settings are applied and monitored.",
+      "MappedTestIds": [24569, 24570, 24573]
+    },
+    {
+      "ControlId": "CEP-UAC-01",
+      "Title": "User Access Control",
+      "Description": "Privileged access is controlled, reviewed, and secured with least privilege principles.",
+      "MappedTestIds": [21771, 21792, 21824, 22128]
+    },
+    {
+      "ControlId": "CEP-MP-01",
+      "Title": "Malware Protection",
+      "Description": "Endpoint malware protections are enabled and centrally governed.",
+      "MappedTestIds": [24551, 24553, 24823]
+    },
+    {
+      "ControlId": "CEP-PM-01",
+      "Title": "Security Update Management",
+      "Description": "Security updates are managed and validated for timely deployment.",
+      "MappedTestIds": [24542, 24546, 24561]
+    }
+  ]
+}

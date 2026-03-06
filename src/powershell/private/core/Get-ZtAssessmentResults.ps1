@@ -15,7 +15,9 @@ function Get-ZtAssessmentResults {
 		Gets the results of all the Zero Trust Assessment tests
 	#>
 	[CmdletBinding()]
-	param ()
+	param (
+		[string[]]$Framework = @('ZeroTrust')
+	)
 
 	#region Utility Functions
 	function Get-ModuleLatestVersion {
@@ -64,6 +66,16 @@ function Get-ZtAssessmentResults {
 	# Sort by risk then by status
 	$tests = $script:__ZtSession.TestResultDetail.values | Sort-Object -Property @{Expression = { $_.TestRisk } }, @{Expression = { $_.TestStatus } }
 
+	$frameworkAssessments = @{}
+	foreach ($frameworkName in @($Framework | Select-Object -Unique)) {
+		if ($frameworkName -eq 'CyberEssentialsPlus') {
+			$frameworkAssessments[$frameworkName] = Get-ZtFrameworkAssessment -Name $frameworkName -TestResults $tests
+		}
+		elseif ($frameworkName -eq 'SecureModernWorkplace') {
+			$frameworkAssessments[$frameworkName] = Get-ZtFrameworkPolicyCompliance -Name $frameworkName
+		}
+	}
+
 	$ztTestResults = [PSCustomObject][ordered]@{
 		ExecutedAt        = Get-Date
 		TenantId          = $mgContext.TenantId
@@ -75,6 +87,7 @@ function Get-ZtAssessmentResults {
 		TestResultSummary = Get-TestResultSummary -TestResults $script:__ZtSession.TestResultDetail.values
 		Tests             = @($tests) # Use @() to ensure it's an array
 		TenantInfo        = $script:__ZtSession.TenantInfo
+		FrameworkAssessments = $frameworkAssessments
 		EndOfJson         = "EndOfJson" # Always leave this as the last property. Used by the script to determine the end of the JSON
 	}
 

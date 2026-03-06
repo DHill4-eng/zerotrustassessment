@@ -159,6 +159,7 @@ function Get-ZtTestMetadata {
 				Command            = $commandItem.Name
 				TestId             = $commandItem.Ast.Name -replace '^Test-Assessment-'
 				Category           = $null
+				Framework          = @('ZeroTrust')
 				ImplementationCost = $null
 				MinimumLicense     = $null
 				Pillar             = $null
@@ -188,6 +189,10 @@ function Get-ZtTestMetadata {
 
 					$result.$($argument.ArgumentName) = $argument.Argument.SafeGetValue()
 				}
+			}
+
+			if (-not $result.Framework) {
+				$result.Framework = @('ZeroTrust')
 			}
 
 			$result

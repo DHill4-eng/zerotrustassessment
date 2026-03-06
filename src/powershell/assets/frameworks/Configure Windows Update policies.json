@@ -1,0 +1,462 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 10,
+  "category": 1,
+  "provider": 0,
+  "version": 0,
+  "displayName": "Configure Windows Update policies",
+  "description": "Configure policy settings for Windows Update to ensure your customer tenants' devices are up to date with the latest Windows Features.",
+  "userImpact": "Once this policy is configured and applied to tenant devices, Windows feature updates will be downloaded.",
+  "informationLinks": [
+    {
+      "url": "https://learn.microsoft.com/en-us/mem/intune/protect/windows-10-update-rings",
+      "displayName": "Update rings for Windows 10 and later policy in Intune"
+    }
+  ],
+  "id": "395d58dc-8b87-4f4a-b8df-18fbf1da1ea0",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Configure Windows Feature Update policy settings for Windows 10 and later",
+      "description": "Configure policy settings for Windows Update to ensure your tenant devices are up-to-date with the latest fixes, features, and security improvements.",
+      "portalLink": {
+        "url": "https://endpoint.microsoft.com/{tenantName}/#view/Microsoft_Intune_DeviceSettings/DevicesWindowsMenu/~/win10UpdateRings",
+        "displayName": "Intune"
+      },
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262326",
+          "displayName": "Update rings for Windows 10 and later policy in Intune"
+        }
+      ],
+      "id": "a1f9479a-4fef-4c73-b921-457ca0dd1f3d",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "Configure Windows Update policy settings for Windows 10 and later",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [
+            {
+              "name": "displayName",
+              "value": "Update Rings for Windows 10 and later",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": true,
+              "settingType": "String",
+              "displayName": "Display name"
+            },
+            {
+              "name": "automaticUpdateMode",
+              "value": "autoInstallAtMaintenanceTime",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "autoInstallAtMaintenanceTime",
+                  "displayName": "Auto Install at maintenance time"
+                }
+              ],
+              "displayName": "Automatic Update Behavior"
+            },
+            {
+              "name": "microsoftUpdateServiceAllowed",
+              "value": "True",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "True",
+                  "displayName": "Allow"
+                }
+              ],
+              "displayName": "Microsoft Product Updates"
+            },
+            {
+              "name": "driversExcluded",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Boolean",
+              "referenceStrings": [
+                {
+                  "name": "False",
+                  "displayName": "Allow"
+                }
+              ],
+              "displayName": "Windows Drivers"
+            },
+            {
+              "name": "qualityUpdatesDeferralPeriodInDays",
+              "value": "0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Integer",
+              "displayName": "Quality Update deferral Period (in days)"
+            },
+            {
+              "name": "featureUpdatesDeferralPeriodInDays",
+              "value": "0",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Integer",
+              "displayName": "Feature Update deferral period (in days)"
+            },
+            {
+              "name": "skipChecksBeforeRestart",
+              "value": "False",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "False",
+                  "displayName": "Allow"
+                }
+              ],
+              "displayName": "Restart Checks"
+            },
+            {
+              "name": "featureUpdatesRollbackWindowInDays",
+              "value": "10",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "Integer",
+              "displayName": "Set Feature update uninstall period (2 - 60 days)"
+            },
+            {
+              "name": "userWindowsUpdateScanAccess",
+              "value": "enabled",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "enabled",
+                  "displayName": "Enabled"
+                }
+              ],
+              "displayName": "Option to check for Windows Updates"
+            },
+            {
+              "name": "updateNotificationLevel",
+              "value": "defaultNotifications",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isRelevantForComparision": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "defaultNotifications",
+                  "displayName": "Use the default Windows Update notification"
+                }
+              ],
+              "displayName": "Change Notification update Level"
+            },
+            {
+              "name": "userPauseAccess",
+              "value": "[\"enabled\"]",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "disabled",
+                  "displayName": "Disable"
+                },
+                {
+                  "name": "enabled",
+                  "displayName": "Enable"
+                }
+              ],
+              "displayName": "Option to Pause Windows Updates"
+            },
+            {
+              "name": "allowWindows11Upgrade",
+              "value": "[\"False\"]",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "False",
+                  "displayName": "No"
+                },
+                {
+                  "name": "True",
+                  "displayName": "Yes"
+                }
+              ],
+              "displayName": "Upgrade Windows 10 devices to Windows 11 release"
+            },
+            {
+              "name": "installationSchedule.activeHoursStart",
+              "value": "08:00:00.0000000",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "08:00:00.0000000",
+                  "displayName": "8am"
+                }
+              ],
+              "displayName": "Active Hours Start"
+            },
+            {
+              "name": "installationSchedule.activeHoursEnd",
+              "value": "17:00:00.0000000",
+              "isRequired": false,
+              "isReadOnly": true,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "17:00:00.0000000",
+                  "displayName": "5pm"
+                }
+              ],
+              "displayName": "Active Hours End"
+            },
+            {
+              "name": "includeGroups",
+              "value": "[\"All\"]",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "referenceStrings": [
+                {
+                  "name": "Groups_AllGroups",
+                  "displayName": "All groups"
+                }
+              ],
+              "displayName": "Include groups"
+            },
+            {
+              "name": "excludeGroups",
+              "isRequired": false,
+              "isReadOnly": false,
+              "isIdentifier": false,
+              "settingType": "String",
+              "displayName": "Exclude groups"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/deviceConfigurations?$filter=displayName eq '[@displayName()]'],\"id\")],\"deviceManagementId\")",
+                "{IncludeResponseBodyInException:true} PATCH /beta/deviceManagement/deviceConfigurations/[@sys.read(\"deviceManagementId\")] \\ {\r\n  \"@odata.type\": \"#microsoft.graph.windowsUpdateForBusinessConfiguration\",\r\n  \"displayName\": \"[@displayName()]\",\r\n  \"version\": \"1\",\r\n  \"deliveryOptimizationMode\": \"userDefined\",\r\n  \"prereleaseFeatures\": \"userDefined\",\r\n  \"automaticUpdateMode\": \"[@automaticUpdateMode()]\",\r\n  \"microsoftUpdateServiceAllowed\": \"[@microsoftUpdateServiceAllowed()]\",\r\n  \"driversExcluded\": \"[@driversExcluded()]\",\r\n  \"qualityUpdatesDeferralPeriodInDays\": \"[@qualityUpdatesDeferralPeriodInDays()]\",\r\n  \"featureUpdatesDeferralPeriodInDays\": \"[@featureUpdatesDeferralPeriodInDays()]\",\r\n  \"qualityUpdatesPaused\": \"False\",\r\n  \"featureUpdatesPaused\": \"False\",\r\n  \"businessReadyUpdatesOnly\": \"userDefined\",\r\n  \"skipChecksBeforeRestart\": \"[@skipChecksBeforeRestart()]\",\r\n  \"featureUpdatesRollbackWindowInDays\": \"[@featureUpdatesRollbackWindowInDays()]\",\r\n  \"autoRestartNotificationDismissal\": \"notConfigured\",\r\n  \"userPauseAccess\": \"[@sys.first([@userPauseAccess()])]\",\r\n  \"userWindowsUpdateScanAccess\": \"[@userWindowsUpdateScanAccess()]\",\r\n  \"updateNotificationLevel\": \"[@updateNotificationLevel()]\",\r\n  \"allowWindows11Upgrade\": \"[@sys.first([@allowWindows11Upgrade()])]\",\r\n  \"installationSchedule\": {\r\n    \"@odata.type\": \"#microsoft.graph.windowsUpdateActiveHoursInstall\",\r\n    \"activeHoursStart\": \"[@installationSchedule.activeHoursStart()]\",\r\n    \"activeHoursEnd\": \"[@installationSchedule.activeHoursEnd()]\"\r\n  }\r\n}",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/deviceConfigurations[@sys.notexists(\"deviceManagementId\")] \\ {\r\n  \"@odata.type\": \"#microsoft.graph.windowsUpdateForBusinessConfiguration\",\r\n  \"displayName\": \"[@displayName()]\",\r\n  \"version\": \"1\",\r\n  \"deliveryOptimizationMode\": \"userDefined\",\r\n  \"prereleaseFeatures\": \"userDefined\",\r\n  \"automaticUpdateMode\": \"[@automaticUpdateMode()]\",\r\n  \"microsoftUpdateServiceAllowed\": \"[@microsoftUpdateServiceAllowed()]\",\r\n  \"driversExcluded\": \"[@driversExcluded()]\",\r\n  \"qualityUpdatesDeferralPeriodInDays\": \"[@qualityUpdatesDeferralPeriodInDays()]\",\r\n  \"featureUpdatesDeferralPeriodInDays\": \"[@featureUpdatesDeferralPeriodInDays()]\",\r\n  \"qualityUpdatesPaused\": \"False\",\r\n  \"featureUpdatesPaused\": \"False\",\r\n  \"businessReadyUpdatesOnly\": \"userDefined\",\r\n  \"skipChecksBeforeRestart\": \"[@skipChecksBeforeRestart()]\",\r\n  \"featureUpdatesRollbackWindowInDays\": \"[@featureUpdatesRollbackWindowInDays()]\",\r\n  \"autoRestartNotificationDismissal\": \"notConfigured\",\r\n  \"userPauseAccess\": \"[@sys.first([@userPauseAccess()])]\",\r\n  \"userWindowsUpdateScanAccess\": \"[@userWindowsUpdateScanAccess()]\",\r\n  \"updateNotificationLevel\": \"[@updateNotificationLevel()]\",\r\n  \"allowWindows11Upgrade\": \"[@sys.first([@allowWindows11Upgrade()])]\",\r\n  \"installationSchedule\": {\r\n    \"@odata.type\": \"#microsoft.graph.windowsUpdateActiveHoursInstall\",\r\n    \"activeHoursStart\": \"[@installationSchedule.activeHoursStart()]\",\r\n    \"activeHoursEnd\": \"[@installationSchedule.activeHoursEnd()]\"\r\n  }\r\n}],\"id\")],\"deviceManagementId\")",
+                "POST /beta/deviceManagement/deviceConfigurations/[@sys.read(\"deviceManagementId\")]/assign  \\ \r\n            { \r\n                \"assignments\":\r\n                [[\r\n                    [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])]\r\n                ]]\r\n              }"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                            when data like 'All' then '{ \r\n\t\t                            \"target\":\r\n                                    {\r\n\t\t\t                            \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                            }\r\n\t                            }'\r\n\t                            else '{ \r\n\t\t                            \"target\":\r\n                                    {\r\n\t\t\t                            \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                        \"groupId\": \"' || data || '\"\r\n\t\t                            }\r\n\t                            }'\r\n                            end\r\n                            from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                            when data = '' then ''\r\n                            else '{ \r\n\t\t                            \"target\":\r\n                                    {\r\n\t\t\t                            \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                        \"groupId\": \"' || data || '\"\r\n\t\t                            }\r\n\t                            }'\r\n                            end\r\n                            from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "displayName",
+                  "value": "select 'Update Rings for Windows 10 and later'"
+                },
+                {
+                  "type": 0,
+                  "id": "automaticUpdateMode",
+                  "value": "select 'autoInstallAtMaintenanceTime'"
+                },
+                {
+                  "type": 0,
+                  "id": "microsoftUpdateServiceAllowed",
+                  "value": "select 'True'"
+                },
+                {
+                  "type": 0,
+                  "id": "driversExcluded",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "qualityUpdatesDeferralPeriodInDays",
+                  "value": "select '0'"
+                },
+                {
+                  "type": 0,
+                  "id": "featureUpdatesDeferralPeriodInDays",
+                  "value": "select '0'"
+                },
+                {
+                  "type": 0,
+                  "id": "skipChecksBeforeRestart",
+                  "value": "select 'False'"
+                },
+                {
+                  "type": 0,
+                  "id": "featureUpdatesRollbackWindowInDays",
+                  "value": "select '10'"
+                },
+                {
+                  "type": 0,
+                  "id": "userWindowsUpdateScanAccess",
+                  "value": "select 'enabled'"
+                },
+                {
+                  "type": 0,
+                  "id": "updateNotificationLevel",
+                  "value": "select 'defaultNotifications'"
+                },
+                {
+                  "type": 0,
+                  "id": "userPauseAccess",
+                  "value": "select '[\"enabled\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "allowWindows11Upgrade",
+                  "value": "select '[\"False\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "installationSchedule.activeHoursStart",
+                  "value": "select '08:00:00.0000000'"
+                },
+                {
+                  "type": 0,
+                  "id": "installationSchedule.activeHoursEnd",
+                  "value": "select '17:00:00.0000000'"
+                },
+                {
+                  "type": 0,
+                  "id": "includeGroups",
+                  "value": "select '[\"All\"]'"
+                },
+                {
+                  "type": 0,
+                  "id": "excludeGroups",
+                  "value": "select ''"
+                },
+                {
+                  "type": 0,
+                  "id": "tenantIds",
+                  "value": "select '[\"a380a655-8cdd-4484-9eaf-7c9f320a122a\"]'"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.normalize([/beta/deviceManagement/deviceConfigurations?$expand=assignments])],\"policies\")",
+                "@sys.write([@sys.normalize([/v1.0/users?$select=id,displayName,userPrincipalName,assignedPlans,assignedLicenses,userType&$expand=memberOf($select=roleTemplateId)])],\"allUsers\")",
+                "@sys.validateGraphEntity([POST /echo \\ {\r\n  \"@odata.type\": \"#microsoft.graph.windowsUpdateForBusinessConfiguration\",\r\n  \"displayName\": \"[@displayName()]\",\r\n  \"version\": \"1\",\r\n  \"deliveryOptimizationMode\": \"userDefined\",\r\n  \"prereleaseFeatures\": \"userDefined\",\r\n  \"automaticUpdateMode\": \"[@automaticUpdateMode()]\",\r\n  \"microsoftUpdateServiceAllowed\": \"[@microsoftUpdateServiceAllowed()]\",\r\n  \"driversExcluded\": \"[@driversExcluded()]\",\r\n  \"qualityUpdatesDeferralPeriodInDays\": \"[@qualityUpdatesDeferralPeriodInDays()]\",\r\n  \"featureUpdatesDeferralPeriodInDays\": \"[@featureUpdatesDeferralPeriodInDays()]\",\r\n  \"qualityUpdatesPaused\": \"False\",\r\n  \"featureUpdatesPaused\": \"False\",\r\n  \"businessReadyUpdatesOnly\": \"userDefined\",\r\n  \"skipChecksBeforeRestart\": \"[@skipChecksBeforeRestart()]\",\r\n  \"featureUpdatesRollbackWindowInDays\": \"[@featureUpdatesRollbackWindowInDays()]\",\r\n  \"autoRestartNotificationDismissal\": \"notConfigured\",\r\n  \"userPauseAccess\": \"[@sys.first([@userPauseAccess()])]\",\r\n  \"userWindowsUpdateScanAccess\": \"[@userWindowsUpdateScanAccess()]\",\r\n  \"updateNotificationLevel\": \"[@updateNotificationLevel()]\",\r\n  \"allowWindows11Upgrade\": \"[@sys.first([@allowWindows11Upgrade()])]\",\r\n  \"installationSchedule\": {\r\n    \"@odata.type\": \"#microsoft.graph.windowsUpdateActiveHoursInstall\",\r\n    \"activeHoursStart\": \"[@installationSchedule.activeHoursStart()]\",\r\n    \"activeHoursEnd\": \"[@installationSchedule.activeHoursEnd()]\"\r\n  }\r\n,\"assignments\":[[ [@sys.join([@sys.concat([@getIncludeGroups([@sys.jsonArrayParse([@includeGroups()])])],[@getExcludeGroups([@sys.jsonArrayParse([@excludeGroups()])])])])] ]]}],[@sys.read(\"policies\")],[@sys.read(\"allUsers\")])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                    when data like 'All' then '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.allLicensedUsersAssignmentTarget\"\r\n\t\t                    }\r\n\t                    }'\r\n\t                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.groupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                    when data = '' then ''\r\n                    else '{ \r\n\t\t                    \"target\":\r\n                            {\r\n\t\t\t                    \"@odata.type\": \"#microsoft.graph.exclusionGroupAssignmentTarget\",\r\n                                \"groupId\": \"' || data || '\"\r\n\t\t                    }\r\n\t                    }'\r\n                    end\r\n                    from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": true
+          },
+          "extractionAction": {
+            "operationDefinition": {
+              "values": [
+                "/beta/deviceManagement/deviceConfigurations/f9f49eb7-a2bb-420c-a5af-35392c0466d3?$expand=assignments"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "deletionAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/deviceConfigurations?$filter=displayName eq '[@displayName()]'],\"id\")],\"deviceManagementId\")",
+                "{IncludeResponseBodyInException:true} DELETE /beta/deviceManagement/deviceConfigurations/[@sys.read(\"deviceManagementId\")]"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "value": "@sys.append([/result])",
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 2
+            }
+          ],
+          "dependentVersions": [],
+          "id": "ce3065a9-863a-4da3-8614-a73178393562"
+        }
+      ]
+    }
+  ]
+}

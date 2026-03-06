@@ -1,0 +1,66 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 11,
+  "category": 3,
+  "provider": 0,
+  "version": 0,
+  "displayName": "Set up Exchange Online Protection and Microsoft Defender for Office 365",
+  "description": "EOP and MDO run in the background. Messages that are identified as spam, phish, or malware are either sent to quarantine or to the user's junk email folder.\r\n\r\nURLs and email attachments are checked whenever a user attempts to open them. If the content is considered unsafe, users are warned and might be prevented from viewing the content. Also, scanned URLs are rewritten to include a prefix that contains ? safelinks.protection.outlook.com?.",
+  "userImpact": "Exchange Online Protection (EOP) helps protect your organization against spam, malware, phishing, and other email threats. EOP helps keep malicious email out of user inboxes.\r\n\t\r\n\tMicrosoft Defender for Office 365 (MDO) helps protect your organization from malicious threats in email messages, links (URLs), and collaboration tools.",
+  "informationLinks": [],
+  "id": "489da154-9546-47eb-ba97-ef637a078364",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 0,
+      "category": 0,
+      "isCloned": true,
+      "displayName": "Enable Standard protection profile to apply EOP and MDO protections",
+      "description": "This process creates a standard protection profile that includes policies for anti-spam, anti-malware, anti-phishing, advanced anti-phishing, safe links, and safe attachments.",
+      "portalLink": {
+        "url": "https://security.microsoft.com/?tid={tenantName}",
+        "displayName": "Microsoft Defender Portal"
+      },
+      "userImpact": "Exchange Online Protection (EOP) helps protect your organization against spam, malware, phishing, and other email threats. EOP helps keep malicious email out of user inboxes.\r\n\t\r\n\tMicrosoft Defender for Office 365 (MDO) helps protect your organization from malicious threats in email messages, links (URLs), and collaboration tools.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2211361",
+          "displayName": "What is phishing?"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2192007",
+          "displayName": "What is spam?"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2192008",
+          "displayName": "Protect yourself from Phishing"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2192109",
+          "displayName": "What is Defender for O365"
+        }
+      ],
+      "id": "fa2cf819-5bac-4107-bba9-243ce76f288c",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "EOP_OnboardDevices",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "13016bca-f84f-4697-b20e-c667775d6969",
+          "settings": [],
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 528
+            }
+          ],
+          "dependentVersions": [],
+          "contentMarkdown": "Implementation\r\n---\r\n\r\n1. Login to the Microsoft 365 Defender Portal with your Admin permissions for the tenant.\r\n1. Select \"Policies and rules\" from the left navigation panel (under \"Email and collaboration\"), then select Threat policies > Preset Security Policies.\r\n1. Under **Standard Protection**, select **Manage**. This launches the **Apply Standard Protection Wizard**.\r\n1. On the **EOP protections apply to** page, identify the users, groups and domains for which you want to apply EOP protection.\r\n1. On the **Defender for Office 365 protections apply to** page, identify the users, groups, and domains for which you want to apply MDO protection. (This step is available only if the tenant has Microsoft 365 Business Premium subscriptions or MDO P1 add-on licenses)\r\n1. Review and then confirm your choices.\r\n1. In Microsoft 365 Lighthouse, select **Mark as compliant** for this task.",
+          "id": "6684bb02-a134-401a-ba64-a79c482d7821"
+        }
+      ]
+    }
+  ]
+}

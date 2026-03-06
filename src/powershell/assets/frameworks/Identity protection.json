@@ -1,0 +1,249 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 1,
+  "category": 8,
+  "provider": 0,
+  "version": 0,
+  "displayName": "Identity protection",
+  "description": "Tasks within this category are meant to standardize configurations which help protect a Partners customers' identity, as well as assist the Partner with best practices for their management of customer identities.",
+  "id": "529b6237-c7c8-409a-9335-2bfdd5335d97",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 1,
+      "category": 8,
+      "isCloned": true,
+      "displayName": "Configure self-service password reset",
+      "description": "Self-service password reset (SSPR) gives users the ability to change or reset their password with no administrator or help-desk involvement. This ability reduces help-desk calls and loss of productivity when a user can't sign into their device or application.",
+      "portalLink": {
+        "url": "https://entra.microsoft.com/{tenantName}/#view/Microsoft_AAD_IAM/PasswordResetMenuBlade/fromNav/",
+        "displayName": "Microsoft Entra Admin Center"
+      },
+      "userImpact": "If a user's account gets locked out or the user forgets their sign-in credentials, they can follow prompts to unblock themselves.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262062",
+          "displayName": "Enable Microsoft Entra self-service password reset"
+        }
+      ],
+      "id": "6dd7a0d5-49bb-4dcd-ab2a-0e0d29d03445",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "ConfigureSelfServicePasswordReset",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "9ace6694-75a2-4a32-a7af-d24f773351ee",
+          "settings": [],
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 4096
+            }
+          ],
+          "dependentVersions": [],
+          "contentMarkdown": "Implementation\r\n---\r\n**Enable self-service password reset**\r\n1. Sign into the Microsoft Entra Admin Center using an account with global administrator or authentication policy administrator permissions.\r\n2. Select **Protection** and then select **Password reset** from the menu on the left side.\r\n3. From **Properties**, go to **Self-service password reset enabled** and choose **All**.\r\n4. Select **Save**.\r\n\r\n**Select authentication methods and registration options**\r\n1. Under **Manage**, Select **Authentication methods**, set the **Number of methods required to reset** to 2.\r\n2. Choose the **Methods available to users** that your organization wants to allow. Enable Mobile App notification, Mobile app code, Email and Mobile Phone.\r\n3. Apply the authentication methods by selecting **Save**.\r\n\r\n**Configure Microsoft Entra to prompt users for registration**\r\n1. From the menu on the left side of the **Registration** page, select **Yes** for **Require users to register when signing in**.\r\n2. Set **Number of days before users are asked to reconfirm their authentication information** to 180.\r\n3. Select **Save** to apply the registration settings.",
+          "id": "a03bf61a-f01b-436b-8792-24fdbbbabcf6"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 2,
+      "category": 8,
+      "isCloned": true,
+      "displayName": "Create emergency access accounts (Break Glass)",
+      "description": "Emergency access accounts are highly privileged accounts and aren't assigned to a specific user. These accounts are limited to emergency access or ?break glass? scenarios where normal administrative accounts can't be used. They should be used only when necessary. \r\n\r\nYou should create two or more emergency access accounts. These accounts should be cloud-only accounts that use the *.onmicrosoft.com domain and shouldn't be federated or synchronized from an on-premise environment.",
+      "portalLink": {
+        "url": "https://entra.microsoft.com/{tenantName}/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers/menuId/",
+        "displayName": "Microsoft Entra Admin Center"
+      },
+      "userImpact": "No user impact",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262063",
+          "displayName": "Manage emergency access admin accounts - Microsoft Entra"
+        }
+      ],
+      "id": "b903c681-8e7c-4158-a0d0-65dad6add5ea",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "CreateEmergencyAccessAccounts",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "9ace6694-75a2-4a32-a7af-d24f773351ef",
+          "settings": [],
+          "processedDeploymentAction": "",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 1
+            }
+          ],
+          "dependentVersions": [],
+          "contentMarkdown": "Implementation\r\n---\r\n1. Sign in to the Microsoft Entra admin center using Global Administrator credentials.\r\n2. Select **Identity** and then select **Users**.\r\n3. Select **New user**.\r\n4. Select **Create a new user**.\r\n5. Give the account a User Principal Name.\r\n6. Give the account a Display Name (for example, Emergency Access Account).\r\n7. Create a long and complex password for the account.\r\n8. Under Properties, go to Settings, then go to Usage Location, and then select the appropriate location.\r\n9. Under Assignments, select **Add Roles**, and then assign the Global Administrator role.\r\n10. Select **Review + create**.\r\n11. Select **Create**.\r\n12. [Store account credentials safely](https://go.microsoft.com/fwlink/?linkid=2262323)\r\n13. [Monitor sign-in and audit logs](https://go.microsoft.com/fwlink/?linkid=2261983)\r\n14. [Validate accounts regularly](https://go.microsoft.com/fwlink/?linkid=2261984)",
+          "id": "1a07333d-a5cc-4c58-b842-36e098a9084c"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 3,
+      "category": 8,
+      "isCloned": true,
+      "displayName": "Enable passwordless authentication with Microsoft Authenticator app",
+      "description": "Configuring the primary authentication method for Entra ID to use Microsoft Authenticator enhances security for user sign-ins.",
+      "portalLink": {
+        "url": "https://entra.microsoft.com/{tenantName}/#view/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods/fromNav/",
+        "displayName": "Microsoft Entra Admin Center"
+      },
+      "userImpact": "Users with Phone sign-in enabled from the Microsoft authenticator app will be prompted to authenticate from their device. No username or password will be required",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2261982",
+          "displayName": "Passwordless sign-in with Microsoft Authenticator"
+        }
+      ],
+      "id": "eb6174ff-79a3-498c-94e6-2cc2ed9abcd4",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "EnablePasswordlessAuth",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "ce32ad8a-02ee-4054-971e-006a3e60c282",
+          "settings": [
+            {
+              "name": "enable",
+              "value": "[\"on\"]",
+              "isRequired": true,
+              "isReadOnly": true,
+              "referenceStrings": [
+                {
+                  "name": "BlueprintDetail_IdentityProtection_Settings_EnablePasswordlessAuth_Enable_Name",
+                  "displayName": "On"
+                },
+                {
+                  "name": "BlueprintDetail_IdentityProtection_Settings_EnablePasswordlessAuth_Disable_Name",
+                  "displayName": "Off"
+                }
+              ],
+              "displayName": "Enable"
+            },
+            {
+              "name": "includeGroups",
+              "value": "[\"All\"]",
+              "isRequired": true,
+              "isReadOnly": false,
+              "referenceStrings": [
+                {
+                  "name": "Groups_AllGroups",
+                  "displayName": "All groups"
+                }
+              ],
+              "displayName": "Include groups"
+            },
+            {
+              "name": "excludeGroups",
+              "isRequired": false,
+              "isReadOnly": false,
+              "referenceStrings": [],
+              "displayName": "Exclude groups"
+            }
+          ],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "{IncludeResponseBodyInException:true} PATCH /beta/policies/authenticationmethodspolicy/authenticationMethodConfigurations/MicrosoftAuthenticator \\ {\r\n            \"@odata.type\": \"#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration\",\r\n            \"id\": \"MicrosoftAuthenticator\",\r\n            \"state\": \"[@getState([@sys.first([@enable()])])]\",\r\n            \"includeTargets\": [[ [@sys.join([@getIncludeGroups([@sys.jsonArrayParse([@handleEmptyArray([@includeGroups()])])])])] ]],\r\n            \"excludeTargets\": [[ [@sys.join([@getExcludeGroups([@sys.jsonArrayParse([@handleEmptyArray([@excludeGroups()])])])])] ]]\r\n        }"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "handleEmptyArray",
+                  "value": "select case when data = '[]' then '' else data end from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                when data = 'All' then '{\r\n                \"id\": \"all_users\",\r\n                \"isRegistrationRequired\": \"False\",\r\n                \"targetType\": \"group\",\r\n                \"authenticationMode\": \"deviceBasedPush\"\r\n            }'\r\n                 when data = '' then ''\r\n\t                else '{\r\n                \"id\": \"' || data || '\",\r\n                \"isRegistrationRequired\": \"False\",\r\n                \"targetType\": \"group\",\r\n                \"authenticationMode\": \"deviceBasedPush\"\r\n            }'\r\n                end\r\n                from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                when data = '' then ''\r\n                else '{\r\n                \"id\": \"' || data || '\",\r\n                \"targetType\": \"group\"\r\n            }'\r\n                end\r\n                from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getState",
+                  "value": "select case\r\n                when data = 'on' then 'enabled'\r\n                else 'disabled'\r\n                end\r\n                from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.normalize([{IncludeResponseBodyInException:true} GET /beta/policies/authenticationmethodspolicy/authenticationMethodConfigurations/MicrosoftAuthenticator])],\"policies\")",
+                "@sys.VALIDATEPASSWORDLESSAUTH([POST /echo \\ {\r\n            \"@odata.type\": \"#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration\",\r\n            \"id\": \"MicrosoftAuthenticator\",\r\n            \"state\": \"[@getState([@sys.first([@enable()])])]\",\r\n            \"includeTargets\": [[ [@sys.join([@getIncludeGroups([@sys.jsonArrayParse([@handleEmptyArray([@includeGroups()])])])])] ]],\r\n            \"excludeTargets\": [[ [@sys.join([@getExcludeGroups([@sys.jsonArrayParse([@handleEmptyArray([@excludeGroups()])])])])] ]]\r\n        }],[@sys.read(\"policies\")])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "handleEmptyArray",
+                  "value": "select case when data = '[]' then '' else data end from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getIncludeGroups",
+                  "value": "select case\r\n\t                when data = 'All' then '{\r\n                \"id\": \"all_users\",\r\n                \"isRegistrationRequired\": \"False\",\r\n                \"targetType\": \"group\",\r\n                \"authenticationMode\": \"deviceBasedPush\"\r\n            }'\r\n                 when data = '' then ''\r\n\t                else '{\r\n                \"id\": \"' || data || '\",\r\n                \"isRegistrationRequired\": \"False\",\r\n                \"targetType\": \"group\",\r\n                \"authenticationMode\": \"deviceBasedPush\"\r\n            }'\r\n                end\r\n                from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getExcludeGroups",
+                  "value": "select case\r\n                when data = '' then ''\r\n                else '{\r\n                \"id\": \"' || data || '\",\r\n                \"targetType\": \"group\"\r\n            }'\r\n                end\r\n                from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "getState",
+                  "value": "select case\r\n                when data = 'on' then 'enabled'\r\n                else 'disabled'\r\n                end\r\n                from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": true
+          },
+          "processedDeploymentAction": "{IncludeResponseBodyInException:true} PATCH /beta/policies/authenticationmethodspolicy/authenticationMethodConfigurations/MicrosoftAuthenticator \\ {\r\n            \"@odata.type\": \"#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration\",\r\n            \"id\": \"MicrosoftAuthenticator\",\r\n            \"state\": \"[@getState([@sys.first()])]\",\r\n            \"includeTargets\": [[ [@sys.join([@getIncludeGroups([@sys.jsonArrayParse([@handleEmptyArray()])])])] ]],\r\n            \"excludeTargets\": [[ [@sys.join([@getExcludeGroups([@sys.jsonArrayParse([@handleEmptyArray()])])])] ]]\r\n        } EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 0
+            }
+          ],
+          "dependentVersions": [],
+          "id": "11a5ad3e-c98d-4548-860f-ca9aee6501cc"
+        }
+      ]
+    }
+  ]
+}

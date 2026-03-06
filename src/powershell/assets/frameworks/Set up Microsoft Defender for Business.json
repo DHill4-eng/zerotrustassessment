@@ -1,0 +1,215 @@
+{
+  "CosmosDbEntity": "managementTemplate",
+  "priority": 16,
+  "category": 1,
+  "provider": 0,
+  "parameters": [],
+  "workloadActions": [],
+  "version": 0,
+  "displayName": "Set up Microsoft Defender for Business",
+  "description": "Set up Microsoft Defender for Business for this tenant. Microsoft Defender for Business delivers simple, comprehensive endpoint security for your customers. It includes enterprise-grade capabilities such as threat and vulnerability management, attack surface reduction, next-generation protection, endpoint detection and response, and automated investigation and remediation.",
+  "userImpact": "Once Microsoft Defender for Business is provisioned in your tenant, onboarded devices will be protected from threats and attacks.",
+  "id": "d6bb75fa-9183-4f46-bd03-8c16799d6373",
+  "managementTemplateSteps": [
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 1,
+      "category": 1,
+      "isCloned": true,
+      "displayName": "Provision Microsoft Defender",
+      "description": "This task will provision the tenant with Microsoft Defender for Business. Once provisioned, the tenant will be ready to onboard devices and use Microsoft Defender for Business capabilities. It may take a few minutes after provisioning is complete before Microsoft Defender for Business capabilities are ready for use.?",
+      "portalLink": {
+        "url": "https://security.microsoft.com/?tid={tenantName}",
+        "displayName": "Microsoft Defender Portal"
+      },
+      "userImpact": "Once Microsoft Defender for Business is provisioned in your tenant, onboarded devices will be protected from threats and attacks.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2191447",
+          "displayName": "Elevate your security with Microsoft Defender for Business"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2206452",
+          "displayName": "Learn more about onboarding devices to Microsoft Defender for Business"
+        }
+      ],
+      "id": "cfe2b6f8-6dc9-4812-a570-362d7a46e864",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "MDB_Provisioning",
+          "version": 1,
+          "similarToDefaultBaselineTaskSetting": false,
+          "matchingDefaultBaselineSubtaskId": "",
+          "settings": [],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "{UseAppAuth:true,SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} POST partnersgw.securitycenter.windows.com/api/mdgw/provisioning"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@getProvisionStatus([@sys.normalize([{UseAppAuth:true,SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} GET partnersgw.securitycenter.windows.com/api/mdgw/provisioning])])],\"provisionStatus\")",
+                "@sys.VALIDATESIMPLEVALUES(MDBProvision,Provisioned,[@sys.read(\"provisionStatus\")])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "getProvisionStatus",
+                  "value": "select json_extract(data,'$.status') as status from arg0"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": true
+          },
+          "processedDeploymentAction": "{UseAppAuth:true,SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} POST partnersgw.securitycenter.windows.com/api/mdgw/provisioning EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 6
+            }
+          ],
+          "dependentVersions": [],
+          "id": "1708c3a2-28b6-48d3-ba68-55c7aafcc6f7"
+        }
+      ]
+    },
+    {
+      "CosmosDbEntity": "managementTemplateStep",
+      "priority": 2,
+      "category": 1,
+      "isCloned": true,
+      "displayName": "Automatically onboard devices to Microsoft Defender using Microsoft Intune",
+      "description": "This task sets up a connection between Microsoft Defender for Business and Microsoft Intune. All Intune-enrolled Windows devices will be automatically onboarded to Microsoft Defender for Business.",
+      "portalLink": {
+        "url": "https://security.microsoft.com/securitysettings/endpoints/onboarding?tid={tenantName}/",
+        "displayName": "Microsoft Defender Portal"
+      },
+      "userImpact": "Once Microsoft Defender for Business is provisioned in your tenant, onboarded devices will be protected from threats and attacks.",
+      "informationLinks": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2191447",
+          "displayName": "Elevate your security with Microsoft Defender for Business"
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2206452",
+          "displayName": "Learn more about onboarding devices to Microsoft Defender for Business"
+        }
+      ],
+      "id": "68db781b-26a7-4059-b603-6bb3f15876af",
+      "versions": [
+        {
+          "CosmosDbEntity": "managementTemplateStepVersion",
+          "name": "MDB_OnboardDevices",
+          "version": 2,
+          "similarToDefaultBaselineTaskSetting": true,
+          "matchingDefaultBaselineSubtaskId": "225693bf-d890-42bd-8f1c-a009e91aa976",
+          "settings": [],
+          "deploymentAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@sys.normalize([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/mobileThreatDefenseConnectors \\ {\r\n                \"id\": \"fc780465-2017-40d4-a0c5-307022471b92\",\r\n                \"microsoftDefenderForEndpointAttachEnabled\": true,\r\n                \"windowsEnabled\": true,\r\n                \"iosEnabled\": true,\r\n                \"androidEnabled\": true\r\n            }])],\"mobileThreatDefenseConnectorRSP\")",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/configurationPolicies?$filter=name eq 'M365 Lighthouse - Default EDR policy for all devices'&$select=id],\"id\")],\"existingPolicyId\")",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true,RetryOnAdditionalStatusCode:400,RetryAllowancePerRequest:3} POST /beta/deviceManagement/configurationPolicies[@sys.notexists(\"existingPolicyId\")][@sys.exists(\"mobileThreatDefenseConnectorRSP\")] \\ {\r\n                \"name\": \"M365 Lighthouse - Default EDR policy for all devices\",\r\n                \"description\": \"M365 Lighthouse - Default EDR policy for targeting all tenants devices, created by MDE.\",\r\n                \"platforms\": \"windows10\",\r\n                \"roleScopeTagIds\": [[\r\n                      \"0\"\r\n                ]],\r\n                \"creationSource\": \"Lighthouse\",\r\n                \"technologies\": \"mdm,microsoftSense\",\r\n                \"templateReference\":{\r\n                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationPolicyTemplateReference\",\r\n                    \"templateId\": \"0385b795-0f2f-44ac-8602-9f65bf6adede_1\"\r\n                },\r\n                \"settings\": [[\r\n                                    {\r\n                                        \"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationSetting\",\r\n                                        \"settingInstance\": {\r\n                                                                \"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                                                \"choiceSettingValue\":{\r\n                                                                                            \"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                                                                            \"children\": [[\r\n                                                                                                                {\r\n                                                                                                                  \"settingDefinitionId\":\"device_vendor_msft_windowsadvancedthreatprotection_onboarding_fromconnector\",\r\n                                                                                                                    \"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance\",\r\n                                                                                                                    \"simpleSettingValue\": {\r\n                                                                                                                                                                           \"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationSecretSettingValue\",\r\n                                                                                                                                                \"valueState\":\"NotEncrypted\",\r\n                                                                                                                                                \"value\":\"autoConnectPlaceholder\"\r\n                                                                                                                                             }\r\n                                                                                                                }\r\n                                                                                                            ]],\r\n                                                                                            \"settingValueTemplateReference\":{\r\n                                                                                                                                \"settingValueTemplateId\":\"e5c7c98c-c854-4140-836e-bd22db59d651\"\r\n                                                                                                                                },\r\n                                                                                            \"value\": \"device_vendor_msft_windowsadvancedthreatprotection_configurationtype_autofromconnector\"\r\n                                                                                        },\r\n                                                                \"settingDefinitionId\": \"device_vendor_msft_windowsadvancedthreatprotection_configurationtype\",\r\n                                                                \"settingInstanceTemplateReference\":{\r\n                                                                                                        \"settingInstanceTemplateId\": \"23ab0ea3-1b12-429a-8ed0-7390cf699160\"\r\n                                                                            }\r\n                                                            }\r\n                                    }\r\n                            ]],\r\n            }],\"id\")],\"newPolicyId\")",
+                "{IncludeResponseBodyInException:true} POST /beta/deviceManagement/configurationPolicies/[@sys.read(\"newPolicyId\")]/assign \\ {\r\n                \"assignments\": [[\r\n                    {\r\n                        \"target\": {\r\n                            \"@odata.type\": \"#microsoft.graph.allDevicesAssignmentTarget\"\r\n                        }\r\n                    }\r\n                ]]\r\n            }",
+                "@sys.write([@sys.normalize([{UseAppAuth:true,AppAuthAudience:\"https://api.securitycenter.windows.com/.default\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} POST partnersgw.securitycenter.windows.com/api/mdgw/cloud/siam/mdestatus[@sys.exists(\"mobileThreatDefenseConnectorRSP\")] \\ {\r\n                \"osFamilies\":[[\r\n                     { \"osFamily\":\"Windows Client devices\",\"mdeEnabled\":1},\r\n                     { \"osFamily\":\"Windows Server devices\",\"mdeEnabled\":1}\r\n                ]],\r\n                \"ascEnabled\":false\r\n            }])],\"enableRSP\")"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            }
+          },
+          "validationAction": {
+            "operationDefinition": {
+              "values": [
+                "@sys.write([@isMobileThreatDefenseConnectorEnabled([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/mobileThreatDefenseConnectors])],\"isMDEAttachEnabled\")",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/intents?$select=id,displayName&$filter=templateId eq 'e44c2ca3-2f9a-400a-a113-6cc88efd773d'],\"id\")],\"intentIds\")",
+                "@sys.write([@isEDRPolicyCreated([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/intents/[@sys.read(\"intentIds\")]/settings])],\"intentEDR\")",
+                "@sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/configurationPolicies?$select=id,name&$filter=templateReference/TemplateFamily eq 'endpointSecurityEndpointDetectionAndResponse'],\"id\")],\"configIds\")",
+                "@sys.write([@isEDRPolicyCreated([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/configurationPolicies/[@sys.read(\"configIds\")]/settings])],\"configEDR\")",
+                "@sys.write([@existsTrue([@sys.concat([@sys.read(\"intentEDR\")],[@sys.read(\"configEDR\")])])],\"isEDRPolicyCreated\")",
+                "@sys.write([@isMDEEnabled([@sys.normalize([{UseAppAuth:true,AppAuthAudience:\"https://api.securitycenter.windows.com/.default\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} GET partnersgw.securitycenter.windows.com/api/mdgw/cloud/siam/mdestatus])])],\"isMDEEnabled\")",
+                "@sys.VALIDATESIMPLEVALUES(MDBOnboardDevices,[@sys.TOLIST(True,True,True)],[@sys.TOLIST([@sys.read(\"isMDEAttachEnabled\")],[@sys.read(\"isEDRPolicyCreated\")],[@sys.read(\"isMDEEnabled\")])])"
+              ],
+              "lambdaDefinitions": [
+                {
+                  "type": 0,
+                  "id": "isMobileThreatDefenseConnectorEnabled",
+                  "value": "select case\r\n\t                when data LIKE '%\"microsoftDefenderForEndpointAttachEnabled\": true%' or  data LIKE '%\"microsoftDefenderForEndpointAttachEnabled\":true%'\r\n                    then 'True'\r\n\t                else 'False'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "isEDRPolicyCreated",
+                  "value": "select case\r\n                    when EXISTS (select id  from arg0 where data like '%deviceConfiguration--windowsDefenderAdvancedThreatProtectionConfiguration_advancedThreatProtectionAutoPopulateOnboardingBlob%' \r\n                    OR data like '%device_vendor_msft_windowsadvancedthreatprotection_configurationtype_autofromconnector%')\r\n                    then 'True'\r\n\t                else 'False'\r\n                    end\r\n                    from arg0"
+                },
+                {
+                  "type": 0,
+                  "id": "existsTrue",
+                  "value": "\r\n                    create table if not exists arg1(data text);\r\n                    INSERT INTO arg1(data) VALUES('False');\r\n\r\n                    select case\r\n                    when EXISTS (select *  from arg0 where data like '%True%')\r\n                    then 'True'\r\n\t                else 'False'\r\n                    end\r\n                    from arg1"
+                },
+                {
+                  "type": 0,
+                  "id": "isMDEEnabled",
+                  "value": "select case\r\n\t                when MDEEnabled = 1 then 'True'\r\n\t                else 'False'\r\n                    end\r\n                    from(select json_extract(data,'$.osFamilies[0].mdeEnabled') as MDEEnabled from arg0)"
+                }
+              ],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "aggregationDefinition": {
+              "values": [
+                "@sys.append([/result])"
+              ],
+              "lambdaDefinitions": [],
+              "managedTenantOperationLogLevel": 0,
+              "failOnError": false
+            },
+            "isAvailableOffline": true
+          },
+          "processedDeploymentAction": "@sys.write([@sys.normalize([{IncludeResponseBodyInException:true} POST /beta/deviceManagement/mobileThreatDefenseConnectors \\ {\r\n                \"id\": \"fc780465-2017-40d4-a0c5-307022471b92\",\r\n                \"microsoftDefenderForEndpointAttachEnabled\": true,\r\n                \"windowsEnabled\": true,\r\n                \"iosEnabled\": true,\r\n                \"androidEnabled\": true\r\n            }])],\"mobileThreatDefenseConnectorRSP\") EOC @sys.write([@sys.project([{IncludeResponseBodyInException:true} GET /beta/deviceManagement/configurationPolicies?$filter=name eq 'M365 Lighthouse - Default EDR policy for all devices'&$select=id],\"id\")],\"existingPolicyId\") EOC @sys.write([@sys.project([{IncludeResponseBodyInException:true,RetryOnAdditionalStatusCode:400,RetryAllowancePerRequest:3} POST /beta/deviceManagement/configurationPolicies[@sys.notexists(\"existingPolicyId\")][@sys.exists(\"mobileThreatDefenseConnectorRSP\")] \\ {\r\n                \"name\": \"M365 Lighthouse - Default EDR policy for all devices\",\r\n                \"description\": \"M365 Lighthouse - Default EDR policy for targeting all tenants devices, created by MDE.\",\r\n                \"platforms\": \"windows10\",\r\n                \"roleScopeTagIds\": [[\r\n                      \"0\"\r\n                ]],\r\n                \"creationSource\": \"Lighthouse\",\r\n                \"technologies\": \"mdm,microsoftSense\",\r\n                \"templateReference\":{\r\n                    \"@odata.type\": \"#microsoft.graph.deviceManagementConfigurationPolicyTemplateReference\",\r\n                    \"templateId\": \"0385b795-0f2f-44ac-8602-9f65bf6adede_1\"\r\n                },\r\n                \"settings\": [[\r\n                                    {\r\n                                        \"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationSetting\",\r\n                                        \"settingInstance\": {\r\n                                                                \"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance\",\r\n                                                                \"choiceSettingValue\":{\r\n                                                                                            \"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue\",\r\n                                                                                            \"children\": [[\r\n                                                                                                                {\r\n                                                                                                                  \"settingDefinitionId\":\"device_vendor_msft_windowsadvancedthreatprotection_onboarding_fromconnector\",\r\n                                                                                                                    \"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance\",\r\n                                                                                                                    \"simpleSettingValue\": {\r\n                                                                                                                                                                           \"@odata.type\":\"#microsoft.graph.deviceManagementConfigurationSecretSettingValue\",\r\n                                                                                                                                                \"valueState\":\"NotEncrypted\",\r\n                                                                                                                                                \"value\":\"autoConnectPlaceholder\"\r\n                                                                                                                                             }\r\n                                                                                                                }\r\n                                                                                                            ]],\r\n                                                                                            \"settingValueTemplateReference\":{\r\n                                                                                                                                \"settingValueTemplateId\":\"e5c7c98c-c854-4140-836e-bd22db59d651\"\r\n                                                                                                                                },\r\n                                                                                            \"value\": \"device_vendor_msft_windowsadvancedthreatprotection_configurationtype_autofromconnector\"\r\n                                                                                        },\r\n                                                                \"settingDefinitionId\": \"device_vendor_msft_windowsadvancedthreatprotection_configurationtype\",\r\n                                                                \"settingInstanceTemplateReference\":{\r\n                                                                                                        \"settingInstanceTemplateId\": \"23ab0ea3-1b12-429a-8ed0-7390cf699160\"\r\n                                                                            }\r\n                                                            }\r\n                                    }\r\n                            ]],\r\n            }],\"id\")],\"newPolicyId\") EOC {IncludeResponseBodyInException:true} POST /beta/deviceManagement/configurationPolicies/[@sys.read(\"newPolicyId\")]/assign \\ {\r\n                \"assignments\": [[\r\n                    {\r\n                        \"target\": {\r\n                            \"@odata.type\": \"#microsoft.graph.allDevicesAssignmentTarget\"\r\n                        }\r\n                    }\r\n                ]]\r\n            } EOC @sys.write([@sys.normalize([{UseAppAuth:true,AppAuthAudience:\"https://api.securitycenter.windows.com/.default\",SuccessLogLevel:2,ErrorLoglevel:2,RetryLogLevel:2,IncludeResponseBodyInException:true} POST partnersgw.securitycenter.windows.com/api/mdgw/cloud/siam/mdestatus[@sys.exists(\"mobileThreatDefenseConnectorRSP\")] \\ {\r\n                \"osFamilies\":[[\r\n                     { \"osFamily\":\"Windows Client devices\",\"mdeEnabled\":1},\r\n                     { \"osFamily\":\"Windows Server devices\",\"mdeEnabled\":1}\r\n                ]],\r\n                \"ascEnabled\":false\r\n            }])],\"enableRSP\") EOC @sys.append([/result]) EOC ",
+          "subtaskCategory": 0,
+          "requiredSkuRules": [
+            {
+              "requiredSkuFlags": 6
+            }
+          ],
+          "dependentVersions": [],
+          "contentMarkdown": "#### Description\r\n\r\nOnboard your tenant?s Windows devices to Microsoft Defender for Business. Onboarding devices right away helps to ensure the devices are protected. Since you already use Microsoft Intune we can make the onboarding process automatic for you. This process sets up a connection between Microsoft Defender for Business and Microsoft Intune and onboards all Windows 10 devices enrolled in Microsoft Intune into Microsoft Defender for Business.\r\n\r\nNote: If this tenant does not already have devices enrolled in Microsoft Intune, see the deployment step ?Set up device enrollment? to first get devices enrolled into Microsoft Intune. If you don?t have Microsoft Intune licenses in this tenant, you can then go to the [Microsoft 365 defender portal](https://security.microsoft.com/preferences2/onboarding?tid={tenantId}) to manually onboard devices to Microsoft Defender for Business\r\n\r\n\r\n#### Documentation\r\n\r\n[Learn more about onboarding devices to Microsoft Defender for Business](https://go.microsoft.com/fwlink/?linkid=2206452)",
+          "id": "0dcf2f3c-6681-4eda-99be-7190e496ddf9"
+        }
+      ]
+    }
+  ]
+}

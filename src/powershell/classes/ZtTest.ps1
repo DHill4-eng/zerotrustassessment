@@ -2,6 +2,7 @@
 class ZtTest : System.Attribute
 {
 	[string]$Category
+	[string[]]$Framework
 	[ValidateSet('Low','Medium','High')][string]$ImplementationCost
 	[string[]]$MinimumLicense
 	[string]$Pillar

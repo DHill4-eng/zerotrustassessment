@@ -1,0 +1,26 @@
+{
+  "Framework": "SecureModernWorkplace",
+  "Version": "1.0",
+  "Policies": [
+    {
+      "PolicyId": "SMW-EXAMPLE-001",
+      "Title": "Example Conditional Access baseline",
+      "ApiVersion": "beta",
+      "RelativeUri": "identity/conditionalAccess/policies",
+      "CollectionPath": "value",
+      "MatchMode": "AnyObjectMatchesAllRules",
+      "Rules": [
+        {
+          "Path": "displayName",
+          "Operator": "Equals",
+          "ExpectedValue": "Require MFA for admins"
+        },
+        {
+          "Path": "state",
+          "Operator": "Equals",
+          "ExpectedValue": "enabled"
+        }
+      ]
+    }
+  ]
+}

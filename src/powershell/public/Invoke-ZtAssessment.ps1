@@ -46,6 +46,12 @@ Run the Zero Trust Assessment with a custom output path, querying 7 days of logs
 .PARAMETER Pillar
 The Zero Trust pillar to assess. Valid values are 'All', 'Identity', or 'Devices'. Defaults to 'All' which runs all tests.
 
+.PARAMETER Framework
+The assessment framework(s) to run. Defaults to 'ZeroTrust'. Use 'All' to run tests from every framework.
+
+.PARAMETER PromptFrameworkSelection
+If specified and -Framework is not provided, prompt the user to choose assessment modules interactively.
+
 .EXAMPLE
 Invoke-ZtAssessment -ConfigurationFile "C:\Config\zt-config.json"
 
@@ -131,7 +137,16 @@ function Invoke-ZtAssessment {
 		# The Zero Trust pillar to assess. Defaults to All.
 		[ValidateSet('All', 'Identity', 'Devices')]
 		[string]
-		$Pillar = 'All'
+		$Pillar = 'All',
+
+		# The assessment framework(s) to run. Defaults to ZeroTrust.
+		[PsfArgumentCompleter('ZeroTrustAssessment.Tests.Framework')]
+		[string[]]
+		$Framework = @('ZeroTrust'),
+
+		# Prompt for module selection when Framework is not explicitly passed.
+		[switch]
+		$PromptFrameworkSelection
 	)
 
 	#region Utility Functions
@@ -182,7 +197,7 @@ function Invoke-ZtAssessment {
 			$configContent = Get-Content -Path $ConfigurationFile -Raw | ConvertFrom-Json
 
 			# Define parameters that can be configured
-			$configurableParameters = @('Path', 'Days', 'MaximumSignInLogQueryTime', 'ShowLog', 'ExportLog', 'DisableTelemetry', 'Resume', 'Tests')
+			$configurableParameters = @('Path', 'Days', 'MaximumSignInLogQueryTime', 'ShowLog', 'ExportLog', 'DisableTelemetry', 'Resume', 'Tests', 'Framework')
 
 			# Apply configuration values only if parameters weren't explicitly provided
 			foreach ($paramName in $configurableParameters) {
@@ -212,6 +227,11 @@ function Invoke-ZtAssessment {
 			Write-Host "Failed to load configuration from file '$ConfigurationFile': $($_.Exception.Message)" -ForegroundColor Red
 			return
 		}
+	}
+
+	if ($PromptFrameworkSelection -and -not $PSBoundParameters.ContainsKey('Framework')) {
+		$Framework = Select-ZtAssessmentFramework
+		Write-Host "✅ Selected assessment modules: $($Framework -join ', ')" -ForegroundColor Green
 	}
 
 	# # Handle interactive parameter collection
@@ -357,12 +377,12 @@ function Invoke-ZtAssessment {
 
 	# Run the tests
 	Write-PSFMessage -Message "Stage 2: Running Tests" -Tag stage
-	Invoke-ZtTests -Database $db -Tests $Tests -Pillar $Pillar
+	Invoke-ZtTests -Database $db -Tests $Tests -Pillar $Pillar -Framework $Framework
 	Write-PSFMessage -Message "Stage 3: Adding Tenant Information" -Tag stage
 	Invoke-ZtTenantInfo -Database $db -Pillar $Pillar
 
 	Write-PSFMessage -Message "Stage 4: Generating Test-Results" -Tag stage
-	$assessmentResults = Get-ZtAssessmentResults
+	$assessmentResults = Get-ZtAssessmentResults -Framework $Framework
 
 	Disconnect-Database -Db $db
 

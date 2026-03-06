@@ -271,3 +271,9 @@ $commandNames | ForEach-Object {
 Register-PSFTeppScriptblock -Name 'ZeroTrustAssessment.Tests.Pillar' -ScriptBlock {
 	(Get-ZtTest).Pillar | Sort-Object -Unique | Remove-PSFNull
 }
+
+#-> Test Frameworks
+Register-PSFTeppScriptblock -Name 'ZeroTrustAssessment.Tests.Framework' -ScriptBlock {
+	$knownFrameworks = @('ZeroTrust', 'CyberEssentialsPlus', 'SecureModernWorkplace', 'MonthlyServiceReport')
+	($knownFrameworks + ((Get-ZtTest).Framework | ForEach-Object { $_ })) | Sort-Object -Unique | Remove-PSFNull
+}

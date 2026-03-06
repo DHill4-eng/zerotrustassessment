@@ -17,6 +17,14 @@ Connect-ZtAssessment
 Invoke-ZtAssessment
 ```
 
+## Using a forked/custom version
+
+If you fork this repository and make local changes, those changes are only available in your fork until you publish them.
+
+* Users who install from PowerShell Gallery (`Install-Module ZeroTrustAssessment`) get the published gallery version, not your fork.
+* To share your customizations internally, publish your forked module to a private PowerShell feed (or have users import directly from your source path).
+* To make changes available to the public module, submit a pull request to this upstream repository and wait for an official release that includes your changes.
+
 ## Quicklinks
 
 * [aka.ms/zerotrust/assessment](https://aka.ms/zerotrust/assessment) → Microsoft Learn docs page for the assessment (includes install guide).
